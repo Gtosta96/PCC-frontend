@@ -1,0 +1,45 @@
+<ion-view ng-controller="LoginCtrl" view-title="Bem-vindo!" hide-back-button="true" class="ui-air-balloons">
+	<ion-content class="padding" scroll="false" overflow-scroll="true">
+		<!-- RETIRAR STYLE -->
+    	<h2 style="color: white">Bem-vindo ao PCC</h2>
+		
+		<!-- TODO FORM -->
+		<form>
+			<div class="login-access-box">
+				<div class="list">
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Usu&aacute;rio</span>
+						<input type="text" placeholder="Usu&aacute;rio">
+					</label>
+			  		<label class="item item-input item-floating-label">
+				    	<span class="input-label">Senha</span>
+				    	<input type="text" placeholder="Senha">
+			  		</label>
+		  		</div>
+		  		<div class="row">
+			  		<div class="col col-90 content-center">
+			  			<button class="button button-full button-sundown">Log In.</button>
+			  		</div>
+		  		</div>
+		  	</div>
+	  	</form>
+	  
+  		<div class="row login-enroll-box">
+  			<div class="col col-75 enroll-content">
+				<div class="card">
+	  				<div class="item item-text-wrap">
+	  					<span>N&atilde;o tem cadastrado? Cadastre-se j&aacute;!</span>
+	    				<div class="row">
+		  					<div class="col col-50">
+		  						<span ng-click=go('signUp')>Cadastre-se</span>
+		  					</div>
+		  					<div class="col col-50">
+		  						<a><span>Login via Facebook</span></a>
+		  					</div>
+						</div>		
+		  			</div>
+				</div>
+			</div>
+ 		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,79 @@
+/*
+ *COLORS USED IN APP (MULTIPLE CONTENTS).
+ * - WHITE: #FFF;
+ * - ORANGE: rgba(255, 134, 27, 0.96);
+ *
+ *
+ */
+
+/*BAR HEADER (TOP)*/
+.bar-sundown {
+	background-color: rgba(255, 134, 27, 0.96) !important;
+    background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 0.2), rgba(167, 86, 17, 0.92)) !important;
+    border-bottom-width: 0px;
+    box-shadow: 0 1px 4px 1px rgba(167, 86, 17, 0.92);
+}
+
+.ion-ios-arrow-back {
+	color: #000;
+}
+
+/*GENERAL UTILITY*/
+.text-center {
+	text-align: center;
+}
+
+.content-center {
+	margin: 0 auto !important;
+}
+
+.button-sundown {
+	background-color: rgba(255, 134, 27, 0.96) !important;
+    background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 0.2), rgba(167, 86, 17, 0.92)) !important;
+    border-bottom-width: 0px;
+}
+
+/* LOGIN SCREEN */
+.ui-air-balloons {
+    background-image: url("../img/login/air balloons_3800x2400.jpg");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
+.login-access-box {
+	top: 2em;
+    padding: 2%;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.login-access-box .input-label {
+	color: #FFF;
+	font-weight: 400;
+}
+
+.login-access-box input {
+	color: rgba(255, 134, 27, 0.96);
+}
+
+.login-enroll-box {
+	position: absolute;
+	bottom: 15%;
+}
+
+.login-enroll-box .enroll-content {
+	background-color: rgba(0, 0, 0, 0.6);
+	margin: 0 auto;
+	text-align: center;
+}
+
+.login-enroll-box .enroll-content .card, .login-enroll-box .enroll-content .item  {
+	background: transparent;
+	box-shadow: none;
+}
+
+.login-enroll-box span {
+	color: #FFF;
+}
