@@ -1,45 +1,44 @@
-<ion-view ng-controller="LoginCtrl" view-title="Bem-vindo!" hide-back-button="true" class="ui-air-balloons">
+<ion-view hide-nav-bar="true" ng-controller="LoginCtrl" hide-back-button="true" class="ui-air-balloons login-page">
 	<ion-content class="padding" scroll="false" overflow-scroll="true">
-		<!-- RETIRAR STYLE -->
-    	<h2 style="color: white">Bem-vindo ao PCC</h2>
+    	<h2 class="text-center">Smart Tur</h2>
 		
 		<!-- TODO FORM -->
 		<form>
-			<div class="login-access-box">
+			<div class="login-access-box opacity-black-box">
 				<div class="list">
 					<label class="item item-input item-floating-label">
 						<span class="input-label">Usu&aacute;rio</span>
-						<input type="text" placeholder="Usu&aacute;rio">
+						<input type="text" placeholder="Usu&aacute;rio" ng-model="model.username">
 					</label>
 			  		<label class="item item-input item-floating-label">
 				    	<span class="input-label">Senha</span>
-				    	<input type="text" placeholder="Senha">
+				    	<input type="password" placeholder="Senha" ng-model="model.password">
 			  		</label>
 		  		</div>
-		  		<div class="row">
-			  		<div class="col col-90 content-center">
-			  			<button class="button button-full button-sundown">Log In.</button>
-			  		</div>
+		  		<div class="row col col-90 content-center">
+		  			<button class="button button-full button-sundown" ng-click="loginAuth()">Log In</button>
 		  		</div>
-		  	</div>
+		  		</div>
 	  	</form>
 	  
   		<div class="row login-enroll-box">
-  			<div class="col col-75 enroll-content">
-				<div class="card">
-	  				<div class="item item-text-wrap">
-	  					<span>N&atilde;o tem cadastrado? Cadastre-se j&aacute;!</span>
-	    				<div class="row">
-		  					<div class="col col-50">
-		  						<span ng-click=go('signUp')>Cadastre-se</span>
-		  					</div>
-		  					<div class="col col-50">
-		  						<a><span>Login via Facebook</span></a>
-		  					</div>
-						</div>		
-		  			</div>
+  			<div class="col col-75 login-enroll-content opacity-black-box">
+				<span>N&atilde;o tem cadastro? Cadastre-se j&aacute;!</span>
+   				<div class="row">
+  					<div class="col col-50">
+  						<span ng-click=go('signUp')>Cadastre-se</span>
+  					</div>
+  					<div class="col col-50">
+  						<a><span>Login via Facebook</span></a>
+  					</div>
 				</div>
 			</div>
  		</div>
+ 		
+		<ion-footer-bar class="hide-on-keyboard-open opacity-black-box">
+  			<div class="col col-75 content-center text-center">
+				<span>Esqueceu sua senha?</span>
+			</div>
+ 		</ion-footer-bar>
 	</ion-content>
 </ion-view>

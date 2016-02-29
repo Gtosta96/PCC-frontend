@@ -9,7 +9,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	  // setup an abstract state for the tabs directive
 	$stateProvider.state('login', {
 	    url: '/login',
-	    templateUrl: 'templates/login.html'
+	    templateUrl: 'templates/login.html',
+	    controller: 'LoginCtrl'
 	  });
 	
 	$stateProvider.state('signUp', {
