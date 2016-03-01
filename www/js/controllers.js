@@ -5,14 +5,18 @@ app.controller('LoginCtrl', function($scope, $state, $ionicPopup, LoginAuthServi
 	//model
 	$scope.model = {};
 	
-	//Login controller
+	//loginAuth method
 	$scope.loginAuth = function() {
-		var entries = LoginAuthService.query(function() {
-		    console.log(entries);
+		var credentials = {
+				username : $scope.model.username,
+				password : $scope.model.password
+		}
+		LoginAuthService.query(credentials, function(data) {
+		    console.log(data);
 		  });
 	}
 	
-	//go
+	//go method
 	$scope.go = function (tela) {
 	      $state.go(tela);
     };

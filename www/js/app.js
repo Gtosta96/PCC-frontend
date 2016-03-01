@@ -25,5 +25,5 @@ app.run(function($ionicPlatform) {
 
 //Disable Text of last view on ion-nav-back-button.
 app.config(function($ionicConfigProvider) {
-	  $ionicConfigProvider.backButton.previousTitleText(false).text('');
-	});
+	$ionicConfigProvider.backButton.previousTitleText(false).text('');
+});
