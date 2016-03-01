@@ -7,8 +7,12 @@ app.controller('LoginCtrl', function($scope, $state, $ionicPopup, LoginAuthServi
 	
 	//loginAuth method
 	$scope.loginAuth = function() {
+		var credentials = {
+			username : $scope.model.username,
+			password : $scope.model.password
+		};
 		
-		LoginAuthService.get(function(data) {
+		LoginAuthService.save(credentials, function(data) {
 		    console.log(data);
 		  });
 	}
