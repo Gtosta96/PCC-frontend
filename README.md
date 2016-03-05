@@ -1,12 +1,11 @@
 ## PCC-Frontend
 
-###Configurando:
+### Configurando:
 
 *  cmd: ionic state reset
 *  cmd: bower install
-*  cmd: ionic platforms add android
 
-##Emulando:
+### Emulando:
 
 *  cmd: ionic run android --device
 *  cmd: ionic serve
