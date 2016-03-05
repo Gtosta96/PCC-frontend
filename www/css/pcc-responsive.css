@@ -7,15 +7,17 @@
  */
 
 /* LOGIN SCREEN */
-@media screen and (max-device-height: 568px) {
-
+@media screen and (min-device-height: 568px) {
+	
 }
 
 @media screen and (min-device-width: 1281px) {
+
 	.ui-air-balloons {
-		-webkit-background-size: cover;
-  		-moz-background-size: cover;
-  		-o-background-size: cover;
+    	background-image: url("../img/login/air balloons_3800x2400.jpg");
+    	-webkit-background-size: cover;
+ 		-moz-background-size: cover;
+		-o-background-size: cover;
   		background-size: cover;
-	}
+	}	
 }

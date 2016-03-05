@@ -1,4 +1,6 @@
 /*
+ * (MOTO X : 355 x 568)
+ *
  *COLORS USED IN APP (MULTIPLE CONTENTS).
  * - WHITE: #FFF;
  * - ORANGE: rgba(255, 134, 27, 0.96);
@@ -40,10 +42,12 @@
 	color: #FFF
 }
 .ui-air-balloons {
-    background-image: url("../img/login/air balloons_3800x2400.jpg");
+    background-image: url("../img/login/air balloons_1600x2400.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center; 
+    background-size: auto 100%;
+    background-position: cover;
+    min-width: 355px;
+    min-height: 568px;
 }
 
 .opacity-black-box {

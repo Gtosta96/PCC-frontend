@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'pccApp.controllers' is found in controllers.js
 // 'pccApp.routes' is found in routes.js
-var app = angular.module('pccApp', ['ionic', 'pccApp.controllers', 'pccApp.routes', 'pccApp.services']);
+var app = angular.module('pccApp', ['ionic', 'pccApp.controllers', 'pccApp.routes', 'pccApp.services', 'ngOpenFB']);
 
-app.run(function($ionicPlatform) {
+app.run(function($ionicPlatform, ngFB) {
 	$ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -21,6 +21,9 @@ app.run(function($ionicPlatform) {
       StatusBar.styleDefault();
     }
   });
+	
+	//facebook integration
+	ngFB.init({appId: '1747983272106145'});
 });
 
 //Disable Text of last view on ion-nav-back-button.
