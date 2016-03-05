@@ -3,7 +3,6 @@
   "private": "true",
   "devDependencies": {},
   "dependencies": {
-    "openfb": "~0.5.0",
-    "ionic": "driftyco/ionic-bower#v1.1.1"
+    "openfb": "~0.5.0"
   }
 }
