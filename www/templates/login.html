@@ -3,20 +3,20 @@
     	<h2 class="text-center">Smart Tur</h2>
 		
 		<!-- TODO FORM -->
-		<form>
+		<form name="login-form" novalidate>
 			<div class="login-access-box opacity-black-box">
 				<div class="list">
 					<label class="item item-input item-floating-label">
 						<span class="input-label">Usu&aacute;rio</span>
-						<input type="text" placeholder="Usu&aacute;rio" ng-model="data.username">
+						<input type="text" placeholder="Usu&aacute;rio" ng-model="user.username">
 					</label>
 			  		<label class="item item-input item-floating-label">
 				    	<span class="input-label">Senha</span>
-				    	<input type="password" placeholder="Senha" ng-model="data.password">
+				    	<input type="password" placeholder="Senha" ng-model="user.password">
 			  		</label>
 		  		</div>
 		  		<div class="row col col-90 content-center">
-		  			<button class="button button-full button-sundown" ng-click="loginAuth()">Log In</button>
+		  			<button class="button button-full button-sundown" ng-click="loginAuth(user)">Log In</button>
 		  		</div>
 		  		</div>
 	  	</form>
@@ -29,7 +29,7 @@
   						<span ng-click=go('signUp')>Cadastre-se</span>
   					</div>
   					<div class="col col-50">
-  						<button ng-click="fbAuth()">Login via Facebook</button>
+  						<span ng-click="fbAuth()">Login via Facebook</span>
   					</div>
 				</div>
 			</div>

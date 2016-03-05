@@ -17,6 +17,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	    url: '/signUp',
 	    templateUrl: 'templates/signUp.html'
 	  });
+	
+	$stateProvider.state('homePage', {
+	    url: '/homePage',
+	    templateUrl: 'templates/homePage.html'
+	  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');

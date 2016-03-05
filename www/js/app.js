@@ -12,18 +12,24 @@ app.run(function($ionicPlatform, ngFB) {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
-
+    	cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    	cordova.plugins.Keyboard.disableScroll(true);
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
-	
+    	StatusBar.styleDefault();
+	}
+	});
+
 	//facebook integration
-	ngFB.init({appId: '1747983272106145'});
+	var context = context = window.location.pathname.substring(0, window.location.pathname.lastIndexOf("/"));
+    var baseURL = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + context;
+	ngFB.init(
+		{
+			appId: '1747983272106145',
+			oauthRedirectURL: baseURL + '/templates/ngFB/oauthcallback.html',
+			logoutRedirectURL: baseURL + '/templates/ngFB/logoutcallback.html'
+		});
 });
 
 //Disable Text of last view on ion-nav-back-button.
