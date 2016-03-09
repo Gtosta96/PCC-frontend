@@ -1,4 +1,4 @@
-var app = angular.module('pccApp.controllers', []);
+var app = angular.module('pccApp.controllers.userControllers', []);
 
 app.controller('LoginCtrl', function($scope, $state, $ionicPopup, LoginAuthService, ngFB) {
 
@@ -38,9 +38,3 @@ app.controller('LoginCtrl', function($scope, $state, $ionicPopup, LoginAuthServi
 app.controller('SignupCtrl', function($scope) {
 	// TODO
 });
-
-//Functions
-function callbackError(error){
-	console.log("error");
-	console.log(error);
-}
