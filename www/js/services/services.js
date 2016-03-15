@@ -1,1 +1,1 @@
-var app = angular.module('pccApp.services', ['pccApp.services.userServices']);
+var app = angular.module('pccApp.services', ['pccApp.services.userService']);

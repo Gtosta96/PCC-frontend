@@ -1,51 +1,66 @@
-<ion-view ng-controller="SignupCtrl" view-title="SignUp">
+<ion-view ng-controller="SignUpCtrl" view-title="SignUp">
 	<ion-content class="padding" scroll="false">
-      <div class="list">
-		  <label class="item item-input item-stacked-label">
-		    <span class="input-label">Nome</span>
-		    <input type="text" placeholder="John">
-		  </label>
-		  <label class="item item-input item-stacked-label">
-		    <span class="input-label">Sobrenome</span>
-		    <input type="text" placeholder="Suhr">
-		  </label>
-		  <label class="item item-input item-stacked-label">
-		    <span class="input-label">E-mail</span>
-		    <input type="text" placeholder="john@suhr.com">
-		  </label>
-		  <div class="row no-padding">
-			  <div class="col-50">
-		  		  <label class="item item-input item-stacked-label">
-				    <span class="input-label">Senha</span>
-				    <input type="text" placeholder="john@suhr.com">
+		<form name="signUpForm" ng-submit="signUp(signUpForm, user)" novalidate> 
+	      <div class="list">
+		      <div class="row no-padding">
+		      	<div class="col-50">
+				  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.firstName.$invalid && signUpForm.$submitted}">
+				    <span class="input-label">Nome</span>
+				    <input type="text" name="firstName" placeholder="John" ng-model="user.firstName" required>
 				  </label>
-			  </div>
-			  <div class="col-50">
-				  <label class="item item-input item-stacked-label">
-				    <span class="input-label">Confirme sua senha</span>
-				    <input type="text" placeholder="john@suhr.com">
+			  	</div>
+			  	<div class="col-50">
+				  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.firstName.$invalid && signUpForm.$submitted}">
+				    <span class="input-label">Sobrenome</span>
+				    <input type="text" placeholder="Suhr" ng-model="user.lastName" required>
 				  </label>
+				  <div ng-show="signUpForm.firstName.$error" ng-messages="signUpForm.firstName.$error">
+  					<div ng-messages-include="templates/util/form-errors.html"></div>
+				</div> 
+			  	</div>
 			  </div>
-		  </div>
-		  <label class="item item-input item-stacked-label">
-		    <span class="input-label">Dica de senha</span>
-		    <input type="text" placeholder="john@suhr.com">
-		  </label>
-		  <ion-list>
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">E-mail</span>
+			    <input type="text" placeholder="john@suhr.com" ng-model="user.email" required>
+			  </label>
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Usu√°rio</span>
+			    <input type="text" placeholder="john@suhr.com" ng-model="user.username" required>
+			  </label>
 			  <div class="row no-padding">
-			  		<div class="col-50">
-					  	<ion-radio ng-model="choice" ng-value="'A'">Masculino</ion-radio>
-				  	</div>
-				  	<div class="col-50">
-					  	<ion-radio ng-model="choice" ng-value="'B'">Feminino</ion-radio>
-				  	</div>
+				  <div class="col-50">
+			  		  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Senha</span>
+					    <input type="password" placeholder="john@suhr.com" ng-model="user.password" required>
+					  </label>
+				  </div>
+				  <div class="col-50">
+					  <label class="item item-input item-stacked-label">
+					    <span class="input-label">Confirme sua senha</span>
+					    <input type="password" placeholder="john@suhr.com" ng-model="user.confirmPassword" required>
+					  </label>
+				  </div>
 			  </div>
-		  </ion-list>
-  		  <label class="item item-input item-stacked-label">
-		    <span class="input-label">Anivers·rio</span>
-  			<input type="date" placeholder="Anivers·rio">
-		  </label>
-		  <button class="button button-full button-sundown no-padding">Cadastrar</button>
-	  </div>
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Dica de senha</span>
+			    <input type="text" placeholder="john@suhr.com" ng-model="user.passwordHint">
+			  </label>
+			  <ion-list>
+				  <div class="row no-padding">
+				  		<div class="col-50">
+						  	<ion-radio ng-model="choice" ng-value="'A'">Masculino</ion-radio>
+					  	</div>
+					  	<div class="col-50">
+						  	<ion-radio ng-model="choice" ng-value="'B'">Feminino</ion-radio>
+					  	</div>
+				  </div>
+			  </ion-list>
+	  		  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Data de Nascimento</span>
+	  			<input type="date" placeholder="Anivers√°rio" ng-model="user.bornDate" required>
+			  </label>
+			  <button class="button button-full button-sundown no-padding" type="submit">Cadastrar</button>
+		  </div>
+	  	</form>
 	</ion-content>
 </ion-view>
