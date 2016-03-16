@@ -2,21 +2,21 @@
 	<ion-content class="padding" scroll="false">
 		<form name="signUpForm" ng-submit="signUp(signUpForm, user)" novalidate> 
 	      <div class="list">
+	      	<ng-messages for="signUpForm.firstName.$error" for="signUpForm.lastName.$error" multiple error-message></ng-messages>
+	      	<ng-messages for="signUpForm.lastName.$error" multiple error-message></ng-messages>
+      	  </div>
 		      <div class="row no-padding">
 		      	<div class="col-50">
 				  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.firstName.$invalid && signUpForm.$submitted}">
 				    <span class="input-label">Nome</span>
-				    <input type="text" name="firstName" placeholder="John" ng-model="user.firstName" required>
+				    <input type="text" name="firstName" placeholder="John" ng-model="user.firstName" ng-minlength="5" required>
 				  </label>
 			  	</div>
 			  	<div class="col-50">
-				  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.firstName.$invalid && signUpForm.$submitted}">
+				  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.lastName.$invalid && signUpForm.$submitted}">
 				    <span class="input-label">Sobrenome</span>
-				    <input type="text" placeholder="Suhr" ng-model="user.lastName" required>
+				    <input type="text" name="lastName" placeholder="Suhr" ng-model="user.lastName"  required>
 				  </label>
-				  <div ng-show="signUpForm.firstName.$error" ng-messages="signUpForm.firstName.$error">
-  					<div ng-messages-include="templates/util/form-errors.html"></div>
-				</div> 
 			  	</div>
 			  </div>
 			  <label class="item item-input item-stacked-label">

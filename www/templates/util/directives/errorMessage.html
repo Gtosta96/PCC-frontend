@@ -1,0 +1,6 @@
+<div ng-messages-include="templates/util/form-errors.html"></div>
+
+<script id="templates/util/form-errors.html" type="text/ng-template">
+	<div class="form-error" ng-message="required">Os campos destacados em vermelho são obrigatórios</div>
+	<div class="form-error" ng-message-exp="['minlength', 'maxlength']">Os campos destacados de verde devem conter entre 5 á 16 caracteres.</div>
+</script>

@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'pccApp.controllers' is found in controllers.js
 // 'pccApp.routes' is found in routes.js
-var app = angular.module('pccApp', ['ionic', 'pccApp.controllers', 'pccApp.routes', 'pccApp.services', 'ngOpenFB']);
+var app = angular.module('pccApp', ['ionic', 'pccApp.controllers', 'pccApp.routes', 'pccApp.services', 'pccApp.directives', 'ngOpenFB']);
 
 app.run(function($ionicPlatform, ngFB) {
 	$ionicPlatform.ready(function() {
@@ -27,8 +27,8 @@ app.run(function($ionicPlatform, ngFB) {
 	ngFB.init(
 		{
 			appId: '1747983272106145',
-			oauthRedirectURL: baseURL + '/templates/ngFB/oauthcallback.html',
-			logoutRedirectURL: baseURL + '/templates/ngFB/logoutcallback.html'
+			oauthRedirectURL: baseURL + '/templates/util/ngFB/oauthcallback.html',
+			logoutRedirectURL: baseURL + '/templates/util/ngFB/logoutcallback.html'
 		});
 });
 
