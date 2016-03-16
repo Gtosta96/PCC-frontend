@@ -16,10 +16,9 @@ label.item.valid-lr {
 }
 
 /** Styling for the error text and container **/
-.form-errors {
-  margin: 5px 0
-}
 .form-error {
   padding: 2px 0 2px 16px;
+  margin: 5px 0;
+  display: block;
   color: red;
 }
