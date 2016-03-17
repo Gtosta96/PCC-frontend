@@ -7,24 +7,14 @@ app.directive("errorTemplates", function(){
 	}
 });
 
-app.directive("errorMessage", function(){
+app.directive("displayMessage", function(){
 	return {
-		restrict: "A",
+		restrict: "E",
 		scope: {
-			'errorMessage': '@'
+			'form': '=',
+			'attribute': '@',
+			'display': '@'
 		},
-		templateUrl: "/templates/util/directives/errorMessage.html"
+		templateUrl: "/templates/util/directives/displayMessage.html"
 	}
 });
-
-//app.directive("displayMessage", function(){
-//	return {
-//		restrict: "E",
-//		scope: {
-//			'form': '@',
-//			'attribute': '@',
-//			'display': '@'
-//		},
-//		templateUrl: "/templates/util/directives/displayMessage.html"
-//	}
-//});
