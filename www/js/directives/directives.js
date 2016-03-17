@@ -5,14 +5,26 @@ app.directive("errorTemplates", function(){
 		restrict: "E",
 		templateUrl: "/templates/util/directives/errorTemplates.html"
 	}
-})
+});
 
 app.directive("errorMessage", function(){
 	return {
 		restrict: "A",
 		scope: {
-			'field': '@'
+			'errorMessage': '@'
 		},
 		templateUrl: "/templates/util/directives/errorMessage.html"
 	}
 });
+
+//app.directive("displayMessage", function(){
+//	return {
+//		restrict: "E",
+//		scope: {
+//			'form': '@',
+//			'attribute': '@',
+//			'display': '@'
+//		},
+//		templateUrl: "/templates/util/directives/displayMessage.html"
+//	}
+//});

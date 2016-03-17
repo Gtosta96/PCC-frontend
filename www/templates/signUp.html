@@ -1,6 +1,6 @@
 <ion-view ng-controller="SignUpCtrl" view-title="SignUp">
-<error-templates></error-templates>
-	<ion-content class="padding" scroll="false">
+	<ion-content class="padding">
+		<error-templates></error-templates>
 		<form name="signUpForm" ng-submit="signUp(signUpForm, user)" novalidate> 
 	      <div class="list">
 		      <div class="row no-padding">
@@ -9,26 +9,26 @@
 				    <span class="input-label">Nome</span>
 				    <input type="text" name="firstName" placeholder="John" ng-model="user.firstName" ng-minlength="5" required>
 				  </label>
-				  <ng-messages for="signUpForm.firstName.$error" error-message field="nome" multiple></ng-messages>
+				  <ng-messages for="signUpForm.firstName.$error" error-message="nome" multiple></ng-messages>
 			  	</div>
 			  	<div class="col-50">
 				  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.lastName.$invalid && signUpForm.$submitted}">
 				    <span class="input-label">Sobrenome</span>
-				    <input type="text" name="lastName" placeholder="Suhr" ng-model="user.lastName"  required>
+				    <input type="text" name="lastName" placeholder="Suhr" ng-model="user.lastName" required>
 				  </label>
-				  <ng-messages for="signUpForm.firstName.$error" error-message multiple></ng-messages>
+				  <ng-messages for="signUpForm.lastName.$error" error-message="sobrenome" multiple></ng-messages>
 			  	</div>
 			  </div>
 			  <label class="item item-input item-stacked-label">
 			    <span class="input-label">E-mail</span>
 			    <input type="text" placeholder="john@suhr.com" ng-model="user.email" required>
 			  </label>
-			  <ng-messages for="signUpForm.firstName.$error" error-message multiple></ng-messages>
+			  <ng-messages for="signUpForm.firstName.$error" error-message="e-mail" multiple></ng-messages>
 			  <label class="item item-input item-stacked-label">
 			    <span class="input-label">Usuário</span>
 			    <input type="text" placeholder="john@suhr.com" ng-model="user.username" required>
 			  </label>
-			  <ng-messages for="signUpForm.firstName.$error" error-message multiple></ng-messages>
+			  <ng-messages for="signUpForm.firstName.$error" error-message="usuário" multiple></ng-messages>
 			  <div class="row no-padding">
 				  <div class="col-50">
 			  		  <label class="item item-input item-stacked-label">
@@ -50,19 +50,19 @@
 			  <ion-list>
 				  <div class="row no-padding">
 				  		<div class="col-50">
-						  	<ion-radio ng-model="choice" ng-value="'A'">Masculino</ion-radio>
+						  	<ion-radio name="gender" ng-model="choice" ng-value="'M'" ng-required="true">Masculino</ion-radio>
 					  	</div>
 					  	<div class="col-50">
-						  	<ion-radio ng-model="choice" ng-value="'B'">Feminino</ion-radio>
+						  	<ion-radio name="gender" ng-model="choice" ng-value="'F'" ng-required="true">Feminino</ion-radio>
 					  	</div>
 				  </div>
-				  <ng-messages for="signUpForm.firstName.$error" error-message multiple></ng-messages>
+				  <ng-messages for="signUpForm.gender.$error" error-message="sexo" multiple></ng-messages>
 			  </ion-list>
 	  		  <label class="item item-input item-stacked-label">
 			    <span class="input-label">Data de Nascimento</span>
-	  			<input type="date" placeholder="Aniversário" ng-model="user.bornDate" required>
+	  			<input type="date" name="bornDate" ng-model="user.bornDate" required>
 			  </label>
-			  <ng-messages for="signUpForm.firstName.$error" error-message multiple></ng-messages>
+			  <ng-messages for="signUpForm.firstName.$error" error-message="data de nascimento" multiple></ng-messages>
 			  <button class="button button-full button-sundown no-padding" type="submit">Cadastrar</button>
 		  </div>
 	  	</form>

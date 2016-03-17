@@ -27,10 +27,7 @@ app.controller('LoginCtrl', function($scope, $state, LoginAuthService, ngFB) {
 app.controller('SignUpCtrl', function($scope, SignUpService) {
 	
 	$scope.signUp = function(form, user) {
-		
-		var first = form.firstName.$error;
-		var last = form.lastName.$error;
-		debugger;
+
 		SignUpService.save(user).$promise.then(function (success) {
 			
 			console.log(success.data);
