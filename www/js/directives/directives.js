@@ -5,7 +5,7 @@ app.directive("errorTemplates", function(){
 		restrict: "E",
 		templateUrl: "/templates/util/directives/errorTemplates.html"
 	}
-});
+});            
 
 app.directive("displayMessage", function(){
 	return {
@@ -13,7 +13,8 @@ app.directive("displayMessage", function(){
 		scope: {
 			'form': '=',
 			'attribute': '@',
-			'display': '@'
+			'display': '@',
+			'message': '@'
 		},
 		templateUrl: "/templates/util/directives/displayMessage.html"
 	}

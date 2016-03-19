@@ -19,12 +19,12 @@
 				  <display-message form="signUpForm" attribute="lastName" display="sobrenome"></display-message>
 			  	</div>
 			  </div>
-			  <label class="item item-input item-stacked-label">
+			  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.email.$invalid && signUpForm.$submitted}">
 			    <span class="input-label">E-mail</span>
 			    <input type="text" name="email" placeholder="john@suhr.com" ng-model="user.email" required>
 			  </label>
 			  <display-message form="signUpForm" attribute="email" display="e-mail"></display-message>
-			  <label class="item item-input item-stacked-label">
+			  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.username.$invalid && signUpForm.$submitted}">
 			    <span class="input-label">Usuário</span>
 			    <input type="text" name="username" placeholder="john@suhr.com" ng-model="user.username" required>
 			  </label>
@@ -33,16 +33,17 @@
 				  <div class="col-50">
 			  		  <label class="item item-input item-stacked-label">
 					    <span class="input-label">Senha</span>
-					    <input type="password" placeholder="john@suhr.com" ng-model="user.password" required>
+					    <input type="password" name="password" placeholder="john@suhr.com" ng-minlength="5" ng-model="user.password" required>
 					  </label>
 				  </div>
 				  <div class="col-50">
 					  <label class="item item-input item-stacked-label">
 					    <span class="input-label">Confirme sua senha</span>
-					    <input type="password" placeholder="john@suhr.com" ng-model="user.confirmPassword" required>
+					    <input type="password" name="confirmPassword" placeholder="john@suhr.com" ng-pattern="/^{{password}}$/" ng-model="user.confirmPassword" required>
 					  </label>
 				  </div>
 			  </div>
+			  <display-message form="signUpForm" display="senha" message="As senhas não coincidem" attribute="confirmPassword"></display-message>
 			  <label class="item item-input item-stacked-label">
 			    <span class="input-label">Dica de senha</span>
 			    <input type="text" placeholder="john@suhr.com" ng-model="user.passwordHint">
@@ -50,15 +51,15 @@
 			  <ion-list>
 				  <div class="row no-padding">
 				  		<div class="col-50">
-						  	<ion-radio name="gender" ng-model="choice" ng-value="'M'" ng-required="true">Masculino</ion-radio>
+						  	<ion-radio name="gender" ng-model="choice" ng-value="'M'" ng-required="true" ng-class="{ 'has-error-l' : signUpForm.gender.$invalid && signUpForm.$submitted}">Masculino</ion-radio>
 					  	</div>
 					  	<div class="col-50">
-						  	<ion-radio name="gender" ng-model="choice" ng-value="'F'" ng-required="true">Feminino</ion-radio>
+						  	<ion-radio name="gender" ng-model="choice" ng-value="'F'" ng-required="true" ng-class="{ 'has-error-r' : signUpForm.gender.$invalid && signUpForm.$submitted}">Feminino</ion-radio>
 					  	</div>
 				  </div>
 				  <display-message form="signUpForm" attribute="gender" display="sexo"></display-message>
 			  </ion-list>
-	  		  <label class="item item-input item-stacked-label">
+	  		  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.gender.$invalid && signUpForm.$submitted}">
 			    <span class="input-label">Data de Nascimento</span>
 	  			<input type="date" name="bornDate" ng-model="user.bornDate" required>
 			  </label>
