@@ -33,17 +33,17 @@
 				  <div class="col-50">
 			  		  <label class="item item-input item-stacked-label">
 					    <span class="input-label">Senha</span>
-					    <input type="password" name="password" placeholder="john@suhr.com" ng-minlength="5" ng-model="user.password" required>
+					    <input type="password" name="password" placeholder="john@suhr.com" ng-model="user.password" required>
 					  </label>
+					  <display-message form="signUpForm" attribute="password" display="senha"></display-message>
 				  </div>
 				  <div class="col-50">
 					  <label class="item item-input item-stacked-label">
 					    <span class="input-label">Confirme sua senha</span>
-					    <input type="password" name="confirmPassword" placeholder="john@suhr.com" ng-pattern="/^{{password}}$/" ng-model="user.confirmPassword" required>
+					    <input type="password" name="confirmPassword" placeholder="john@suhr.com" ng-model="user.confirmPassword" compare-to="user.password" required>
 					  </label>
 				  </div>
 			  </div>
-			  <display-message form="signUpForm" display="senha" message="As senhas não coincidem" attribute="confirmPassword"></display-message>
 			  <label class="item item-input item-stacked-label">
 			    <span class="input-label">Dica de senha</span>
 			    <input type="text" placeholder="john@suhr.com" ng-model="user.passwordHint">
