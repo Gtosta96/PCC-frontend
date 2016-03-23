@@ -21,16 +21,20 @@ app.directive("displayMessage", function(){
 });
 
 app.directive("compareTo", function() {
-    return {
+	return {
         require: "ngModel",
         scope: {
-            "otherModelValue": "=compareTo"
+            otherModelValue: "=compareTo"
         },
         link: function(scope, element, attributes, ngModel) {
             ngModel.$validators.compareTo = function(modelValue) {
-                return modelValue == scope.otherModelValue;
+            	if ((modelValue && modelValue != "") && (scope.otherModelValue && scope.otherModelValue != "")) {
+            		return modelValue == scope.otherModelValue;
+            	} else {
+            		return false;
+            	}
             };
-
+ 
             scope.$watch("otherModelValue", function() {
                 ngModel.$validate();
             });
