@@ -1,5 +1,31 @@
-<ion-view ng-controller="SignupCtrl" view-title="SignUp">
-	<ion-content class="padding" scroll="false">
-		Você está logado!
-	</ion-content>
+<ion-view title="Tela Inicial" id="page3">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <ion-list></ion-list>
+        <div class="button-bar">
+            <a ui-sref="viagens" id="telaInicial-button10" class="button button-positive ">Viagens</a>
+            <a ui-sref="ranking" id="telaInicial-button11" class="button button-positive ">Ranking</a>
+            <a ui-sref="opEs" id="telaInicial-button12" class="button button-positive ">OpÃ§Ãµes</a>
+        </div>
+        <ion-list></ion-list>
+        <form class="list"></form>
+        <h3 id="telaInicial-heading1" style="color:#000000;text-align:center;">Cadastrar nova viagem</h3>
+        <form class="list">
+            <label class="item item-input">
+                <input type="text" placeholder="Digite o novo destino">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Data Inicio</span>
+                <input type="date" placeholder="informe a data da viagem">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Data de Retorno</span>
+                <input type="date" placeholder="">
+            </label>
+            <button id="telaInicial-button13" class="button button-positive button-small button-block">Salvar</button>
+        </form>
+        <h4 id="telaInicial-heading2" style="color:#000000;text-align:center;">Ãšltimas Viagens</h4>
+        <div style="text-align:center;">
+            <img src="img/RFZ99UrReE2zZDh6dPsg_Carrossel.jpg" width="100%" height="auto">
+        </div>
+    </ion-content>
 </ion-view>
