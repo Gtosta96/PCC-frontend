@@ -38,7 +38,7 @@
 					  <display-message form="signUpForm" attribute="password" display="senha"></display-message>
 				  </div>
 				  <div class="col-50">
-					  <label class="item item-input item-stacked-label" ng-class="{ 'has-error-l' : signUpForm.confirmPassword.$invalid && signUpForm.$submitted}">
+					  <label class="item item-input item-stacked-label" ng-class="{ 'has-error-r' : signUpForm.confirmPassword.$invalid && signUpForm.$submitted}">
 					    <span class="input-label">Confirme sua senha</span>
 					    <input type="password" name="confirmPassword" placeholder="repeat password" ng-model="user.confirmPassword" compare-to="user.password" required>
 					  </label>
@@ -63,7 +63,7 @@
 				  </div>
 				  <display-message form="signUpForm" attribute="gender" display="sexo"></display-message>
 			  </ion-list>
-	  		  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.gender.$invalid && signUpForm.$submitted}">
+	  		  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.bornDate.$invalid && signUpForm.$submitted}">
 			    <span class="input-label">Data de Nascimento</span>
 	  			<input type="date" name="bornDate" ng-model="user.bornDate" required>
 			  </label>
