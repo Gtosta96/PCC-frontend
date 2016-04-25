@@ -6,7 +6,7 @@
 
 var app = angular.module('pccApp.controllers.userController', [ 'ngMessages' ]);
 
-app.controller('LoginCtrl', function($scope, $state, LoginAuthService, ngFB) {
+app.controller('LoginCtrl', function($rootScope, $scope, $state, LoginAuthService, ngFB) {
 	$scope.loginAuth = function(form, user) {
 		LoginAuthService.save(user).$promise.then(function(success) {
 			console.log(success.data);
@@ -28,6 +28,8 @@ app.controller('LoginCtrl', function($scope, $state, LoginAuthService, ngFB) {
 			                $scope.user.last_name = user.last_name;
 			                $scope.user.id_facebook = user.id;
 			                $scope.user.photo_facebook = user.picture.data.url;
+			                
+			                $rootScope.isLoggedIn = true;
 			            }, callbackError);
 			    } else {
 			        console.log('Facebook login failed');
@@ -44,8 +46,8 @@ app.controller('LoginCtrl', function($scope, $state, LoginAuthService, ngFB) {
 app.controller('SignUpCtrl', function($scope, SignUpService) {
 	$scope.signUp = function(form, user) {
 		SignUpService.save(user).$promise.then(function(success) {
-
-			console.log(success.data);
+			go($state, 'login');
+			console.log(success);
 		}, callbackError);
 	};
 });
