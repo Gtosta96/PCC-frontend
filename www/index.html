@@ -44,10 +44,10 @@
     <script src="js/routes.js"></script>
   </head>
   <body ng-app="pccApp">
-  	<ion-nav-bar ng-if="!isLoggedIn" class="bar-sundown" align-title="center" >
+  	<ion-nav-bar ng-if="!$rootScope.isLoggedIn" class="bar-sundown" align-title="center" >
     	<ion-nav-back-button></ion-nav-back-button>
    </ion-nav-bar>
-   <ion-nav-bar ng-if="isLoggedIn" class="bar-sundown" align-title="center" >
+   <ion-nav-bar ng-if="$rootScope.isLoggedIn" class="bar-sundown" align-title="center" >
     	<div class="button-bar">
             <a ui-sref="telaInicial" id="guaruj-button18" class="button button-positive  button-block">Início</a>
             <a ui-sref="viagens" id="guaruj-button19" class="button button-positive  button-block">Viagens</a>

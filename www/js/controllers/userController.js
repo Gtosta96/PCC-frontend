@@ -23,13 +23,14 @@ app.controller('LoginCtrl', function($rootScope, $scope, $state, LoginAuthServic
 			        }).then(
 			            function (user) {
 			                console.log(user);
-			                $scope.user.email = user.email;
+/*			                $scope.user.email = user.email;
 			                $scope.user.first_name = user.first_name;
 			                $scope.user.last_name = user.last_name;
 			                $scope.user.id_facebook = user.id;
-			                $scope.user.photo_facebook = user.picture.data.url;
+			                $scope.user.photo_facebook = user.picture.data.url;*/
 			                
 			                $rootScope.isLoggedIn = true;
+			                go($state, 'homePage');
 			            }, callbackError);
 			    } else {
 			        console.log('Facebook login failed');
