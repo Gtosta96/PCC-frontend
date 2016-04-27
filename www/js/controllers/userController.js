@@ -6,7 +6,7 @@
 
 var app = angular.module('pccApp.controllers.userController', [ 'ngMessages' ]);
 
-app.controller('LoginCtrl', function($rootScope, $scope, $state, LoginAuthService, ngFB) {
+app.controller('LoginCtrl', function($rootScope, $scope, $state, ngFB, LoginAuthService, CookiesService) {
 	$scope.loginAuth = function(form, user) {
 		LoginAuthService.save(user).$promise.then(function(success) {
 			console.log(success.data);
@@ -22,14 +22,8 @@ app.controller('LoginCtrl', function($rootScope, $scope, $state, LoginAuthServic
 			            params: {fields: 'id, first_name, last_name, email, picture'}
 			        }).then(
 			            function (user) {
-			                console.log(user);
-/*			                $scope.user.email = user.email;
-			                $scope.user.first_name = user.first_name;
-			                $scope.user.last_name = user.last_name;
-			                $scope.user.id_facebook = user.id;
-			                $scope.user.photo_facebook = user.picture.data.url;*/
-			                
-			                $rootScope.isLoggedIn = true;
+			                CookiesService.setUser(user);
+			                $rootScope.isLoggedIn = CookiesService.isLoggedIn();
 			                go($state, 'homePage');
 			            }, callbackError);
 			    } else {

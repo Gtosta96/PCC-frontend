@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'pccApp.controllers' is found in controllers.js
 // 'pccApp.routes' is found in routes.js
-var app = angular.module('pccApp', ['ionic', 'pccApp.controllers', 'pccApp.routes', 'pccApp.services', 'pccApp.directives', 'ngOpenFB']);
+var app = angular.module('pccApp', ['ionic', 'pccApp.controllers', 'pccApp.routes', 'pccApp.services', 'pccApp.directives', 'ngOpenFB', 'ngCookies']);
 
 app.run(function($ionicPlatform, ngFB) {
 	$ionicPlatform.ready(function() {
