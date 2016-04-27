@@ -9,7 +9,7 @@ app.factory('CookiesService', function($cookies) {
     };
     
     function setUser(user) {
-        return $cookies.put('user', JSON.stringify(user));
+        return $cookies.putObject('user', user);
     }
     
     function getUser() {

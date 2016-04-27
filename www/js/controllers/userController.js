@@ -24,6 +24,7 @@ app.controller('LoginCtrl', function($rootScope, $scope, $state, ngFB, LoginAuth
 			            function (user) {
 			                CookiesService.setUser(user);
 			                $rootScope.isLoggedIn = CookiesService.isLoggedIn();
+			                console.log($rootScope.isLoggedIn);
 			                go($state, 'homePage');
 			            }, callbackError);
 			    } else {

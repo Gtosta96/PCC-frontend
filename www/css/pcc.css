@@ -9,13 +9,23 @@
  */
 
 /*BAR HEADER (TOP)*/
-.bar-sundown {
+.nav-menu-custom {
+	position: absolute;
+	top: 0 !important;	
+}
+
+.tabs-striped.tabs-background-sundown .tabs {
+  	background-color: rgba(255, 134, 27, 0.96); 
+}
+
+.bar-sundown, .tabs-striped.tabs-background-sundown .tabs .tab-item {
 	background-color: rgba(255, 134, 27, 0.96) !important;
     background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 0.2), rgba(167, 86, 17, 0.92)) !important;
     border-bottom-width: 0px;
-    box-shadow: 0 1px 4px 1px rgba(167, 86, 17, 0.92);
+    max-width: none !important;
+    height: 48px;
 }
-
+ 
 .ion-ios-arrow-back {
 	color: #000;
 }
@@ -37,7 +47,6 @@
     background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 0.2), rgba(167, 86, 17, 0.92)) !important;
     border-bottom-width: 0px;
     color: white;
-	font-
 }
 
 /* LOGIN SCREEN */
