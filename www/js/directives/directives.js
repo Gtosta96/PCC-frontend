@@ -41,3 +41,26 @@ app.directive("compareTo", function() {
         }
     };
 });
+
+app.directive("setActiveTab", function() {
+	return {
+		restrict: "A",
+		link: function(scope, element, attributes) {
+			var aElements = element.find('a');
+			aElements.on('click', function() {
+				var _this = angular.element(this);
+				aElements.removeClass('active');
+				_this.addClass('active');
+			});
+		}
+	}
+});
+
+app.directive("checkUser", function($rootScope, CookiesService) {
+	return {
+		restrict: "A",
+		link: function() {
+			$rootScope.isLoggedIn = CookiesService.isLoggedIn();
+		}
+	}
+});

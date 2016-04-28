@@ -7,9 +7,9 @@
 var app = angular.module('pccApp.controllers.userController', [ 'ngMessages' ]);
 
 app.controller('LoginCtrl', function($rootScope, $scope, $state, ngFB, LoginAuthService, CookiesService) {
-	$scope.loginAuth = function(form, user) {
-		LoginAuthService.save(user).$promise.then(function(success) {
-			console.log(success.data);
+	$scope.loginAuth = function(form, credentials) {
+		LoginAuthService.save(credentials).$promise.then(function(user) {
+			CookiesService.setUser(user);
 			go($state, 'homePage');
 		}, callbackError);
 	};
@@ -20,11 +20,8 @@ app.controller('LoginCtrl', function($rootScope, $scope, $state, ngFB, LoginAuth
 			        ngFB.api({
 			            path: '/me',
 			            params: {fields: 'id, first_name, last_name, email, picture'}
-			        }).then(
-			            function (user) {
-			                CookiesService.setUser(user);
-			                $rootScope.isLoggedIn = CookiesService.isLoggedIn();
-			                console.log($rootScope.isLoggedIn);
+			        }).then(function(user) {
+			        		CookiesService.setUser(user);
 			                go($state, 'homePage');
 			            }, callbackError);
 			    } else {

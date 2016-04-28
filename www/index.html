@@ -47,19 +47,19 @@
     
     <script src="js/routes.js"></script>
   </head>
-  <body ng-app="pccApp">
+  <body ng-app="pccApp" check-user>
   	<ion-nav-bar class="bar-sundown" align-title="center">
     	<ion-nav-back-button></ion-nav-back-button>
  	    <ion-nav-buttons>
-	     	<div class="tabs-striped tabs-top tabs-background-sundown tabs-color-light">
+	     	<div ng-if="isLoggedIn" class="tabs-striped tabs-top tabs-background-sundown tabs-color-light" set-active-tab>
 			    <div class="tabs nav-menu-custom">
-			      <a class="tab-item">
+			      <a class="tab-item" href="#homePage">
 			        <i class="icon ion-home"></i>
 			      </a>
-			      <a class="tab-item">
+			      <a class="tab-item" href="#xxx">
 			        <i class="icon ion-star"></i>
 			      </a>
-			      <a class="tab-item">
+			      <a class="tab-item" href="#options">
 			      	<i class="icon ion-gear-a"></i>
 			      </a>
 			    </div>

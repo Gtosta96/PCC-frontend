@@ -2,16 +2,16 @@
 	<ion-content class="padding" scroll="false" overflow-scroll="true">
     	<h2 class="text-center">Smart Tur</h2>
 		
-		<form name="loginAuthForm" ng-submit="loginAuth(loginAuthForm, user)" novalidate>
+		<form name="loginAuthForm" ng-submit="loginAuth(loginAuthForm, credentials)" novalidate>
 			<div class="login-access-box opacity-black-box">
 				<div class="list">
 					<label class="item item-input item-floating-label">
 						<span class="input-label">Usu&aacute;rio</span>
-						<input type="text" placeholder="Usu&aacute;rio" ng-model="user.usernameOrEmail" required>
+						<input type="text" placeholder="Usu&aacute;rio" ng-model="credentials.usernameOrEmail" required>
 					</label>
 			  		<label class="item item-input item-floating-label">
 				    	<span class="input-label">Senha</span>
-				    	<input type="password" placeholder="Senha" ng-model="user.password" required>
+				    	<input type="password" placeholder="Senha" ng-model="credentials.password" required>
 			  		</label>
 		  		</div>
 		  		<div class="row col col-90 content-center">

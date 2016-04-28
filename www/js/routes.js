@@ -10,8 +10,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider.state('login', {
 	    url: '/login',
 	    templateUrl: 'templates/login.html',
-	    controller: 'LoginCtrl'
-	  });
+	    controller: 'LoginCtrl',
+	    onEnter: function($state, CookiesService) {            
+            if(CookiesService.isLoggedIn()) {
+              $state.go('homePage');
+            }
+	    }
+	});
 	
 	$stateProvider.state('signUp', {
 	    url: '/signUp',
@@ -21,6 +26,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider.state('homePage', {
 	    url: '/homePage',
 	    templateUrl: 'templates/homePage.html'
+	  });
+	
+	$stateProvider.state('xxx', {
+	    url: '/xxx',
+	    templateUrl: 'templates/guaruj.html'
+	  });
+	
+	$stateProvider.state('options', {
+	    url: '/options',
+	    templateUrl: 'templates/options.html'
 	  });
 
   // if none of the above states are matched, use this as the fallback

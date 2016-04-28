@@ -26,8 +26,8 @@
     height: 48px;
 }
  
-.ion-ios-arrow-back {
-	color: #000;
+.ion-ios-arrow-back, .back-button {
+	color: rgba(255, 255, 255, 0.4) !important;
 }
 
 /*GENERAL UTILITY*/
