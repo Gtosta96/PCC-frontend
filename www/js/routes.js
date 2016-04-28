@@ -11,22 +11,32 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	    url: '/login',
 	    templateUrl: 'templates/login.html',
 	    controller: 'LoginCtrl',
-	    onEnter: function($state, CookiesService) {            
-            if(CookiesService.isLoggedIn()) {
-              $state.go('homePage');
-            }
+	    controllerAs: '_this',
+	    onEnter: function($rootScope, $state, CookiesService) {
+	    	$rootScope.isLoggedIn = CookiesService.isLoggedIn();
+	        if($rootScope.isLoggedIn) {
+	        	$state.go('homePage');
+	        }
 	    }
-	});
+    });
 	
 	$stateProvider.state('signUp', {
 	    url: '/signUp',
-	    templateUrl: 'templates/signUp.html'
+	    templateUrl: 'templates/signUp.html',
+	    	controller: 'signUpCtrl',
+		    controllerAs: '_this'
 	  });
 	
 	$stateProvider.state('homePage', {
 	    url: '/homePage',
-	    templateUrl: 'templates/homePage.html'
-	  });
+	    templateUrl: 'templates/homePage.html',
+	    onEnter: function($rootScope, $state, CookiesService) {
+	    	$rootScope.isLoggedIn = CookiesService.isLoggedIn();
+	        if(!$rootScope.isLoggedIn) {
+	        	$state.go('login');
+	        }
+    	}
+	});
 	
 	$stateProvider.state('xxx', {
 	    url: '/xxx',

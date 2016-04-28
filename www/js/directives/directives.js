@@ -55,12 +55,3 @@ app.directive("setActiveTab", function() {
 		}
 	}
 });
-
-app.directive("checkUser", function($rootScope, CookiesService) {
-	return {
-		restrict: "A",
-		link: function() {
-			$rootScope.isLoggedIn = CookiesService.isLoggedIn();
-		}
-	}
-});

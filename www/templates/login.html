@@ -1,8 +1,8 @@
-<ion-view hide-nav-bar="true" ng-controller="LoginCtrl" hide-back-button="true" class="ui-air-balloons login-page">
+<ion-view hide-nav-bar="true" hide-back-button="true" class="ui-air-balloons login-page">
 	<ion-content class="padding" scroll="false" overflow-scroll="true">
     	<h2 class="text-center">Smart Tur</h2>
 		
-		<form name="loginAuthForm" ng-submit="loginAuth(loginAuthForm, credentials)" novalidate>
+		<form name="loginAuthForm" ng-submit="_this.loginAuth(loginAuthForm, credentials)" novalidate>
 			<div class="login-access-box opacity-black-box">
 				<div class="list">
 					<label class="item item-input item-floating-label">
@@ -25,10 +25,10 @@
 				<span>N&atilde;o tem cadastro? Cadastre-se j&aacute;!</span>
    				<div class="row">
   					<div class="col col-50">
-  						<span ng-click="go('signUp')">Cadastre-se</span>
+  						<span ng-click="_this.go('signUp')">Cadastre-se</span>
   					</div>
   					<div class="col col-50">
-  						<span ng-click="fbAuth()">Login via Facebook</span>
+  						<span ng-click="_this.fbAuth()">Login via Facebook</span>
   					</div>
 				</div>
 			</div>
