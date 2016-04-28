@@ -42,16 +42,9 @@ app.directive("compareTo", function() {
     };
 });
 
-app.directive("setActiveTab", function() {
+app.directive("header", function() {
 	return {
 		restrict: "A",
-		link: function(scope, element, attributes) {
-			var aElements = element.find('a');
-			aElements.on('click', function() {
-				var _this = angular.element(this);
-				aElements.removeClass('active');
-				_this.addClass('active');
-			});
-		}
+		templateUrl: "/templates/util/directives/header.html"
 	}
 });
