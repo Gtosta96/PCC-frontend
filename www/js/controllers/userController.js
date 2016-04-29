@@ -6,7 +6,7 @@
 
 var app = angular.module('pccApp.controllers.userController', [ 'ngMessages' ]);
 
-app.controller('LoginCtrl', function($rootScope, $state, ngFB, LoginAuthService, CookiesService, HandlerService) {
+app.controller('LoginCtrl', function($state, ngFB, LoginAuthService, CookiesService, HandlerService) {
 	var _this = this;
 	_this.loginAuth = function(form, credentials) {
 		LoginAuthService.save(credentials).$promise.then(function(user) {
@@ -38,7 +38,7 @@ app.controller('LoginCtrl', function($rootScope, $state, ngFB, LoginAuthService,
 });
 
 app.controller('SignUpCtrl', function(SignUpService, HandlerService) {
-	var _this;
+	var _this = this;
 	_this.signUp = function(form, user) {
 		SignUpService.save(user).$promise.then(function(success) {
 			HandlerService.go('login');

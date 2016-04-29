@@ -23,8 +23,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider.state('signUp', {
 	    url: '/signUp',
 	    templateUrl: 'templates/signUp.html',
-	    	controller: 'signUpCtrl',
-		    controllerAs: '_this'
+    	controller: 'SignUpCtrl',
+	    controllerAs: '_this'
 	  });
 	
 	$stateProvider.state('homePage', {
