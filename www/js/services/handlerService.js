@@ -17,8 +17,16 @@ app.factory('HandlerService', function($state, $log, $ionicPopup) {
     };
     
 	function callbackError(error) {
-		var title = error.data.title ? error.data.title : 'Erro.';
-		var message = error.data.message ? error.data.message : 'Erro na aplicação. [BUG]';
+		
+		var title = null;
+		var message = null;
+		if (error.data) {
+			title = error.data.title || 'Erro.';
+			message = error.data.message || 'Erro na aplicação. [BUG]';			
+		} else {
+			title = 'Erro.';
+			message = 'Erro na aplicação. [BUG]';
+		}
 		
 		$ionicPopup.alert({
 			title: title,
