@@ -1,31 +1,21 @@
 var app = angular.module('pccApp.services.cookiesService', ['ngCookies']);
 
-app.factory('CookiesService', function($cookies) { 
-	return {
-		setUser: setUser,
-        getUser: getUser,
-        isLoggedIn: isLoggedIn,
-        removeUser: removeUser
-    };
-    
-    function setUser(user) {
-        return $cookies.putObject('user', user);
-    }
-    
-    function getUser() {
-        return $cookies.getObject('user');
-    }
-    
-    function removeUser() {
-        $cookies.remove('user');
-    }
-    
-    function isLoggedIn() {
-        var user = $cookies.getObject('user');
+app.factory('CookiesService', function($cookies) {
+  return {
+    setUser: setUser,
+    getUser: getUser,
+    removeUser: removeUser
+  };
 
-        if(typeof user === "object"){
-            return true;
-        }
-        return false;
-    }
+  function setUser(user) {
+    return $cookies.putObject('user', user);
+  }
+
+  function getUser() {
+    return $cookies.getObject('user');
+  }
+
+  function removeUser() {
+    $cookies.remove('user');
+  }
 });

@@ -1,72 +1,75 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/pcc.css" rel="stylesheet">
-    <link href="css/pcc-responsive.css" rel="stylesheet">
-    <link href="css/ng-messages.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/pcc.css" rel="stylesheet">
+  <link href="css/pcc-responsive.css" rel="stylesheet">
+  <link href="css/ng-messages.css" rel="stylesheet">
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
 
-	<!-- angular resource ($resource) -->
-    <script src="lib/ionic/js/angular/angular-resource.js"></script>    
-    
-    <!-- angular cookies ($cookies) -->
-    <script src="lib/angular-cookies/angular-cookies.js"></script>
-    
-    <!-- angular messages (ngMessages) -->
-    <script src="lib/angular-messages/angular-messages.js"></script>
-    
-	<!-- angular Facebook (ngFb) -->
-	<script src="lib/openfb/openfb.js"></script>
-	<script src="lib/openfb/ngopenfb.js"></script>
-	
-	
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/controllers/controllers.js"></script>
-    <script src="js/controllers/userController.js"></script>
-    
-    <script src="js/services/services.js"></script>
-    <script src="js/services/handlerService.js"></script>
-    <script src="js/services/cookiesService.js"></script>
-    <script src="js/services/userService.js"></script>
-    
-    <script src="js/directives/directives.js"></script>
-    
-    <script src="js/routes.js"></script>
-  </head>
+  <!-- angular resource ($resource) -->
+  <script src="lib/ionic/js/angular/angular-resource.js"></script>
+
+  <!-- angular cookies ($cookies) -->
+  <script src="lib/angular-cookies/angular-cookies.js"></script>
+
+  <!-- angular messages (ngMessages) -->
+  <script src="lib/angular-messages/angular-messages.js"></script>
+
+  <!-- angular Facebook (ngFb) -->
+  <script src="lib/openfb/openfb.js"></script>
+  <script src="lib/openfb/ngopenfb.js"></script>
+
+
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+  <script src="js/controllers/controllers.js"></script>
+  <script src="js/controllers/userController.js"></script>
+
+  <script src="js/services/services.js"></script>
+  <script src="js/services/handlerService.js"></script>
+  <script src="js/services/cookiesService.js"></script>
+  <script src="js/services/loginService.js"></script>
+  <script src="js/services/userService.js"></script>
+
+  <script src="js/directives/directives.js"></script>
+
+  <script src="js/routes.js"></script>
+</head>
+
   <body ng-app="pccApp">
-  	<ion-nav-bar class="bar-sundown" align-title="center">
-    	<ion-nav-back-button></ion-nav-back-button>
- 	    <ion-nav-buttons>
-	    	<div ng-if="isLoggedIn"	class="tabs-striped tabs-top tabs-background-sundown tabs-color-light">
-				<div class="tabs nav-menu-custom">
-					<a class="tab-item" ui-sref="homePage">
-						<i class="icon ion-home"></i>
-					</a> 
-					<a class="tab-item" ui-sref="xxx"> 
-						<i class="icon ion-star"></i>
-					</a> 
-					<a class="tab-item" ui-sref="options">
-						<i class="icon ion-gear-a"></i>
-					</a>
-				</div>
-			</div>
-    	</ion-nav-buttons>
-   	</ion-nav-bar>
-   <ion-nav-view></ion-nav-view>
-  </body>  
+    <ion-nav-bar class="bar-sundown" align-title="center">
+      <ion-nav-back-button></ion-nav-back-button>
+      <ion-nav-buttons>
+        <div ng-if="isLoggedIn" class="tabs-striped tabs-top tabs-background-sundown tabs-color-light">
+          <div class="tabs nav-menu-custom">
+            <a class="tab-item" ui-sref="homePage">
+              <i class="icon ion-home"></i>
+            </a>
+            <a class="tab-item" ui-sref="xxx">
+              <i class="icon ion-star"></i>
+            </a>
+            <a class="tab-item" ui-sref="options">
+              <i class="icon ion-gear-a"></i>
+            </a>
+          </div>
+        </div>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view></ion-nav-view>
+  </body>
 </html>

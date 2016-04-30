@@ -11,11 +11,11 @@
 /*BAR HEADER (TOP)*/
 .nav-menu-custom {
 	position: absolute;
-	top: 0 !important;	
+	top: 0 !important;
 }
 
 .tabs-striped.tabs-background-sundown .tabs {
-  	background-color: rgba(255, 134, 27, 0.96); 
+  	background-color: rgba(255, 134, 27, 0.96);
 }
 
 .bar-sundown, .tabs-striped.tabs-background-sundown .tabs .tab-item {
@@ -25,7 +25,7 @@
     max-width: none !important;
     height: 48px;
 }
- 
+
 .ion-ios-arrow-back, .back-button {
 	color: rgba(255, 255, 255, 0.4) !important;
 }

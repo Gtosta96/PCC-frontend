@@ -1,13 +1,13 @@
 <ion-view view-title="SignUp">
-	<ion-content class="padding">	
+	<ion-content class="padding">
 		<error-templates></error-templates>
-		<form name="signUpForm" ng-submit="_this.signUp(signUpForm, user)" novalidate> 
+		<form name="signUpForm" ng-submit="_this.signUp(signUpForm, user)" novalidate>
 	      <div class="list">
 		      <div class="row no-padding">
 		      	<div class="col-50">
 				  <label class="item item-input item-stacked-label" ng-class="{ 'has-error-l' : signUpForm.firstName.$invalid && signUpForm.$submitted}">
 				    <span class="input-label">Nome</span>
-				    <input type="text" name="firstName" placeholder="John" ng-model="user.firstName" ng-minlength="5" required>
+				    <input type="text" name="firstName" placeholder="John" ng-model="user.firstName" required>
 				  </label>
 				  <display-message form="signUpForm" attribute="firstName" display="nome"></display-message>
 			  	</div>
@@ -47,7 +47,7 @@
 			  </div>
 			  <div ng-messages="signUpForm.confirmPassword.$error" ng-show="signUpForm.confirmPassword.$error.compareTo && signUpForm.$submitted">
 			  	<div class="form-error text-center" ng-message="compareTo">As senhas não coincidem.</div>
-			  </div>			  
+			  </div>
 			  <label class="item item-input item-stacked-label">
 			    <span class="input-label">Dica de senha</span>
 			    <input type="text" placeholder="john@suhr.com" ng-model="user.passwordHint">
@@ -55,10 +55,10 @@
 			  <ion-list>
 				  <div class="row no-padding">
 				  		<div class="col-50">
-						  	<ion-radio name="gender" ng-model="choice" ng-value="'M'" ng-required="true" ng-class="{ 'has-error-l' : signUpForm.gender.$invalid && signUpForm.$submitted}">Masculino</ion-radio>
+						  	<ion-radio name="gender" ng-model="user.gender" ng-value="'M'" ng-required="true" ng-class="{ 'has-error-l' : signUpForm.gender.$invalid && signUpForm.$submitted}">Masculino</ion-radio>
 					  	</div>
 					  	<div class="col-50">
-						  	<ion-radio name="gender" ng-model="choice" ng-value="'F'" ng-required="true" ng-class="{ 'has-error-r' : signUpForm.gender.$invalid && signUpForm.$submitted}">Feminino</ion-radio>
+						  	<ion-radio name="gender" ng-model="user.gender" ng-value="'F'" ng-required="true" ng-class="{ 'has-error-r' : signUpForm.gender.$invalid && signUpForm.$submitted}">Feminino</ion-radio>
 					  	</div>
 				  </div>
 				  <display-message form="signUpForm" attribute="gender" display="sexo"></display-message>
