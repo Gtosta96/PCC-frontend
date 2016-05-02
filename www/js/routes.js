@@ -11,7 +11,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/login',
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl',
-    controllerAs: '_this'
+    controllerAs: '_this',
+    onEnter: function ($state, LoginService) {
+      if (LoginService.isLoggedIn()) {
+        $state.go('homePage');
+      }
+    }
   });
 
   $stateProvider.state('signUp', {
@@ -23,22 +28,31 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state('homePage', {
     url: '/homePage',
-    templateUrl: 'templates/homePage.html'
+    templateUrl: 'templates/homePage.html',
+    onEnter: checkUser
   });
 
-  $stateProvider.state('xxx', {
-    url: '/xxx',
-    templateUrl: 'templates/guaruj.html'
+  $stateProvider.state('ranking', {
+    url: '/ranking',
+    templateUrl: 'templates/guaruj.html',
+    onEnter: checkUser
   });
 
   $stateProvider.state('options', {
     url: '/options',
     templateUrl: 'templates/options.html',
     controller: 'optionsCtrl',
-    controllerAs: '_this'
+    controllerAs: '_this',
+    onEnter: checkUser
   });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 
 });
+
+function checkUser($state, LoginService) {
+  if (!LoginService.isLoggedIn()) {
+    $state.go('login');
+  }
+}

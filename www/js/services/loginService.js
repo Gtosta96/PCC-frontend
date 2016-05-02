@@ -9,13 +9,13 @@ app.factory('LoginService', function($rootScope, CookiesService, HandlerService)
 
   function login(user) {
     CookiesService.setUser(user);
-		$rootScope.isLoggedIn = true;
+		this.isLoggedIn();
     HandlerService.go('homePage');
   }
 
   function logout() {
     CookiesService.removeUser();
-    $rootScope.isLoggedIn = false;
+    this.isLoggedIn();
     HandlerService.go('login');
   }
 
@@ -23,8 +23,10 @@ app.factory('LoginService', function($rootScope, CookiesService, HandlerService)
     var user = CookiesService.getUser();
 
     if (typeof user === "object") {
+      $rootScope.isLoggedIn = true;
       return true;
     }
+    $rootScope.isLoggedIn = false;
     return false;
   }
 });
