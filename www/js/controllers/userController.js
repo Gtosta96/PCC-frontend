@@ -54,10 +54,12 @@ app.controller('SignUpCtrl', function(SignUpService, HandlerService) {
   var _this = this;
 
   _this.signUp = function(form, user) {
-     user.bornDate = user.bornDate.toString();
-    SignUpService.save(user).$promise.then(function(success) {
-      HandlerService.go('login');
-      console.log(success);
-    }, HandlerService.callbackError);
+    if (!form.$invalid) {
+      user.bornDate = user.bornDate.toString();
+      SignUpService.save(user).$promise.then(function(success) {
+        HandlerService.go('login');
+        console.log(success);
+      }, HandlerService.callbackError);
+    }
   };
 });

@@ -8,7 +8,21 @@
  *
  */
 
-/*BAR HEADER (TOP)*/
+ /* --- GENERAL UTILITY --- */
+ .text-center {
+ 	text-align: center;
+ }
+
+ .content-center {
+ 	margin: 0 auto !important;
+ }
+
+ .no-padding {
+ 	padding: 0;
+ }
+ /* ---------------------- */
+
+/* -- BAR HEADER (TOP) -- */
 .nav-menu-custom {
 	position: absolute;
 	top: 0 !important;
@@ -23,35 +37,30 @@
     background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 0.2), rgba(167, 86, 17, 0.92)) !important;
     border-bottom-width: 0px;
     max-width: none !important;
-    height: 48px;
+		height: 48px;
 }
 
 .ion-ios-arrow-back, .back-button {
 	color: rgba(255, 255, 255, 0.4) !important;
 }
 
-/*GENERAL UTILITY*/
-.text-center {
-	text-align: center;
+.title.header-item {
+rgba(255,255,255,0.70);
 }
+/* ---------------------- */
 
-.content-center {
-	margin: 0 auto !important;
-}
-
-.no-padding {
-	padding: 0;
-}
+/* -- BUTTONS -- */
 .button-sundown {
 	background-color: rgba(255, 134, 27, 0.96) !important;
     background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 0.2), rgba(167, 86, 17, 0.92)) !important;
     border-bottom-width: 0px;
-    color: white;
+    color: #FFF;
 }
+/* ------------- */
 
 /* LOGIN SCREEN */
 .login-page h2, .login-page span {
-	color: #FFF
+	color: #FFF;
 }
 .ui-air-balloons {
     background-image: url("../img/login/air balloons_1600x2400.jpg");
@@ -90,3 +99,4 @@
 	margin: 0 auto;
 	text-align: center;
 }
+/* ------------- */
