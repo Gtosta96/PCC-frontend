@@ -6,7 +6,7 @@
 
 var app = angular.module('pccApp.controllers.userController', ['ngMessages']);
 
-app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthService, LoginService, CookiesService, HandlerService) {
+app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthService, LoginService, CookiesService, HandlerService, LOGGED_FROM_FACEBOOK) {
 
   var _this = this;
 
@@ -18,16 +18,18 @@ app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthService, Login
 
   _this.fbAuth = function() {
     ngFB.login({
-      scope: 'email, public_profile, user_friends'
+      scope: 'email, public_profile, user_friends, user_birthday'
     }).then(function(success) {
+      console.log(success);
       if (success.status === 'connected') {
         ngFB.api({
           path: '/me',
           params: {
-            fields: 'id, first_name, last_name, email, picture'
+            fields: 'first_name, last_name, email, picture, birthday'
           }
         }).then(function(user) {
-          LoginService.login(user);
+          console.log(user);
+          LoginService.login(user, LOGGED_FROM_FACEBOOK);
         }, HandlerService.callbackError);
       } else {
         HandlerService.callbackError;
@@ -40,13 +42,15 @@ app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthService, Login
   }
 });
 
-app.controller('optionsCtrl', function($rootScope, LoginService, CookiesService, HandlerService) {
+app.controller('optionsCtrl', function(LoginService, CookiesService) {
 
   var _this = this;
 
   _this.logout = function() {
     LoginService.logout();
-  }
+  };
+  
+  _this.user = CookiesService.getUser();
 });
 
 app.controller('SignUpCtrl', function(SignUpService, HandlerService) {

@@ -12,7 +12,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl',
     controllerAs: '_this',
-    onEnter: function ($state, LoginService) {
+    onEnter: function($state, LoginService) {
       if (LoginService.isLoggedIn()) {
         $state.go('homePage');
       }
@@ -34,7 +34,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state('ranking', {
     url: '/ranking',
-    templateUrl: 'templates/guaruj.html',
+    templateUrl: 'templates/ranking.html',
+    controller: 'RankingCtrl',
+    controllerAs: '_this',
+    onEnter: checkUser
+  });
+
+  $stateProvider.state('travelInfo', {
+    url: '/travelInfo',
+    templateUrl: 'templates/travelInfo.html',
     onEnter: checkUser
   });
 

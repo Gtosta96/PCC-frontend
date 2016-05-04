@@ -7,9 +7,15 @@ app.factory('LoginService', function($rootScope, CookiesService, HandlerService)
     isLoggedIn: isLoggedIn,
   };
 
-  function login(user) {
+  function login(user, loggedFromFacebook) {
+
+    if (loggedFromFacebook) {
+      user = HandlerService.parseUserFromFacebook(user);
+      console.log(user);
+    }
+
     CookiesService.setUser(user);
-		this.isLoggedIn();
+    this.isLoggedIn();
     HandlerService.go('homePage');
   }
 
@@ -23,10 +29,8 @@ app.factory('LoginService', function($rootScope, CookiesService, HandlerService)
     var user = CookiesService.getUser();
 
     if (typeof user === "object") {
-      $rootScope.isLoggedIn = true;
-      return true;
+      return $rootScope.isLoggedIn = true;
     }
-    $rootScope.isLoggedIn = false;
-    return false;
+    return $rootScope.isLoggedIn = false;
   }
 });

@@ -8,10 +8,10 @@
 
 /* LOGIN SCREEN */
 @media screen and (min-device-height: 568px) {
-	
+
 }
 
-@media screen and (min-device-width: 1281px) {
+@media screen and (min-device-width: 600px) {
 
 	.ui-air-balloons {
     	background-image: url("../img/login/air balloons_3800x2400.jpg");
@@ -19,5 +19,5 @@
  		-moz-background-size: cover;
 		-o-background-size: cover;
   		background-size: cover;
-	}	
+	}
 }

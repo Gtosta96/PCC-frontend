@@ -7,3 +7,8 @@ app.factory('LoginAuthService', function($resource) {
 app.factory('SignUpService', function($resource) {
 	return $resource("http://localhost:8080/PCC-backend/signUp", {data : '@data'});
 });
+
+app.factory('TravelsListService', function($resource) {
+
+	return $resource("http://localhost:8080/PCC-backend/TravelsList/:userId", {userId : '@data'});
+});
