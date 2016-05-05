@@ -1,0 +1,30 @@
+<ion-view>
+  <ion-content overflow-scroll="true" padding="true" class="has-header">
+    <div class="list" ng-if="_this.myTravelsList">
+      <div class="item item-divider">
+          Ranking - Suas Viagens
+        </div>
+      <a ng-repeat="travel in _this.myTravelsList" href="#/{{travel.id}}" class="item item-thumbnail-left">
+        <img ng-src="{{ travel.image }}">
+        <h2>{{ travel.destination }}</h2>
+        <h4>{{ travel.date }}</h4>
+        <span class="badge badge-assertive">{{travel.rank}}</span>
+      </a>
+    </div>
+    <div ng-if="!_this.myTravelsList">
+      Não há Viagens cadastradas.
+    </div>
+  </ion-content>
+  <ion-footer-bar align-title="left" class="bar-assertive">
+    <div class="tabs-striped tabs-color-assertive">
+      <div class="tabs">
+        <a class="tab-item active" ui-sref="myTravelsRank">
+          <i class="icon ion-home"></i> Test
+        </a>
+        <a class="tab-item" ui-sref="allTravelsRank">
+          <i class="icon ion-gear-a"></i> Settings
+        </a>
+      </div>
+    </div>
+  </ion-footer-bar>
+</ion-view>
