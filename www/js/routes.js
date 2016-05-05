@@ -7,6 +7,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   // setup an abstract state for the tabs directive
+
   $stateProvider.state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
@@ -14,7 +15,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     controllerAs: '_this',
     onEnter: function($state, LoginService) {
       if (LoginService.isLoggedIn()) {
-        $state.go('homePage');
+        $state.go('tab.homePage');
       }
     }
   });
@@ -26,39 +27,68 @@ app.config(function($stateProvider, $urlRouterProvider) {
     controllerAs: '_this'
   });
 
-  $stateProvider.state('homePage', {
+  $stateProvider.state('tab', {
+    url: '/tab',
+    abstract: true,
+    templateUrl: 'templates/tabs.html'
+  });
+
+  $stateProvider.state('tab.homePage', {
     url: '/homePage',
-    templateUrl: 'templates/homePage.html',
-    onEnter: checkUser
+    views: {
+      'tab-homePage': {
+        templateUrl: 'templates/homePage.html'
+      }
+    }
+  });
+
+  $stateProvider.state('tab.options', {
+    url: '/options',
+    views: {
+      'tab-options': {
+        templateUrl: 'templates/options.html',
+        controller: 'optionsCtrl',
+        controllerAs: '_this'
+      }
+    }
+  });
+
+  $stateProvider.state('tab.ranking', {
+    url: '/ranking',
+    views: {
+      'tab-ranking': {
+        templateUrl: 'templates/tabsRanking.html'
+      }
+    }
+  });
+
+  $stateProvider.state('tab.ranking.myTravelsRank', {
+    url: '/myTravelsRank',
+    views: {
+      'ranking-myTravelsRank': {
+        templateUrl: 'templates/myTravelsRank.html',
+        controller: 'MyTravelsCtrl',
+        controllerAs: '_this',
+        onEnter: checkUser
+      }
+    }
+  });
+
+  $stateProvider.state('tab.ranking.allTravelsRank', {
+    url: '/allTravelsRank',
+    views: {
+      'ranking-allTravelsRank': {
+        templateUrl: 'templates/allTravelsRank.html',
+        controller: 'AllTravelsCtrl',
+        controllerAs: '_this',
+        onEnter: checkUser
+      }
+    }
   });
 
   $stateProvider.state('travelInfo', {
     url: '/travelInfo',
     templateUrl: 'templates/travelInfo.html',
-    onEnter: checkUser
-  });
-
-  $stateProvider.state('myTravelsRank', {
-    url: '/myTravelsRank',
-    templateUrl: 'templates/myTravelsRank.html',
-    controller: 'MyTravelsCtrl',
-    controllerAs: '_this',
-    onEnter: checkUser
-  });
-
-  $stateProvider.state('allTravelsRank', {
-    url: '/allTravelsRank',
-    templateUrl: 'templates/allTravelsRank.html',
-    controller: 'AllTravelsCtrl',
-    controllerAs: '_this',
-    onEnter: checkUser
-  });
-
-  $stateProvider.state('options', {
-    url: '/options',
-    templateUrl: 'templates/options.html',
-    controller: 'optionsCtrl',
-    controllerAs: '_this',
     onEnter: checkUser
   });
 

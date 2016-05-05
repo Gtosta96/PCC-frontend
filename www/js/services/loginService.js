@@ -16,7 +16,7 @@ app.factory('LoginService', function($rootScope, CookiesService, HandlerService)
 
     CookiesService.setUser(user);
     this.isLoggedIn();
-    HandlerService.go('homePage');
+    HandlerService.go('tab.homePage');
   }
 
   function logout() {

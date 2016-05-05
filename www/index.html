@@ -55,41 +55,10 @@
 
   <body ng-app="pccApp">
     <ion-nav-bar class="bar-sundown" align-title="center">
-      <ion-nav-back-button></ion-nav-back-button>
-      <ion-nav-buttons>
-        <div ng-if="isLoggedIn" class="tabs-striped tabs-top tabs-background-sundown tabs-color-light">
-          <div class="tabs nav-menu-custom">
-            <a class="tab-item" ui-sref="homePage">
-              <i class="icon ion-home"></i>
-            </a>
-            <a class="tab-item" ui-sref="myTravelsRank">
-              <i class="icon ion-star"></i>
-            </a>
-            <a class="tab-item" ui-sref="options">
-              <i class="icon ion-gear-a"></i>
-            </a>
-          </div>
-        </div>
-      </ion-nav-buttons>
+      <ion-nav-back-button>
+      </ion-nav-back-button>
     </ion-nav-bar>
-    <!-- <div class="bar-sundown">
-      <div class="tabs-striped tabs-top tabs-background-sundown tabs-color-light">
-        <div class="tabs nav-menu-custom" set-active-tab>
-          <a class="tab-item col-10" ng-click="$ionicGoBack()">
-            <i class="icon ion-ios-arrow-back"></i>
-          </a>
-          <a class="tab-item" ui-sref="homePage">
-            <i class="icon ion-home"></i>
-          </a>
-          <a class="tab-item" ui-sref="xxx">
-            <i class="icon ion-star"></i>
-          </a>
-          <a class="tab-item" ui-sref="options">
-            <i class="icon ion-gear-a"></i>
-          </a>
-        </div>
-      </div>
-    </div> -->
+
     <ion-nav-view></ion-nav-view>
   </body>
 </html>

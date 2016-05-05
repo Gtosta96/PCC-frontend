@@ -8,95 +8,84 @@
  *
  */
 
- /* --- GENERAL UTILITY --- */
- .text-center {
- 	text-align: center;
- }
 
- .content-center {
- 	margin: 0 auto !important;
- }
+/* --- GENERAL UTILITY --- */
 
- .no-padding {
- 	padding: 0;
- }
- /* ---------------------- */
-
-/* -- BAR HEADER (TOP) -- */
-.nav-menu-custom {
-	position: absolute;
-	top: 0 !important;
+.text-center {
+  text-align: center;
+}
+.content-center {
+  margin: 0 auto !important;
+}
+.no-padding {
+  padding: 0;
 }
 
-.tabs-striped.tabs-background-sundown .tabs {
-  	background-color: rgba(255, 134, 27, 0.96);
-}
-
-.bar-sundown, .tabs-striped.tabs-background-sundown .tabs .tab-item {
-	background-color: rgba(255, 134, 27, 0.96) !important;
-    background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 0.2), rgba(167, 86, 17, 0.92)) !important;
-    border-bottom-width: 0px;
-    max-width: none !important;
-		height: 48px;
-}
-
-.ion-ios-arrow-back, .back-button {
-	color: rgba(255, 255, 255, 0.4) !important;
-}
-
-.title.header-item {
-rgba(255,255,255,0.70);
-}
 /* ---------------------- */
 
-/* -- BUTTONS -- */
-.button-sundown {
-	background-color: rgba(255, 134, 27, 0.96) !important;
-    background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 0.2), rgba(167, 86, 17, 0.92)) !important;
-    border-bottom-width: 0px;
-    color: #FFF;
+.bar-sundown, .tabs-striped.tabs-background-sundown .tabs .tab-item {
+  background-color: rgba(255, 134, 27, 0.96) !important;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2), rgba(167, 86, 17, 0.92)) !important;
+  border-bottom-width: 0px;
+  max-width: none !important;
 }
+.ion-ios-arrow-back, .back-button {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+.title.header-item {
+  color: rgba(255, 255, 255, 0.70) !important;
+}
+
+/* ---------------------- */
+
+
+/* -- BUTTONS -- */
+
+.button-sundown {
+  background-color: rgba(255, 134, 27, 0.96) !important;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2), rgba(167, 86, 17, 0.92)) !important;
+  border-bottom-width: 0px;
+  color: #FFF;
+}
+
 /* ------------- */
 
+
 /* LOGIN SCREEN */
+
 .login-page h2, .login-page span {
-	color: #FFF;
+  color: #FFF;
 }
 .ui-air-balloons {
-    background-image: url("../img/login/air balloons_1600x2400.jpg");
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position: cover;
-    min-width: 355px;
-    min-height: 568px;
+  background-image: url("../img/login/air balloons_1600x2400.jpg");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: cover;
+  min-width: 355px;
+  min-height: 568px;
 }
-
 .opacity-black-box {
-	background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
 }
-
 .login-access-box {
-	top: 2em;
-    padding: 2%;
-	margin-bottom: 5px;
+  top: 2em;
+  padding: 2%;
+  margin-bottom: 5px;
 }
-
 .login-access-box .input-label {
-	color: #B2B2B2;
-	font-weight: 400;
+  color: #B2B2B2;
+  font-weight: 400;
 }
-
 .login-access-box input {
-	color: rgba(255, 134, 27, 0.96);
-	font-size: 18px
+  color: rgba(255, 134, 27, 0.96);
+  font-size: 18px
 }
-
 .login-enroll-box {
-	margin-top: 5%;
+  margin-top: 5%;
+}
+.login-enroll-content {
+  margin: 0 auto;
+  text-align: center;
 }
 
-.login-enroll-content {
-	margin: 0 auto;
-	text-align: center;
-}
 /* ------------- */
