@@ -1,14 +1,74 @@
 var app = angular.module('pccApp.services.userService', ['ngResource']);
 
 app.factory('LoginAuthService', function($resource) {
-	return $resource("http://localhost:8080/PCC-backend/loginAuth", {data : '@data'});
+  return $resource("http://localhost:8080/PCC-backend/loginAuth", {
+    data: '@data'
+  });
 });
 
 app.factory('SignUpService', function($resource) {
-	return $resource("http://localhost:8080/PCC-backend/signUp", {data : '@data'});
+  return $resource("http://localhost:8080/PCC-backend/signUp", {
+    data: '@data'
+  });
 });
 
-app.factory('TravelsListService', function($resource) {
+// app.factory('MyTravelsListService', function($resource) {
+// 	return $resource("http://localhost:8080/PCC-backend/TravelsList/:userId", {userId : '@data'});
+// });
 
-	return $resource("http://localhost:8080/PCC-backend/TravelsList/:userId", {userId : '@data'});
+//MOCK
+app.factory('MyTravelsListService', function() {
+  return [{
+    id: 1,
+    destination: 'Disney',
+    date: '10/03/2015',
+    image: 'img/travelMock1.jpg',
+    rank: 5
+  }, {
+    id: 2,
+    destination: 'Dubai',
+    date: '25/04/2010',
+    image: 'img/travelMock2.jpg',
+    rank: 3
+  }, {
+    id: 3,
+    destination: 'Egito',
+    date: '10/01/2016',
+    image: 'img/travelMock3.jpg',
+    rank: 2
+  }];
+});
+
+app.factory('AllTravelsListService', function() {
+  return [{
+    id: 1,
+    destination: 'Disney',
+    date: '10/03/2015',
+    image: 'img/travelMock1.jpg',
+    rank: 5
+  }, {
+    id: 2,
+    destination: 'Dubai',
+    date: '25/04/2010',
+    image: 'img/travelMock2.jpg',
+    rank: 3
+  }, {
+    id: 3,
+    destination: 'Egito',
+    date: '10/01/2016',
+    image: 'img/travelMock3.jpg',
+    rank: 1
+  }, {
+    id: 4,
+    destination: 'Egito2',
+    date: '10/01/20162',
+    image: 'img/travelMock3.jpg',
+    rank: 2
+  }, {
+    id: 5,
+    destination: 'Egito3',
+    date: '10/01/201262',
+    image: 'img/travelMock1.jpg',
+    rank: 5
+  }];
 });

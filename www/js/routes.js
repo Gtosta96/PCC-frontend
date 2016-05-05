@@ -32,17 +32,25 @@ app.config(function($stateProvider, $urlRouterProvider) {
     onEnter: checkUser
   });
 
-  $stateProvider.state('ranking', {
-    url: '/ranking',
-    templateUrl: 'templates/ranking.html',
-    controller: 'RankingCtrl',
+  $stateProvider.state('travelInfo', {
+    url: '/travelInfo',
+    templateUrl: 'templates/travelInfo.html',
+    onEnter: checkUser
+  });
+
+  $stateProvider.state('myTravelsRank', {
+    url: '/myTravelsRank',
+    templateUrl: 'templates/myTravelsRank.html',
+    controller: 'MyTravelsCtrl',
     controllerAs: '_this',
     onEnter: checkUser
   });
 
-  $stateProvider.state('travelInfo', {
-    url: '/travelInfo',
-    templateUrl: 'templates/travelInfo.html',
+  $stateProvider.state('allTravelsRank', {
+    url: '/allTravelsRank',
+    templateUrl: 'templates/allTravelsRank.html',
+    controller: 'AllTravelsCtrl',
+    controllerAs: '_this',
     onEnter: checkUser
   });
 
