@@ -49,8 +49,10 @@ app.controller('optionsCtrl', function(LoginService, CookiesService) {
   _this.logout = function() {
     LoginService.logout();
   };
-  
+
   _this.user = CookiesService.getUser();
+
+  console.log(_this.user);
 });
 
 app.controller('SignUpCtrl', function(SignUpService, HandlerService) {

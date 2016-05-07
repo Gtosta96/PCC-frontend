@@ -2,13 +2,17 @@
   <ion-content overflow-scroll="true" padding="true">
     <div class="list" ng-if="_this.travelsList">
       <div class="item item-divider">
-          Ranking - Geral
-        </div>
+        Ranking - Geral
+      </div>
       <a ng-repeat="travel in _this.travelsList" href="#/{{travel.id}}" class="item item-thumbnail-left">
         <img ng-src="{{ travel.image }}">
         <h2>{{ travel.destination }}</h2>
         <h4>{{ travel.date }}</h4>
         <span class="badge badge-assertive">{{travel.rank}}</span>
+        </br>
+        <p ui-sref="travelInfo({id: travel.id})">
+          <span> Viajante: Gabriel</span>
+        </p>
       </a>
     </div>
     <div ng-if="!_this.travelsList">

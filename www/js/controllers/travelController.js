@@ -32,3 +32,14 @@ app.controller('AllTravelsCtrl', function(HandlerService, AllTravelsListService,
   //MOCK
    _this.travelsList = AllTravelsListService;
 });
+
+app.controller('TravelInfoCtrl', function($stateParams, HandlerService, TravelInfoService) {
+
+  var _this = this;
+
+  // TravelInfoService.get($stateParams).$promise.then(function(travelInfo) {
+  //   _this.travelInfo = travelInfo;
+  // }, HandlerService.callbackError);
+
+   _this.travelsList = TravelInfoService;
+});

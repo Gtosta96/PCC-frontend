@@ -87,8 +87,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state('travelInfo', {
-    url: '/travelInfo',
+    url: '/travelInfo?:id',
     templateUrl: 'templates/travelInfo.html',
+    controller: 'TravelInfoCtrl',
+    controllerAs: '_this',
     onEnter: checkUser
   });
 

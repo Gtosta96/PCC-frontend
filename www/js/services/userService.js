@@ -12,12 +12,11 @@ app.factory('SignUpService', function($resource) {
   });
 });
 
-// app.factory('MyTravelsListService', function($resource) {
-// 	return $resource("http://localhost:8080/PCC-backend/TravelsList/:userId", {userId : '@data'});
-// });
-
-//MOCK
 app.factory('MyTravelsListService', function() {
+
+  //return $resource("http://localhost:8080/PCC-backend/myTravelsList/:userId", {userId : '@data'});
+
+  //MOCK
   return [{
     id: 1,
     destination: 'Disney',
@@ -40,6 +39,9 @@ app.factory('MyTravelsListService', function() {
 });
 
 app.factory('AllTravelsListService', function() {
+
+  //return $resource("http://localhost:8080/PCC-backend/allTravelsList");
+  //MOCK
   return [{
     id: 1,
     destination: 'Disney',
@@ -71,4 +73,10 @@ app.factory('AllTravelsListService', function() {
     image: 'img/travelMock1.jpg',
     rank: 5
   }];
+});
+
+app.factory('TravelInfoService', function() {
+  //return $resource("http://localhost:8080/PCC-backend/travelInfo/:travelId", {travelId : '@data'});
+
+  return null;
 });
