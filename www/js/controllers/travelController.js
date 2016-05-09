@@ -36,10 +36,18 @@ app.controller('AllTravelsCtrl', function(HandlerService, AllTravelsListService,
 app.controller('TravelInfoCtrl', function($stateParams, HandlerService, TravelInfoService) {
 
   var _this = this;
+  console.log($stateParams);
 
   // TravelInfoService.get($stateParams).$promise.then(function(travelInfo) {
   //   _this.travelInfo = travelInfo;
   // }, HandlerService.callbackError);
 
    _this.travelsList = TravelInfoService;
+});
+
+app.controller('TravellerInfoCtrl', function($stateParams, HandlerService, TravelInfoService) {
+
+  var _this = this;
+  console.log($stateParams);
+
 });

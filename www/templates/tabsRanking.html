@@ -1,23 +1,13 @@
 <ion-view hide-nav-bar="true">
 
   <ion-tabs class="tabs-messages tabs-light tabs-top tabs-icon-top has-tabs-top">
-    <ion-tab title="Minhas Viagens" icon-on="ion-ios-person" icon-off="ion-ios-person" href="#/tab/ranking/myTravelsRank">
+    <ion-tab title="Minhas Viagens" icon-on="ion-ios-person" icon-off="ion-ios-person" ui-sref="tab.ranking.myTravelsRank">
       <ion-nav-view name="ranking-myTravelsRank"></ion-nav-view>
     </ion-tab>
 
-    <ion-tab title="Viagens da Galera" icon-on="ion-ios-people" icon-off="ion-ios-people" href="#/tab/ranking/allTravelsRank">
+    <ion-tab title="Viagens da Galera" icon-on="ion-ios-people" icon-off="ion-ios-people" ui-sref="tab.ranking.allTravelsRank">
       <ion-nav-view name="ranking-allTravelsRank"></ion-nav-view>
     </ion-tab>
   </ion-tabs>
 
 </ion-view>
-
-<style media="screen">
-  .white {
-    color: #FFF !important;
-  }
-
-  .trasparent {
-    color: rgba(255, 255, 255, 0.70) !important;
-  }
-</style>

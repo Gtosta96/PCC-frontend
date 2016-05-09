@@ -32,7 +32,7 @@ app.run(function($ionicPlatform, ngFB) {
   });
 });
 
-//Disable Text of last view on ion-nav-back-button.
 app.config(function($ionicConfigProvider) {
   $ionicConfigProvider.backButton.previousTitleText(false).text('');
+  $ionicConfigProvider.tabs.position('bottom');
 });

@@ -70,7 +70,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'MyTravelsCtrl',
         controllerAs: '_this',
         onEnter: checkUser
-      }
+      },
     }
   });
 
@@ -90,6 +90,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/travelInfo?:id',
     templateUrl: 'templates/travelInfo.html',
     controller: 'TravelInfoCtrl',
+    controllerAs: '_this'
+
+  });
+
+  $stateProvider.state('travellerInfo', {
+    url: '/travellerInfo?:id',
+    templateUrl: 'templates/travellerInfo.html',
+    controller: 'TravellerInfoCtrl',
     controllerAs: '_this',
     onEnter: checkUser
   });

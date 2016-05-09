@@ -20,7 +20,6 @@ app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthService, Login
     ngFB.login({
       scope: 'email, public_profile, user_friends, user_birthday'
     }).then(function(success) {
-      console.log(success);
       if (success.status === 'connected') {
         ngFB.api({
           path: '/me',
@@ -36,10 +35,6 @@ app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthService, Login
       }
     });
   };
-
-  _this.go = function(tela) {
-    HandlerService.go(tela);
-  }
 });
 
 app.controller('optionsCtrl', function(LoginService, CookiesService) {
