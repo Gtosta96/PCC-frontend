@@ -37,7 +37,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/homePage',
     views: {
       'tab-homePage': {
-        templateUrl: 'templates/homePage.html'
+        templateUrl: 'templates/homePage.html',
+        controller: 'HomePageCtrl',
+        controllerAs: '_this'
       }
     }
   });

@@ -1,24 +1,40 @@
 <ion-view view-title="Página Inicial">
-    <ion-content overflow-scroll="true" padding="true">
-        <form class="list"></form>
-        <h3 id="telaInicial-heading1" style="color:#000000;text-align:center;">Cadastrar nova viagem</h3>
-        <form class="list">
-            <label class="item item-input">
-                <input type="text" placeholder="Digite o novo destino">
+  <ion-content overflow-scroll="true" padding="true" class="has-header">
+
+    <div class="list card">
+      <h3 class="text-center">Cadastrar nova viagem</h3>
+      <div class="item item-body">
+        <p>
+          <form name="_this.saveTravelForm" ng-submit="loginAuth(saveTravelForm, travel)">
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Destino</span>
+              <input type="text" name="destination" placeholder="Digite o destino" ng-model="_this.travel.destination" required>
             </label>
-            <label class="item item-input">
-                <span class="input-label">Data Inicio</span>
-                <input type="date" placeholder="informe a data da viagem">
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Data de Ida</span>
+              <input type="date" name="startDate" placeholder="Digite a data de ida" ng-model="_this.travel.startDate" required>
             </label>
-            <label class="item item-input">
-                <span class="input-label">Data de Retorno</span>
-                <input type="date" placeholder="">
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Data de Retorno</span>
+              <input type="date" name="destination" placeholder="Digite a data de retorno" ng-model="_this.travel.endDate" required>
             </label>
-            <button id="telaInicial-button13" class="button button-positive button-small button-block">Salvar</button>
-        </form>
-        <h4 id="telaInicial-heading2" style="color:#000000;text-align:center;">Últimas Viagens</h4>
-        <div style="text-align:center;">
-            <img src="img/travelMock6.jpg" width="100%" height="auto">
-        </div>
-    </ion-content>
+            {{_this.formIsValid}}
+            <div ng-if="_this.saveTravelForm.$valid && !_this.saveTravelForm.$pristine">
+              <div ng-repeat="day in _this.totalDays" class="item item-thumbnail-left">
+                TODO: CAROUSEL: {{day}}
+              </div>
+            </div>
+
+          </form>
+        </p>
+        <p>
+          <button class="button button-full button-sundown">Salvar</button>
+        </p>
+      </div>
+    </div>
+    <h4 id="telaInicial-heading2" style="color:#000000;text-align:center;">Últimas Viagens</h4>
+    <div style="text-align:center;">
+      <img src="img/travelMock6.jpg" width="100%" height="auto">
+    </div>
+  </ion-content>
 </ion-view>

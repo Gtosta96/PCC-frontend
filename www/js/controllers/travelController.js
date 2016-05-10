@@ -6,9 +6,35 @@
 
 var app = angular.module('pccApp.controllers.travelController', []);
 
+app.controller('HomePageCtrl', function($scope, HandlerService) {
+
+  var _this = this;
+
+  $scope.$watch(function watchForm() {
+
+    var form = _this.saveTravelForm;
+    if (form.$valid && !form.$pristine) {
+      //TODO: FIX
+      return true;
+    }
+    return false;
+  }, function handleWatchedForm(newValue, oldValue) {
+    if (newValue) {
+      var timeDiff = Math.abs(_this.travel.startDate.getTime() - _this.travel.endDate.getTime());
+      var totalDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+      _this.totalDays = [];
+      for(var i = 0; i < totalDays; i++) {
+        _this.totalDays.push(i);
+      }
+    }
+  });
+});
+
 app.controller('MyTravelsCtrl', function(HandlerService, MyTravelsListService, CookiesService) {
 
   var _this = this;
+
   var userId = {
     userId: CookiesService.getUser().id
   };
@@ -18,7 +44,7 @@ app.controller('MyTravelsCtrl', function(HandlerService, MyTravelsListService, C
   // }, HandlerService.callbackError);
 
   //MOCK
-   _this.myTravelsList = MyTravelsListService;
+  _this.myTravelsList = MyTravelsListService;
 });
 
 app.controller('AllTravelsCtrl', function(HandlerService, AllTravelsListService, CookiesService) {
@@ -30,7 +56,7 @@ app.controller('AllTravelsCtrl', function(HandlerService, AllTravelsListService,
   // }, HandlerService.callbackError);
 
   //MOCK
-   _this.travelsList = AllTravelsListService;
+  _this.travelsList = AllTravelsListService;
 });
 
 app.controller('TravelInfoCtrl', function($stateParams, HandlerService, TravelInfoService) {
@@ -42,7 +68,7 @@ app.controller('TravelInfoCtrl', function($stateParams, HandlerService, TravelIn
   //   _this.travelInfo = travelInfo;
   // }, HandlerService.callbackError);
 
-   _this.travelsList = TravelInfoService;
+  _this.travelsList = TravelInfoService;
 });
 
 app.controller('TravellerInfoCtrl', function($stateParams, HandlerService, TravelInfoService) {
