@@ -36,15 +36,15 @@ app.factory('HandlerService', function($state, $log, $ionicPopup) {
 
     $log.error('Ocorreu um erro: %o', error);
   };
-});
 
-	function parseUserFromFacebook(user) {
-		return {
+  function parseUserFromFacebook(user) {
+    return {
       id: user.id,
-			firstName: user.first_name,
-			lastName: user.last_name,
-			email: user.email,
+      firstName: user.first_name,
+      lastName: user.last_name,
+      email: user.email,
       bornDate: user.birthday,
       picture: user.picture.data.url
-		}
-	};
+    }
+  };
+});

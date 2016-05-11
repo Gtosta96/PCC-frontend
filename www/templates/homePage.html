@@ -37,6 +37,11 @@
               <div class="col col-50" ng-click="_this.takePicture();"><i class="icon ion-camera"></i></div>
               <div class="col col-50" ng-click="_this.importPicture();"><i class="icon ion-images"></i></div>
             </div>
+            <div ng-if="_this.travel.imgs" class="row" style="display: block">
+              <div ng-repeat="image in _this.travel.imgs" class="col col-20" style="margin: 10px 0 0 0; display: inline-block;">
+                <img ng-src="{{ image }}">
+              </div>
+            </div>
           </div>
           </form>
         </p>

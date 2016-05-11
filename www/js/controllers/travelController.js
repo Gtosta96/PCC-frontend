@@ -1,14 +1,10 @@
-/*
- * Funções comuns (localizada em controllers.js)
- * 	callbackError.
- *  go.
- */
-
 var app = angular.module('pccApp.controllers.travelController', []);
 
-app.controller('HomePageCtrl', function($scope, HandlerService, ONE_DAY) {
+app.controller('HomePageCtrl', function($scope, HandlerService, CameraService, ONE_DAY, CAMERA_SOURCE_TYPE, GALLERY_SOURCE_TYPE) {
 
   var _this = this;
+  _this.travel = {};
+  _this.travel.imgs = [];
 
   //TODO: Criar diretiva para o código abaixo.
   $scope.$watch(function watchForm(scope) {
@@ -29,6 +25,23 @@ app.controller('HomePageCtrl', function($scope, HandlerService, ONE_DAY) {
       _this.travel.totalDays = days.length;
     }
   });
+
+  _this.takePicture = function() {
+    var options = CameraService.getOptions(CAMERA_SOURCE_TYPE);
+
+    CameraService.getPicture(options).then(function(imageData) {
+      _this.travel.imgs.push(imageData);
+    }, HandlerService.callbackError);
+
+  }
+
+  _this.importPicture = function() {
+    var options = CameraService.getOptions(GALLERY_SOURCE_TYPE);
+
+    CameraService.getPicture(options).then(function(imageData) {
+      _this.travel.imgs.push("data:image/jpeg;base64," + imageData);
+    }, HandlerService.callbackError);
+  }
 });
 
 app.controller('MyTravelsCtrl', function(HandlerService, MyTravelsListService, CookiesService) {

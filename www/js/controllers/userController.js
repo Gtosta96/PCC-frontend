@@ -11,9 +11,11 @@ app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthService, Login
   var _this = this;
 
   _this.loginAuth = function(form, credentials) {
-    LoginAuthService.save(credentials).$promise.then(function(user) {
-      LoginService.login(user);
-    }, HandlerService.callbackError);
+
+    $state.go('tab.homePage');
+    // LoginAuthService.save(credentials).$promise.then(function(user) {
+    //   LoginService.login(user);
+    //}, HandlerService.callbackError);
   };
 
   _this.fbAuth = function() {
