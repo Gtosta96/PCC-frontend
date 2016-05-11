@@ -2,7 +2,9 @@
   <ion-content overflow-scroll="true" padding="true" class="has-header">
 
     <div class="list card">
-      <h3 class="text-center">Cadastrar nova viagem</h3>
+      <div class="item text-center item-divider">
+        Cadastrar nova viagem
+      </div>
       <div class="item item-body">
         <p>
           <form name="_this.saveTravelForm" ng-submit="loginAuth(saveTravelForm, travel)">
@@ -16,25 +18,32 @@
             </label>
             <label class="item item-input item-stacked-label">
               <span class="input-label">Data de Retorno</span>
-              <input type="date" name="destination" placeholder="Digite a data de retorno" ng-model="_this.travel.endDate" required>
+              <input type="date" name="endDate" placeholder="Digite a data de retorno" ng-model="_this.travel.endDate" required>
             </label>
-            {{_this.formIsValid}}
             <div ng-if="_this.saveTravelForm.$valid && !_this.saveTravelForm.$pristine">
-              <div ng-repeat="day in _this.totalDays" class="item item-thumbnail-left">
-                TODO: CAROUSEL: {{day}}
-              </div>
+            <ion-slide-box class="item item-stacked-label" show-pager="false" style="padding-bottom: 0;">
+              <ion-slide ng-repeat="days in _this.travel.days" class="item no-padding" style="border: 0">
+                <div class="list card">
+                  <div class="item text-center item-divider">
+                    {{ days | date: 'fullDate' }}
+                  </div>
+                  <div class="item item-body">
+                    <textarea name="name" rows="8" placeholder="Digite aqui os comentários de seu dia." style="width: 100%"></textarea>
+                  </div>
+                </div>
+              </ion-slide>
+            </ion-slide-box>
+            <div class="item item-divider row photos-icons text-center">
+              <div class="col col-50" ng-click="_this.takePicture();"><i class="icon ion-camera"></i></div>
+              <div class="col col-50" ng-click="_this.importPicture();"><i class="icon ion-images"></i></div>
             </div>
-
+          </div>
           </form>
         </p>
         <p>
           <button class="button button-full button-sundown">Salvar</button>
         </p>
+        </div>
       </div>
-    </div>
-    <h4 id="telaInicial-heading2" style="color:#000000;text-align:center;">Últimas Viagens</h4>
-    <div style="text-align:center;">
-      <img src="img/travelMock6.jpg" width="100%" height="auto">
-    </div>
   </ion-content>
 </ion-view>

@@ -6,12 +6,11 @@
 
 var app = angular.module('pccApp.controllers.travelController', []);
 
-app.controller('HomePageCtrl', function($scope, HandlerService) {
+app.controller('HomePageCtrl', function($scope, HandlerService, ONE_DAY) {
 
   var _this = this;
 
   $scope.$watch(function watchForm() {
-
     var form = _this.saveTravelForm;
     if (form.$valid && !form.$pristine) {
       //TODO: FIX
@@ -20,13 +19,18 @@ app.controller('HomePageCtrl', function($scope, HandlerService) {
     return false;
   }, function handleWatchedForm(newValue, oldValue) {
     if (newValue) {
-      var timeDiff = Math.abs(_this.travel.startDate.getTime() - _this.travel.endDate.getTime());
-      var totalDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+      var startDate = _this.travel.startDate;
+      var endDate = _this.travel.endDate;
 
-      _this.totalDays = [];
-      for(var i = 0; i < totalDays; i++) {
-        _this.totalDays.push(i);
+      var days = [];
+      var auxDate = startDate;
+      while (auxDate.getTime() <= endDate.getTime()) {
+        days.push(auxDate);
+        auxDate = new Date(auxDate.getTime() + ONE_DAY); //TODO: Verificar modo para retirar new Date.
       }
+
+      _this.travel.days = days;
+      _this.travel.totalDays = days.length;
     }
   });
 });
