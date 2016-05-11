@@ -10,9 +10,7 @@ app.factory('HandlerService', function($state, $log, $ionicPopup) {
   return {
     go: go,
     callbackError: callbackError,
-    parseUserFromFacebook: parseUserFromFacebook,
-    watchForm: watchForm,
-    handleWatchedForm: handleWatchedForm
+    parseUserFromFacebook: parseUserFromFacebook
   };
 
   function go(tela) {
@@ -49,15 +47,4 @@ app.factory('HandlerService', function($state, $log, $ionicPopup) {
       bornDate: user.birthday,
       picture: user.picture.data.url
 		}
-	}
-
-  function watchForm(scope) {
-    return _this.saveTravelForm.$valid && !_this.saveTravelForm.$pristine;
-  }
-
-  function handleWatchedForm(newValue, oldValue) {
-    if (newValue) {
-      console.log(_this);
-      _this.totalDays = 5;
-    }
-  };
+	};

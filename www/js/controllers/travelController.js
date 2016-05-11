@@ -10,13 +10,9 @@ app.controller('HomePageCtrl', function($scope, HandlerService, ONE_DAY) {
 
   var _this = this;
 
-  $scope.$watch(function watchForm() {
-    var form = _this.saveTravelForm;
-    if (form.$valid && !form.$pristine) {
-      //TODO: FIX
-      return true;
-    }
-    return false;
+  //TODO: Criar diretiva para o código abaixo.
+  $scope.$watch(function watchForm(scope) {
+    return _this.saveTravelForm.$valid && !_this.saveTravelForm.$pristine;
   }, function handleWatchedForm(newValue, oldValue) {
     if (newValue) {
       var startDate = _this.travel.startDate;
