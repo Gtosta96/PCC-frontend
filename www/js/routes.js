@@ -15,7 +15,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     controllerAs: '_this',
     onEnter: function($state, LoginService) {
       if (LoginService.isLoggedIn()) {
-        // $state.go('tab.homePage');
+        $state.go('tab.homePage');
       }
     }
   });

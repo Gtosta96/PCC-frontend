@@ -1,9 +1,3 @@
-/*
- * Funções comuns (localizada em controllers.js)
- * 	callbackError.
- *  go.
- */
-
 var app = angular.module('pccApp.controllers.userController', ['ngMessages']);
 
 app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthService, LoginService, CookiesService, HandlerService, LOGGED_FROM_FACEBOOK) {
@@ -12,10 +6,9 @@ app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthService, Login
 
   _this.loginAuth = function(form, credentials) {
 
-    $state.go('tab.homePage');
-    // LoginAuthService.save(credentials).$promise.then(function(user) {
-    //   LoginService.login(user);
-    //}, HandlerService.callbackError);
+    LoginAuthService.save(credentials).$promise.then(function(user) {
+      LoginService.login(user);
+    }, HandlerService.callbackError);
   };
 
   _this.fbAuth = function() {

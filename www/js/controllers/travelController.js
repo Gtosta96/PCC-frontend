@@ -39,7 +39,7 @@ app.controller('HomePageCtrl', function($scope, HandlerService, CameraService, O
     var options = CameraService.getOptions(GALLERY_SOURCE_TYPE);
 
     CameraService.getPicture(options).then(function(imageData) {
-      _this.travel.imgs.push("data:image/jpeg;base64," + imageData);
+      _this.travel.imgs.push(imageData);
     }, HandlerService.callbackError);
   }
 });
@@ -48,9 +48,9 @@ app.controller('MyTravelsCtrl', function(HandlerService, MyTravelsListService, C
 
   var _this = this;
 
-  var userId = {
-    userId: CookiesService.getUser().id
-  };
+  // var userId = {
+  //   userId: CookiesService.getUser().id
+  // };
 
   // TravelsListService.get(userId).$promise.then(function(travelsList) {
   //   _this.myTravelsList = travelsList;
