@@ -8,47 +8,50 @@
       <div class="item item-body">
         <p>
           <form name="_this.saveTravelForm" ng-submit="loginAuth(saveTravelForm, travel)">
-            <label class="item item-input item-stacked-label">
-              <span class="input-label">Destino</span>
+            <div class="item item-icon-left">
+              <i class="icon ion-plane"></i>
               <input type="text" name="destination" placeholder="Digite o destino" ng-model="_this.travel.destination" required>
-            </label>
-            <label class="item item-input item-stacked-label">
-              <span class="input-label">Data de Ida</span>
-              <input type="date" name="startDate" placeholder="Digite a data de ida" ng-model="_this.travel.startDate" required>
-            </label>
-            <label class="item item-input item-stacked-label">
-              <span class="input-label">Data de Retorno</span>
-              <input type="date" name="endDate" placeholder="Digite a data de retorno" ng-model="_this.travel.endDate" required>
-            </label>
-            <div ng-if="_this.saveTravelForm.$valid && !_this.saveTravelForm.$pristine">
-            <ion-slide-box class="item item-stacked-label" show-pager="false" style="padding-bottom: 0;">
-              <ion-slide ng-repeat="days in _this.travel.days" class="item no-padding" style="border: 0">
-                <div class="list card">
-                  <div class="item text-center item-divider">
-                    {{ days | date: 'fullDate' }}
-                  </div>
-                  <div class="item item-body">
-                    <textarea name="name" rows="8" placeholder="Digite aqui os comentários de seu dia." style="width: 100%"></textarea>
-                  </div>
-                </div>
-              </ion-slide>
-            </ion-slide-box>
-            <div class="item item-divider row photos-icons text-center">
-              <div class="col col-50" ng-click="_this.takePicture();"><i class="icon ion-camera"></i></div>
-              <div class="col col-50" ng-click="_this.importPicture();"><i class="icon ion-images"></i></div>
             </div>
-            <div ng-if="_this.travel.imgs" class="row" style="display: block">
-              <div ng-repeat="image in _this.travel.imgs" class="col col-20" style="margin: 10px 0 0 0; display: inline-block;">
-                <img ng-src="{{ image }}">
+
+            <div name="startDate" class="item item-icon-left" ion-datetime-picker date ng-model="_this.travel.startDate" required>
+              <i class="icon ion-ios-calendar"></i> Data de Ida:
+              <strong>{{ _this.travel.startDate | date: "dd-MM-yyyy" }}</strong>
+            </div>
+            <div name="endDate" class="item item-icon-left" ion-datetime-picker date monday-first ng-model="_this.travel.endDate" required>
+              <i class="icon ion-ios-calendar-outline"></i> Data de Volta:
+              <strong>{{ _this.travel.endDate | date: "dd-MM-yyyy" }}</strong>
+            </div>
+
+
+            <div ng-if="_this.saveTravelForm.$valid && !_this.saveTravelForm.$pristine">
+              <ion-slide-box class="item item-stacked-label" show-pager="false" style="padding-bottom: 0;">
+                <ion-slide ng-repeat="days in _this.travel.days" class="item no-padding" style="border: 0">
+                  <div class="list card">
+                    <div class="item text-center item-divider">
+                      {{ days | date: 'fullDate' }}
+                    </div>
+                    <div class="item item-body">
+                      <textarea name="name" rows="8" placeholder="Digite aqui os comentários de seu dia." style="width: 100%"></textarea>
+                    </div>
+                  </div>
+                </ion-slide>
+              </ion-slide-box>
+              <div class="item item-divider row photos-icons text-center">
+                <div class="col col-50" ng-click="_this.takePicture();"><i class="icon ion-camera"></i></div>
+                <div class="col col-50" ng-click="_this.importPicture();"><i class="icon ion-images"></i></div>
+              </div>
+              <div ng-if="_this.travel.imgs" class="row" style="display: block">
+                <div ng-repeat="image in _this.travel.imgs" class="col col-20" style="margin: 10px 0 0 0; display: inline-block;">
+                  <img ng-src="{{ image }}">
+                </div>
               </div>
             </div>
-          </div>
           </form>
         </p>
         <p>
           <button class="button button-full button-sundown">Salvar</button>
         </p>
-        </div>
       </div>
+    </div>
   </ion-content>
 </ion-view>
