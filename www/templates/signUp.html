@@ -7,40 +7,40 @@
 		      	<div class="col-50">
 				  <label class="item item-input item-stacked-label" ng-class="{ 'has-error-l' : signUpForm.firstName.$invalid && signUpForm.$submitted}">
 				    <span class="input-label">Nome</span>
-				    <input type="text" name="firstName" placeholder="John" ng-model="user.firstName" required>
+				    <input type="text" name="firstName" placeholder="John" ng-model="user.firstName" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" required>
 				  </label>
 				  <display-message form="signUpForm" attribute="firstName" display="nome"></display-message>
 			  	</div>
 			  	<div class="col-50">
 				  <label class="item item-input item-stacked-label" ng-class="{ 'has-error-r' : signUpForm.lastName.$invalid && signUpForm.$submitted}">
 				    <span class="input-label">Sobrenome</span>
-				    <input type="text" name="lastName" placeholder="Suhr" ng-model="user.lastName" required>
+				    <input type="text" name="lastName" placeholder="Suhr" ng-model="user.lastName" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" required>
 				  </label>
 				  <display-message form="signUpForm" attribute="lastName" display="sobrenome"></display-message>
 			  	</div>
 			  </div>
 			  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.email.$invalid && signUpForm.$submitted}">
 			    <span class="input-label">E-mail</span>
-			    <input type="email" name="email" placeholder="john@suhr.com" ng-model="user.email" required>
+			    <input type="email" name="email" placeholder="john@suhr.com" ng-model="user.email" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" required>
 			  </label>
 			  <display-message form="signUpForm" attribute="email" display="e-mail"></display-message>
 			  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.username.$invalid && signUpForm.$submitted}">
 			    <span class="input-label">Usuário</span>
-			    <input type="text" name="username" placeholder="JohnSuhr23" ng-model="user.username" required>
+			    <input type="text" name="username" placeholder="JohnSuhr23" ng-model="user.username" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" required>
 			  </label>
 			  <display-message form="signUpForm" attribute="username" display="usuário"></display-message>
 			  <div class="row no-padding">
 				  <div class="col-50">
 			  		  <label class="item item-input item-stacked-label" ng-class="{ 'has-error-l' : signUpForm.password.$invalid && signUpForm.$submitted}">
 					    <span class="input-label">Senha</span>
-					    <input type="password" name="password" placeholder="password" ng-model="user.password" required>
+					    <input type="password" name="password" placeholder="password" ng-model="user.password" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" required>
 					  </label>
 					  <display-message form="signUpForm" attribute="password" display="senha"></display-message>
 				  </div>
 				  <div class="col-50">
 					  <label class="item item-input item-stacked-label" ng-class="{ 'has-error-r' : signUpForm.confirmPassword.$invalid && signUpForm.$submitted}">
 					    <span class="input-label">Confirme sua senha</span>
-					    <input type="password" name="confirmPassword" placeholder="repeat password" ng-model="user.confirmPassword" compare-to="user.password" required>
+					    <input type="password" name="confirmPassword" placeholder="repeat password" ng-model="user.confirmPassword" compare-to="user.password" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" required>
 					  </label>
 					  <display-message form="signUpForm" attribute="confirmPassword" display="confirmar senha"></display-message>
 				  </div>
@@ -55,17 +55,17 @@
 			  <ion-list>
 				  <div class="row no-padding">
 				  		<div class="col-50">
-						  	<ion-radio name="gender" ng-model="user.gender" ng-value="'M'" ng-required="true" ng-class="{ 'has-error-l' : signUpForm.gender.$invalid && signUpForm.$submitted}">Masculino</ion-radio>
+						  	<ion-radio name="gender" ng-model="user.gender" ng-value="'M'" ng-required="true" ng-class="{ 'has-error-l' : signUpForm.gender.$invalid && signUpForm.$submitted}" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }">Masculino</ion-radio>
 					  	</div>
 					  	<div class="col-50">
-						  	<ion-radio name="gender" ng-model="user.gender" ng-value="'F'" ng-required="true" ng-class="{ 'has-error-r' : signUpForm.gender.$invalid && signUpForm.$submitted}">Feminino</ion-radio>
+						  	<ion-radio name="gender" ng-model="user.gender" ng-value="'F'" ng-required="true" ng-class="{ 'has-error-r' : signUpForm.gender.$invalid && signUpForm.$submitted}" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }">Feminino</ion-radio>
 					  	</div>
 				  </div>
 				  <display-message form="signUpForm" attribute="gender" display="sexo"></display-message>
 			  </ion-list>
 	  		  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.bornDate.$invalid && signUpForm.$submitted}">
 			    <span class="input-label">Data de Nascimento</span>
-	  			<input type="date" name="bornDate" ng-model="user.bornDate" required>
+	  			<input type="date" name="bornDate" ng-model="user.bornDate" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" required>
 			  </label>
 			  <display-message form="signUpForm" attribute="bornDate" display="data de nascimento"></display-message>
 			  <button class="button button-full button-sundown no-padding" type="submit">Cadastrar</button>
