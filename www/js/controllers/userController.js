@@ -51,7 +51,6 @@ app.controller('SignUpCtrl', function(SignUpService, HandlerService) {
 
   _this.signUp = function(form, user) {
     if (!form.$invalid) {
-      user.bornDate = user.bornDate.toString();
       SignUpService.save(user).$promise.then(function(success) {
         HandlerService.go('login');
         console.log(success);
