@@ -1,6 +1,6 @@
 var app = angular.module('pccApp.controllers.travelController', []);
 
-app.controller('HomePageCtrl', function($scope, HandlerService, CameraService, ONE_DAY, CAMERA_SOURCE_TYPE, GALLERY_SOURCE_TYPE) {
+app.controller('HomePageCtrl', function($scope, HandlerService, CameraService) {
 
   var _this = this;
   _this.travel = {};
@@ -18,7 +18,7 @@ app.controller('HomePageCtrl', function($scope, HandlerService, CameraService, O
       var auxDate = startDate;
       while (auxDate.getTime() <= endDate.getTime()) {
         days.push(auxDate);
-        auxDate = new Date(auxDate.getTime() + ONE_DAY); //TODO: Verificar modo para retirar new Date.
+        auxDate = new Date(auxDate.getTime() + 86400000);
       }
 
       _this.travel.days = days;
@@ -26,17 +26,16 @@ app.controller('HomePageCtrl', function($scope, HandlerService, CameraService, O
     }
   });
 
-  _this.takePicture = function() {
-    var options = CameraService.getOptions(CAMERA_SOURCE_TYPE);
+  _this.importPicture = function() {
+    var options = CameraService.getOptions(0);
 
     CameraService.getPicture(options).then(function(imageData) {
       _this.travel.imgs.push(imageData);
     }, HandlerService.callbackError);
-
   }
 
-  _this.importPicture = function() {
-    var options = CameraService.getOptions(GALLERY_SOURCE_TYPE);
+  _this.takePicture = function() {
+    var options = CameraService.getOptions(1);
 
     CameraService.getPicture(options).then(function(imageData) {
       _this.travel.imgs.push(imageData);

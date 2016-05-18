@@ -1,6 +1,6 @@
 var app = angular.module('pccApp.controllers.userController', ['ngMessages']);
 
-app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthService, LoginService, CookiesService, HandlerService, LOGGED_FROM_FACEBOOK) {
+app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthService, LoginService, CookiesService, HandlerService) {
 
   var _this = this;
 
@@ -23,7 +23,7 @@ app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthService, Login
           }
         }).then(function(user) {
           console.log(user);
-          LoginService.login(user, LOGGED_FROM_FACEBOOK);
+          LoginService.login(user, true);
         }, HandlerService.callbackError);
       } else {
         HandlerService.callbackError;
@@ -53,7 +53,6 @@ app.controller('SignUpCtrl', function(SignUpService, HandlerService) {
     if (!form.$invalid) {
       SignUpService.save(user).$promise.then(function(success) {
         HandlerService.go('login');
-        console.log(success);
       }, HandlerService.callbackError);
     }
   };
