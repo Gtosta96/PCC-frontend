@@ -1,4 +1,7 @@
-var app = angular.module('pccApp.options.controller', []);
+var app = angular.module('pccApp.options.controller', [
+  'pccApp.cookiesService.service',
+  'pccApp.loginService.service',
+]);
 
 app.controller('optionsCtrl', function(LoginService, CookiesService) {
 

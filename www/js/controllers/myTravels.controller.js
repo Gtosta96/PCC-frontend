@@ -1,6 +1,10 @@
-var app = angular.module('pccApp.myTravels.controller', []);
+var app = angular.module('pccApp.myTravels.controller', [
+  'pccApp.handlerService.service',
+  'pccApp.mockService.service',
+  'pccApp.cookiesService.service',
+]);
 
-app.controller('MyTravelsCtrl', function(HandlerService, MyTravelsListServiceMock, CookiesService) {
+app.controller('MyTravelsCtrl', function(HandlerService, MyTravelsListMockService, CookiesService) {
 
   var vm = this;
 
@@ -8,10 +12,10 @@ app.controller('MyTravelsCtrl', function(HandlerService, MyTravelsListServiceMoc
   //   userId: CookiesService.getUser().id
   // };
 
-  // TravelsListService.get(userId).$promise.then(function(travelsList) {
+  // MyTravelsListRestService.get(userId).$promise.then(function(travelsList) {
   //   vm.myTravelsList = travelsList;
   // }, HandlerService.callbackError);
 
   //MOCK
-  vm.myTravelsList = MyTravelsListServiceMock;
+  vm.myTravelsList = MyTravelsListMockService;
 });

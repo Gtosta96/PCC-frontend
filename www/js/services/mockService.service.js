@@ -1,6 +1,6 @@
 var app = angular.module('pccApp.mockService.service', []);
 
-app.factory('MyTravelsListServiceMock', function() {
+app.factory('MyTravelsListMockService', function() {
 
   return [{
     id: 1,
@@ -23,7 +23,7 @@ app.factory('MyTravelsListServiceMock', function() {
   }];
 });
 
-app.factory('AllTravelsListServiceMock', function() {
+app.factory('AllTravelsListMockService', function() {
 
   return [{
     id: 1,

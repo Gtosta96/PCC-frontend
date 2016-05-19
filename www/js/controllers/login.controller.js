@@ -1,12 +1,16 @@
-var app = angular.module('pccApp.login.controller', []);
+var app = angular.module('pccApp.login.controller', [
+  'pccApp.loginService.service',
+  'pccApp.cookiesService.service',
+  'pccApp.handlerService.service',
+]);
 
-app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthService, LoginService, CookiesService, HandlerService) {
+app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthRestService, LoginService, CookiesService, HandlerService) {
 
   var vm = this;
 
   vm.loginAuth = function(form, credentials) {
 
-    LoginAuthService.save(credentials).$promise.then(function(user) {
+    LoginAuthRestService.save(credentials).$promise.then(function(user) {
       LoginService.login(user);
     }, HandlerService.callbackError);
   };

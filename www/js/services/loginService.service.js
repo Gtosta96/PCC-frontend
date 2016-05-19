@@ -11,7 +11,6 @@ app.factory('LoginService', function($rootScope, CookiesService, HandlerService)
 
     if (loggedFromFacebook) {
       user = HandlerService.parseUserFromFacebook(user);
-      console.log(user);
     }
 
     CookiesService.setUser(user);

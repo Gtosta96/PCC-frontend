@@ -1,4 +1,7 @@
-var app = angular.module('pccApp.homePage.controller', []);
+var app = angular.module('pccApp.homePage.controller', [
+  'pccApp.handlerService.service',
+  'pccApp.cameraService.service'
+]);
 
 app.controller('HomePageCtrl', function($scope, HandlerService, CameraService) {
 
