@@ -12,7 +12,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/login',
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl',
-    controllerAs: '_this',
+    controllerAs: 'vm',
     onEnter: function($state, LoginService) {
       if (LoginService.isLoggedIn()) {
         $state.go('tab.homePage');
@@ -24,7 +24,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/signUp',
     templateUrl: 'templates/signUp.html',
     controller: 'SignUpCtrl',
-    controllerAs: '_this'
+    controllerAs: 'vm'
   });
 
   $stateProvider.state('tab', {
@@ -39,7 +39,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       'tab-homePage': {
         templateUrl: 'templates/homePage.html',
         controller: 'HomePageCtrl',
-        controllerAs: '_this'
+        controllerAs: 'vm'
       }
     }
   });
@@ -50,7 +50,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       'tab-options': {
         templateUrl: 'templates/options.html',
         controller: 'optionsCtrl',
-        controllerAs: '_this'
+        controllerAs: 'vm'
       }
     }
   });
@@ -70,7 +70,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       'ranking-myTravelsRank': {
         templateUrl: 'templates/myTravelsRank.html',
         controller: 'MyTravelsCtrl',
-        controllerAs: '_this',
+        controllerAs: 'vm',
         onEnter: checkUser
       },
     }
@@ -82,7 +82,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       'ranking-allTravelsRank': {
         templateUrl: 'templates/allTravelsRank.html',
         controller: 'AllTravelsCtrl',
-        controllerAs: '_this',
+        controllerAs: 'vm',
         onEnter: checkUser
       }
     }
@@ -92,7 +92,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/travelInfo?:id',
     templateUrl: 'templates/travelInfo.html',
     controller: 'TravelInfoCtrl',
-    controllerAs: '_this'
+    controllerAs: 'vm'
 
   });
 
@@ -100,7 +100,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/travellerInfo?:id',
     templateUrl: 'templates/travellerInfo.html',
     controller: 'TravellerInfoCtrl',
-    controllerAs: '_this',
+    controllerAs: 'vm',
     onEnter: checkUser
   });
 

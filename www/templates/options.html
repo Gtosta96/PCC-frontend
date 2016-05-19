@@ -2,15 +2,15 @@
   <ion-content overflow-scroll="true" padding="true" class="has-header">
     <div class="list">
       <div class="item item-avatar">
-        <img src="{{ _this.user.picture }}">
-        <h2>{{ _this.user.firstName + ' ' + _this.user.lastName }}</h2>
-        <p>{{ _this.user.bornDate }}</p>
+        <img src="{{ vm.user.picture }}">
+        <h2>{{ vm.user.firstName + ' ' + vm.user.lastName }}</h2>
+        <p>{{ vm.user.bornDate }}</p>
       </div>
 
       <a class="item item-icon-left" href="#">
         <i class="icon ion-email"></i> Email
         <span class="item-note">
-        {{ _this.user.email }}
+        {{ vm.user.email }}
       </span>
       </a>
 
@@ -23,7 +23,7 @@
         <i class="icon ion-trash-b"></i> Excluir Conta
       </a>
 
-      <a class="item item-icon-left" ng-click="_this.logout()">
+      <a class="item item-icon-left" ng-click="vm.logout()">
         <i class="icon ion-power"></i> Logout
       </a>
     </div>

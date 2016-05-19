@@ -1,10 +1,10 @@
 <ion-view view-title="Viagens da Galera" hide-nav-bar="true">
   <ion-content>
-    <div class="list" ng-if="_this.travelsList">
+    <div class="list" ng-if="vm.travelsList">
       <div class="item item-divider">
         Ranking - Geral
       </div>
-      <a ng-repeat="travel in _this.travelsList" href="#/travelInfo?id={{ travel.id }}" class="item item-thumbnail-left">
+      <a ng-repeat="travel in vm.travelsList" href="#/travelInfo?id={{ travel.id }}" class="item item-thumbnail-left">
         <img ng-src="{{ travel.image }}">
         <h2>{{ travel.destination }}</h2>
         <h4>{{ travel.date }}</h4>
@@ -15,7 +15,7 @@
         </p>
       </a>
     </div>
-    <div ng-if="!_this.travelsList">
+    <div ng-if="!vm.travelsList">
       Não há Viagens cadastradas.
     </div>
   </ion-content>

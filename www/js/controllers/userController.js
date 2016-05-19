@@ -2,16 +2,16 @@ var app = angular.module('pccApp.controllers.userController', ['ngMessages']);
 
 app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthService, LoginService, CookiesService, HandlerService) {
 
-  var _this = this;
+  var vm = this;
 
-  _this.loginAuth = function(form, credentials) {
+  vm.loginAuth = function(form, credentials) {
 
     LoginAuthService.save(credentials).$promise.then(function(user) {
       LoginService.login(user);
     }, HandlerService.callbackError);
   };
 
-  _this.fbAuth = function() {
+  vm.fbAuth = function() {
     ngFB.login({
       scope: 'email, public_profile, user_friends, user_birthday'
     }).then(function(success) {
@@ -34,22 +34,20 @@ app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthService, Login
 
 app.controller('optionsCtrl', function(LoginService, CookiesService) {
 
-  var _this = this;
+  var vm = this;
 
-  _this.logout = function() {
+  vm.logout = function() {
     LoginService.logout();
   };
 
-  _this.user = CookiesService.getUser();
-
-  console.log(_this.user);
+  vm.user = CookiesService.getUser();
 });
 
 app.controller('SignUpCtrl', function(SignUpService, HandlerService) {
 
-  var _this = this;
+  var vm = this;
 
-  _this.signUp = function(form, user) {
+  vm.signUp = function(form, user) {
     if (!form.$invalid) {
       SignUpService.save(user).$promise.then(function(success) {
         HandlerService.go('login');

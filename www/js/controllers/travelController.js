@@ -2,17 +2,17 @@ var app = angular.module('pccApp.controllers.travelController', []);
 
 app.controller('HomePageCtrl', function($scope, HandlerService, CameraService) {
 
-  var _this = this;
-  _this.travel = {};
-  _this.travel.imgs = [];
+  var vm = this;
+  vm.travel = {};
+  vm.travel.imgs = [];
 
   //TODO: Criar diretiva para o código abaixo.
   $scope.$watch(function watchForm(scope) {
-    return _this.saveTravelForm.$valid && !_this.saveTravelForm.$pristine;
+    return vm.saveTravelForm.$valid && !vm.saveTravelForm.$pristine;
   }, function handleWatchedForm(newValue, oldValue) {
     if (newValue) {
-      var startDate = _this.travel.startDate;
-      var endDate = _this.travel.endDate;
+      var startDate = vm.travel.startDate;
+      var endDate = vm.travel.endDate;
 
       var days = [];
       var auxDate = startDate;
@@ -21,71 +21,71 @@ app.controller('HomePageCtrl', function($scope, HandlerService, CameraService) {
         auxDate = new Date(auxDate.getTime() + 86400000);
       }
 
-      _this.travel.days = days;
-      _this.travel.totalDays = days.length;
+      vm.travel.days = days;
+      vm.travel.totalDays = days.length;
     }
   });
 
-  _this.importPicture = function() {
+  vm.importPicture = function() {
     var options = CameraService.getOptions(0);
 
     CameraService.getPicture(options).then(function(imageData) {
-      _this.travel.imgs.push(imageData);
+      vm.travel.imgs.push(imageData);
     }, HandlerService.callbackError);
   }
 
-  _this.takePicture = function() {
+  vm.takePicture = function() {
     var options = CameraService.getOptions(1);
 
     CameraService.getPicture(options).then(function(imageData) {
-      _this.travel.imgs.push(imageData);
+      vm.travel.imgs.push(imageData);
     }, HandlerService.callbackError);
   }
 });
 
 app.controller('MyTravelsCtrl', function(HandlerService, MyTravelsListService, CookiesService) {
 
-  var _this = this;
+  var vm = this;
 
   // var userId = {
   //   userId: CookiesService.getUser().id
   // };
 
   // TravelsListService.get(userId).$promise.then(function(travelsList) {
-  //   _this.myTravelsList = travelsList;
+  //   vm.myTravelsList = travelsList;
   // }, HandlerService.callbackError);
 
   //MOCK
-  _this.myTravelsList = MyTravelsListService;
+  vm.myTravelsList = MyTravelsListService;
 });
 
 app.controller('AllTravelsCtrl', function(HandlerService, AllTravelsListService, CookiesService) {
 
-  var _this = this;
+  var vm = this;
 
   // AllTravelsListService.get().$promise.then(function(travelsList) {
-  //   _this.userTravelsList = travelsList;
+  //   vm.userTravelsList = travelsList;
   // }, HandlerService.callbackError);
 
   //MOCK
-  _this.travelsList = AllTravelsListService;
+  vm.travelsList = AllTravelsListService;
 });
 
 app.controller('TravelInfoCtrl', function($stateParams, HandlerService, TravelInfoService) {
 
-  var _this = this;
+  var vm = this;
   console.log($stateParams);
 
   // TravelInfoService.get($stateParams).$promise.then(function(travelInfo) {
-  //   _this.travelInfo = travelInfo;
+  //   vm.travelInfo = travelInfo;
   // }, HandlerService.callbackError);
 
-  _this.travelsList = TravelInfoService;
+  vm.travelsList = TravelInfoService;
 });
 
 app.controller('TravellerInfoCtrl', function($stateParams, HandlerService, TravelInfoService) {
 
-  var _this = this;
+  var vm = this;
   console.log($stateParams);
 
 });
