@@ -1,4 +1,4 @@
-var app = angular.module('pccApp.services.cookiesService', ['ngCookies']);
+var app = angular.module('pccApp.cookiesService.service', ['ngCookies']);
 
 app.factory('CookiesService', function($cookies) {
   return {

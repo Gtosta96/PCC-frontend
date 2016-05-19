@@ -4,15 +4,17 @@ app.directive("infiniteScroll", function() {
   return {
     restrict: "E",
     scope: {
-      url: "=url"
+      url: "@"
     },
     link: function(scope, element, attributes) {
-      var vm = this;
 
-      vm.moreDataCanBeLoaded = function(){};
+      scope.moreDataCanBeLoaded = function() {
 
-      vm.loadMoreData = function(){};
+      };
 
+      scope.loadMoreData = function() {
+
+      };
     },
       templateUrl: "/templates/util/directives/infiniteScroll.directive.html"
   };

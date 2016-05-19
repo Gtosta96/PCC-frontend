@@ -1,4 +1,4 @@
-var app = angular.module('pccApp.services.cameraService', []);
+var app = angular.module('pccApp.cameraService.service', []);
 
 app.factory('CameraService', function($q) {
   return {
