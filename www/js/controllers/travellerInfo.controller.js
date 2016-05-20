@@ -1,9 +1,13 @@
-var app = angular.module('pccApp.travellerInfo.controller', [
-  'pccApp.restService.service',
-  'pccApp.handlerService.service',
-]);
+(function() {
+  'use strict';
 
-app.controller('TravellerInfoCtrl', function($stateParams, HandlerService, TravellerInfoRestService) {
+  var app = angular.module('pccApp.travellerInfo.controller', [
+    'pccApp.restService.service',
+    'pccApp.handlerService.service',
+  ]);
 
-  var vm = this;
-});
+  app.controller('TravellerInfoCtrl', function($stateParams, HandlerService, TravellerInfoRestService) {
+
+    var vm = this;
+  });
+}());

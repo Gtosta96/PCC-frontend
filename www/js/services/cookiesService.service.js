@@ -1,21 +1,25 @@
-var app = angular.module('pccApp.cookiesService.service', ['ngCookies']);
+(function() {
+  'use strict';
 
-app.factory('CookiesService', function($cookies) {
-  return {
-    setUser: setUser,
-    getUser: getUser,
-    removeUser: removeUser
-  };
+  var app = angular.module('pccApp.cookiesService.service', ['ngCookies']);
 
-  function setUser(user) {
-    return $cookies.putObject('user', user);
-  }
+  app.factory('CookiesService', function($cookies) {
+    return {
+      setUser: setUser,
+      getUser: getUser,
+      removeUser: removeUser,
+    };
 
-  function getUser() {
-    return $cookies.getObject('user');
-  }
+    function setUser(user) {
+      return $cookies.putObject('user', user);
+    }
 
-  function removeUser() {
-    $cookies.remove('user');
-  }
-});
+    function getUser() {
+      return $cookies.getObject('user');
+    }
+
+    function removeUser() {
+      $cookies.remove('user');
+    }
+  });
+}());

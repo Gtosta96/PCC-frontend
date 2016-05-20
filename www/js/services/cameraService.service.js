@@ -1,31 +1,26 @@
-var app = angular.module('pccApp.cameraService.service', []);
+(function() {
+  'use strict';
 
-app.factory('CameraService', function($q) {
-  return {
-    getOptions: getCameraOptions,
-    getPicture: getPicture
-  };
+  var app = angular.module('pccApp.cameraService.service', []);
 
-  function getCameraOptions(sourceType) {
+  app.factory('CameraService', function($cordovaCamera) {
     return {
-      quality: 100,
-      targetWidth: 50,
-      targetHeight: 50,
-      sourceType: sourceType,
-      destinationType: Camera.DestinationType.FILE_URI,
-      allowEdit : true
-    }
-  };
+      getPictureOptions: getPictureOptions
+    };
 
-  function getPicture(options) {
-    var q = $q.defer();
-
-    navigator.camera.getPicture(function(result) {
-      q.resolve(result);
-    }, function(err) {
-      q.reject(err);
-    }, options);
-
-    return q.promise;
-  }
-});
+    function getPictureOptions(sourceType) {
+      return {
+        quality: 50,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.CAMERA,
+        allowEdit: true,
+        encodingType: Camera.EncodingType.JPEG,
+        targetWidth: 50,
+        targetHeight: 50,
+        popoverOptions: CameraPopoverOptions,
+        saveToPhotoAlbum: true,
+        correctOrientation: true
+      };
+    };
+  });
+}());

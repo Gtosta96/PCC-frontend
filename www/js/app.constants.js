@@ -1,3 +1,7 @@
-var app = angular.module('pccApp.constants', []);
+(function() {
+  'use strict';
 
-app.constant('SERVER_URL', 'http://localhost:8080/');
+  var app = angular.module('pccApp.constants', []);
+
+  app.constant('SERVER_URL', 'http://localhost:8080/');
+}());

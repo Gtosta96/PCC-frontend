@@ -1,21 +1,25 @@
-var app = angular.module('pccApp.myTravels.controller', [
-  'pccApp.handlerService.service',
-  'pccApp.mockService.service',
-  'pccApp.cookiesService.service',
-]);
+(function() {
+  'use strict';
 
-app.controller('MyTravelsCtrl', function(HandlerService, MyTravelsListMockService, CookiesService) {
+  var app = angular.module('pccApp.myTravels.controller', [
+    'pccApp.handlerService.service',
+    'pccApp.mockService.service',
+    'pccApp.cookiesService.service',
+  ]);
 
-  var vm = this;
+  app.controller('MyTravelsCtrl', function(HandlerService, MyTravelsListMockService, CookiesService) {
 
-  // var userId = {
-  //   userId: CookiesService.getUser().id
-  // };
+    var vm = this;
 
-  // MyTravelsListRestService.get(userId).$promise.then(function(travelsList) {
-  //   vm.myTravelsList = travelsList;
-  // }, HandlerService.callbackError);
+    // var userId = {
+    //   userId: CookiesService.getUser().id
+    // };
 
-  //MOCK
-  vm.myTravelsList = MyTravelsListMockService;
-});
+    // MyTravelsListRestService.get(userId).$promise.then(function(travelsList) {
+    //   vm.myTravelsList = travelsList;
+    // }, HandlerService.callbackError);
+
+    //MOCK
+    vm.myTravelsList = MyTravelsListMockService;
+  });
+}());

@@ -1,35 +1,34 @@
-var app = angular.module('pccApp.loginService.service', []);
+(function() {
+  'use strict';
 
-app.factory('LoginService', function($rootScope, CookiesService, HandlerService) {
-  return {
-    login: login,
-    logout: logout,
-    isLoggedIn: isLoggedIn,
-  };
+  var app = angular.module('pccApp.loginService.service', []);
 
-  function login(user, loggedFromFacebook) {
+  app.factory('LoginService', function($rootScope, CookiesService, HandlerService) {
+    return {
+      login: login,
+      logout: logout,
+      isLoggedIn: isLoggedIn,
+    };
 
-    if (loggedFromFacebook) {
-      user = HandlerService.parseUserFromFacebook(user);
+    function login(user, loggedFromFacebook) {
+
+      if (loggedFromFacebook) {
+        user = HandlerService.parseUserFromFacebook(user);
+      }
+
+      CookiesService.setUser(user);
+      this.isLoggedIn();
+      HandlerService.go('tab.homePage');
     }
 
-    CookiesService.setUser(user);
-    this.isLoggedIn();
-    HandlerService.go('tab.homePage');
-  }
-
-  function logout() {
-    CookiesService.removeUser();
-    this.isLoggedIn();
-    HandlerService.go('login');
-  }
-
-  function isLoggedIn() {
-    var user = CookiesService.getUser();
-
-    if (typeof user === "object") {
-      return $rootScope.isLoggedIn = true;
+    function logout() {
+      CookiesService.removeUser();
+      this.isLoggedIn();
+      HandlerService.go('login');
     }
-    return $rootScope.isLoggedIn = false;
-  }
-});
+
+    function isLoggedIn() {
+      return $rootScope.isLoggedIn = CookiesService.getUser() ? true : false;
+    }
+  });
+}());

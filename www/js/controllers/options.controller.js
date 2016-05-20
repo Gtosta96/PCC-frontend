@@ -1,15 +1,19 @@
-var app = angular.module('pccApp.options.controller', [
-  'pccApp.cookiesService.service',
-  'pccApp.loginService.service',
-]);
+(function() {
+  'use strict';
 
-app.controller('optionsCtrl', function(LoginService, CookiesService) {
+  var app = angular.module('pccApp.options.controller', [
+    'pccApp.cookiesService.service',
+    'pccApp.loginService.service',
+  ]);
 
-  var vm = this;
+  app.controller('optionsCtrl', function(LoginService, CookiesService) {
 
-  vm.logout = function() {
-    LoginService.logout();
-  };
+    var vm = this;
 
-  vm.user = CookiesService.getUser();
-});
+    vm.logout = function() {
+      LoginService.logout();
+    };
+    
+    vm.user = CookiesService.getUser();
+  });
+}());

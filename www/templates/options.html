@@ -2,15 +2,16 @@
   <ion-content overflow-scroll="true" padding="true" class="has-header">
     <div class="list">
       <div class="item item-avatar">
-        <img src="{{ vm.user.picture }}">
-        <h2>{{ vm.user.firstName + ' ' + vm.user.lastName }}</h2>
-        <p>{{ vm.user.bornDate }}</p>
+        <img ng-if="vm.user.picture" ng-src="{{ ::vm.user.picture }}">
+        <img ng-if="!vm.user.picture" src="img/picture_profile.jpg">
+        <h2>{{ ::vm.user.firstName + ' ' + vm.user.lastName }}</h2>
+        <p>{{ ::vm.user.bornDate }}</p>
       </div>
 
       <a class="item item-icon-left" href="#">
         <i class="icon ion-email"></i> Email
         <span class="item-note">
-        {{ vm.user.email }}
+        {{ ::vm.user.email }}
       </span>
       </a>
 
