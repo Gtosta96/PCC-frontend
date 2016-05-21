@@ -12,6 +12,7 @@
     var vm = this;
     vm.travel = {};
     vm.travel.imgs = [];
+    vm.travel.comments = [];
 
     //TODO: Criar diretiva para o código abaixo.
     $scope.$watch(function watchForm(scope) {
@@ -45,6 +46,12 @@
       $cordovaCamera.getPicture(options).then(function(imageData) {
         vm.travel.imgs.push("data:image/jpeg;base64," + imageData);
       }, HandlerService.callbackError);
+    }
+
+    vm.saveTravel = function(form, travel) {
+      if (form.$valid) {
+        console.log("AOW");
+      }
     }
   });
 }());

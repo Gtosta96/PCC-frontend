@@ -14,7 +14,7 @@
     vm.loginAuth = function(form, credentials) {
 
       LoginAuthRestService.save(credentials).$promise.then(function(user) {
-        LoginService.login(user);
+        LoginService.login(user, false);
       }, HandlerService.callbackError);
     };
 
@@ -22,18 +22,14 @@
       ngFB.login({
         scope: 'email, public_profile, user_friends, user_birthday'
       }).then(function(success) {
-        if (success.status === 'connected') {
-          ngFB.api({
-            path: '/me',
-            params: {
-              fields: 'first_name, last_name, email, picture, birthday'
-            }
-          }).then(function(user) {
-            LoginService.login(user, true);
-          }, HandlerService.callbackError);
-        } else {
-          HandlerService.callbackError;
-        }
+        ngFB.api({
+          path: '/me',
+          params: {
+            fields: 'first_name, last_name, email, picture, birthday'
+          }
+        }).then(function(user) {
+          LoginService.login(user, true);
+        }, HandlerService.callbackError);
       });
     };
   });
