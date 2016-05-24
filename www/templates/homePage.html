@@ -13,13 +13,13 @@
               <input type="text" name="destination" placeholder="Digite o destino" ng-model="vm.travel.destination" required>
             </div>
 
-            <div name="startDate" class="item item-icon-left" ion-datetime-picker date ng-model="vm.travel.startDate" required>
+            <div name="startDate" class="item item-icon-left" ion-datetime-picker date ng-model="vm.startDate" required>
               <i class="icon ion-ios-calendar"></i> Data de Ida:
-              <strong>{{ vm.travel.startDate | date: "dd-MM-yyyy" }}</strong>
+              <strong>{{ vm.startDate | date: "dd-MM-yyyy" }}</strong>
             </div>
-            <div name="endDate" class="item item-icon-left" ion-datetime-picker date monday-first ng-model="vm.travel.endDate" required>
+            <div name="endDate" class="item item-icon-left" ion-datetime-picker date monday-first ng-model="vm.endDate" required>
               <i class="icon ion-ios-calendar-outline"></i> Data de Volta:
-              <strong>{{ vm.travel.endDate | date: "dd-MM-yyyy" }}</strong>
+              <strong>{{ vm.endDate | date: "dd-MM-yyyy" }}</strong>
             </div>
             <div ng-if="vm.saveTravelForm.$valid && !vm.saveTravelForm.$pristine">
               <ion-slide-box class="item item-stacked-label" show-pager="false" style="padding-bottom: 0;">
@@ -38,8 +38,8 @@
                 <div class="col col-50" ng-click="vm.takePicture();"><i class="icon ion-camera"></i></div>
                 <div class="col col-50" ng-click="vm.importPicture();"><i class="icon ion-images"></i></div>
               </div>
-              <div ng-if="vm.travel.imgs" class="row" style="display: block">
-                <div ng-repeat="image in vm.travel.imgs" class="col col-20" style="margin: 10px 0 0 0; display: inline-block;">
+              <div ng-if="vm.resources" class="row" style="display: block">
+                <div ng-repeat="image in vm.resources" class="col col-20" style="margin: 10px 0 0 0; display: inline-block;">
                   <img ng-src="{{ image }}">
                 </div>
               </div>
