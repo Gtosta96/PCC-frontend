@@ -6,7 +6,7 @@
     'pccApp.handlerService.service',
   ]);
 
-  app.controller('TravelInfoCtrl', function($stateParams, HandlerService, TravelInfoRestService) {
+  app.controller('TravelInfoCtrl', function($stateParams, HandlerService) {
 
     var vm = this;
 

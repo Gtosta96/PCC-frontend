@@ -37,14 +37,13 @@
     };
 
     function parseUserFromFacebook(user, isFacebookUser) {
-      var userPicture = (user.picture && user.picture.data.url ? user.picture.data.url : null);
-      return {
-        id: user.userId || user.id,
-        firstName: user.firstName || user.first_name,
-        lastName: user.lastName || user.last_name,
-        email: user.userDetails.email || user.email,
-        bornDate: user.bornDate || user.birthday,
-        picture: userPicture,
+			return {
+        id: user.id || user.userId || null,
+        firstName: user.first_name || user.firstName || null,
+        lastName: user.last_name || user.lastName || null,
+        email: user.email || (user.userDetails && user.userDetails.email) || null,
+        bornDate: user.birthday || user.bornDate || null,
+        picture: user.picture && user.picture.data.url || null,
         isFacebookUser: isFacebookUser
       }
     };
