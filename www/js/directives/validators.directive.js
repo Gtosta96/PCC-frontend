@@ -3,7 +3,7 @@ var app = angular.module('pccApp.validators.directive', []);
 app.directive("errorTemplates", function() {
   return {
     restrict: "E",
-    templateUrl: "/templates/util/directives/errorTemplates.directive.html"
+    templateUrl: "templates/util/directives/errorTemplates.directive.html"
   }
 });
 
@@ -16,7 +16,7 @@ app.directive("displayMessage", function() {
       display: '@',
       message: '@'
     },
-    templateUrl: "/templates/util/directives/displayMessage.directive.html"
+    templateUrl: "templates/util/directives/displayMessage.directive.html"
   }
 });
 
