@@ -6,43 +6,42 @@
     'pccApp.cookiesService.service'
   ]);
 
-  app.factory('LoginAuthRestService', function($resource) {
-    return $resource("http://localhost:8080/PCC-backend/loginAuth", {
+  app.factory('LoginAuthRestService', function($resource, SERVER_URL) {
+    return $resource(SERVER_URL + "PCC-backend/loginAuth", {
       data: '@data'
     });
   });
 
-  app.factory('SignUpRestService', function($resource) {
-    return $resource("http://localhost:8080/PCC-backend/signUp", {
+  app.factory('SignUpRestService', function($resource, SERVER_URL) {
+    return $resource(SERVER_URL + "PCC-backend/signUp", {
       data: '@data'
     });
   });
 
-  app.factory('SaveTravelRestService', function($resource, CookiesService) {
-    return $resource("http://localhost:8080/PCC-backend/saveTravel/:userId", {
-      userId: CookiesService.getUser().id,
-      data: '@data'
+  app.factory('SaveTravelRestService', function($resource, SERVER_URL) {
+    return $resource(SERVER_URL + "PCC-backend/saveTravel/:userId", {
+      data: '@data',
     });
   });
 
-  app.factory('MyTravelsListRestService', function($resource, CookiesService) {
-    return $resource("http://localhost:8080/PCC-backend/myTravelsList/:userId", {
+  app.factory('MyTravelsListRestService', function($resource, CookiesService, SERVER_URL) {
+    return $resource(SERVER_URL + "PCC-backend/myTravelsList/:userId", {
       userId: CookiesService.getUser().id
     });
   });
 
-  app.factory('AllTravelsListRestService', function($resource) {
-    return $resource("http://localhost:8080/PCC-backend/allTravelsList");
+  app.factory('AllTravelsListRestService', function($resource, SERVER_URL) {
+    return $resource(SERVER_URL + "PCC-backend/allTravelsList");
   });
 
-  app.factory('TravelInfoRestService', function($resource, CookiesService) {
-    return $resource("http://localhost:8080/PCC-backend/travelInfo/:travelId", {
+  app.factory('TravelInfoRestService', function($resource, CookiesService, SERVER_URL) {
+    return $resource(SERVER_URL + "PCC-backend/travelInfo/:travelId", {
       travelId: '@data'
     });
   });
 
-  app.factory('TravellerInfoRestService', function($resource) {
-    return $resource("http://localhost:8080/PCC-backend/travellerInfo/:travellerId", {
+  app.factory('TravellerInfoRestService', function($resource, SERVER_URL) {
+    return $resource(SERVER_URL + "PCC-backend/travellerInfo/:travellerId", {
       travellerId: '@data'
     });
   });

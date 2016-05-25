@@ -5,10 +5,11 @@
     'pccApp.handlerService.service',
     'pccApp.cameraService.service',
     'pccApp.restService.service',
+    'pccApp.cookiesService.service',
     'ngCordova'
   ]);
 
-  app.controller('HomePageCtrl', function($scope, $cordovaCamera, HandlerService, CameraService, SaveTravelRestService) {
+  app.controller('HomePageCtrl', function($scope, $cordovaCamera, HandlerService, CameraService, SaveTravelRestService, CookiesService) {
 
     var vm = this;
     vm.travel = {};
@@ -50,7 +51,9 @@
 
     vm.saveTravel = function(form, travel) {
       if (form.$valid) {
-        SaveTravelRestService.save(travel).$promise.then(function(success) {
+				var isFacebookUser = CookiesService.getUser().isFacebookUser;
+				console.log(JSON.stringify({travel: travel, isFacebookUser: isFacebookUser}));
+        SaveTravelRestService.save({travel: travel, isFacebookUser: isFacebookUser}).$promise.then(function(success) {
           console.log("wokr");
         }, HandlerService.callbackError);
       }

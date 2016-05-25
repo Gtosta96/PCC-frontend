@@ -11,8 +11,9 @@
     function getPictureOptions(sourceType) {
       return {
         quality: 50,
-        destinationType: Camera.DestinationType.DATA_URL,
-        sourceType: Camera.PictureSourceType.CAMERA,
+        destinationType: Camera.DestinationType.DATA_URL, // BASE64
+				// destinationType: Camera.DestinationType.FILE_URI, // URL
+        sourceType: sourceType,
         allowEdit: true,
         encodingType: Camera.EncodingType.JPEG,
         targetWidth: 50,
