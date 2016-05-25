@@ -51,9 +51,9 @@
 
     vm.saveTravel = function(form, travel) {
       if (form.$valid) {
-				var isFacebookUser = CookiesService.getUser().isFacebookUser;
-				console.log(JSON.stringify({travel: travel, isFacebookUser: isFacebookUser}));
-        SaveTravelRestService.save({travel: travel, isFacebookUser: isFacebookUser}).$promise.then(function(success) {
+				travel.isFacebookUser = CookiesService.getUser().isFacebookUser;
+				console.log(travel);
+        SaveTravelRestService.save(travel).$promise.then(function(success) {
           console.log("wokr");
         }, HandlerService.callbackError);
       }
