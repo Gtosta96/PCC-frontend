@@ -3,19 +3,19 @@ var app = angular.module('pccApp.handleDays.directive', []);
 app.directive("handleDays", function() {
   return {
     restrict: 'E',
-    controller: 'HomePageCtrl',
-    controllerAs: 'vm',
-    bindToController:true,
     scope: {
-      form: '='
+      form: '=form',
+			startDate: '=startDate',
+			endDate: '=endDate',
+			setDaysCallback: '&setDaysCallback'
     },
     link: function(scope, element, attributes) {
       scope.$watch(function watchForm() {
-        return scope.vm.form.$valid && !scope.vm.form.$pristine;
+        return scope.form.$valid && !scope.form.$pristine;
       }, function handleWatchedForm(newValue, oldValue) {
         if (newValue) {
-          var startDate = scope.vm.form.startDate.$modelValue;
-          var endDate = scope.vm.form.endDate.$modelValue;
+          var startDate = scope.startDate;
+          var endDate = scope.endDate;
 
           var days = [];
           var auxDate = startDate;
@@ -23,7 +23,7 @@ app.directive("handleDays", function() {
             days.push(auxDate);
             auxDate = new Date(auxDate.getTime() + 86400000);
           }
-          vm.travel.days = days;
+          scope.setDaysCallback({days: days});
         }
       });
     }

@@ -7,7 +7,7 @@
       <div class="item item-body">
         <p>
           <form name="saveTravelForm" ng-submit="vm.saveTravel(vm.travel)" novalidate>
-            <handle-days form="saveTravelForm">
+            <handle-days form="saveTravelForm" start-date="vm.startDate" end-date="vm.endDate" set-days-callback="vm.setDaysCallback(days)">
               <div class="item item-icon-left">
                 <i class="icon ion-plane"></i>
                 <input type="text" name="destination" placeholder="Digite o destino" ng-model="vm.travel.destination" required>

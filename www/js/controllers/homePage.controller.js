@@ -16,23 +16,9 @@
     vm.travel.resources = [];
     vm.travel.comments = [];
 
-    // $scope.$watch(function watchForm(scope) {
-    //   return vm.saveTravelForm.$valid && !vm.saveTravelForm.$pristine;
-    // }, function handleWatchedForm(newValue, oldValue) {
-    //   if (newValue) {
-    //     var startDate = vm.startDate;
-    //     var endDate = vm.endDate;
-    //
-    //     var days = [];
-    //     var auxDate = startDate;
-    //     while (auxDate.getTime() <= endDate.getTime()) {
-    //       days.push(auxDate);
-    //       auxDate = new Date(auxDate.getTime() + 86400000);
-    //     }
-    //
-    //     vm.travel.days = days;
-    //   }
-    // });
+		vm.setDaysCallback = function(days) {
+			vm.travel.days = days;
+		};
 
     vm.importPicture = function() {
       var options = CameraService.getPictureOptions(0);
