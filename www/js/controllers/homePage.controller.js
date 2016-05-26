@@ -16,24 +16,23 @@
     vm.travel.resources = [];
     vm.travel.comments = [];
 
-    //TODO: Criar diretiva para o código abaixo.
-    $scope.$watch(function watchForm(scope) {
-      return vm.saveTravelForm.$valid && !vm.saveTravelForm.$pristine;
-    }, function handleWatchedForm(newValue, oldValue) {
-      if (newValue) {
-        var startDate = vm.startDate;
-        var endDate = vm.endDate;
-
-        var days = [];
-        var auxDate = startDate;
-        while (auxDate.getTime() <= endDate.getTime()) {
-          days.push(auxDate);
-          auxDate = new Date(auxDate.getTime() + 86400000);
-        }
-
-        vm.travel.days = days;
-      }
-    });
+    // $scope.$watch(function watchForm(scope) {
+    //   return vm.saveTravelForm.$valid && !vm.saveTravelForm.$pristine;
+    // }, function handleWatchedForm(newValue, oldValue) {
+    //   if (newValue) {
+    //     var startDate = vm.startDate;
+    //     var endDate = vm.endDate;
+    //
+    //     var days = [];
+    //     var auxDate = startDate;
+    //     while (auxDate.getTime() <= endDate.getTime()) {
+    //       days.push(auxDate);
+    //       auxDate = new Date(auxDate.getTime() + 86400000);
+    //     }
+    //
+    //     vm.travel.days = days;
+    //   }
+    // });
 
     vm.importPicture = function() {
       var options = CameraService.getPictureOptions(0);
@@ -49,14 +48,11 @@
       }, HandlerService.callbackError);
     }
 
-    vm.saveTravel = function(form, travel) {
-      if (form.$valid) {
-				travel.isFacebookUser = CookiesService.getUser().isFacebookUser;
-				console.log(travel);
-        SaveTravelRestService.save(travel).$promise.then(function(success) {
-          console.log("wokr");
-        }, HandlerService.callbackError);
-      }
+    vm.saveTravel = function(travel) {
+			travel.isFacebookUser = CookiesService.getUser().isFacebookUser;
+      SaveTravelRestService.save(travel).$promise.then(function(success) {
+        console.log("work");
+      }, HandlerService.callbackError);
     }
   });
 }());
