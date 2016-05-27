@@ -25,14 +25,9 @@
     });
   });
 
-  app.factory('MyTravelsListRestService', function($resource, CookiesService, SERVER_URL) {
-    return $resource(SERVER_URL + "PCC-backend/myTravelsList/:userId", {
-      userId: CookiesService.getUser().id
-    });
-  });
-
-  app.factory('AllTravelsListRestService', function($resource, SERVER_URL) {
-    return $resource(SERVER_URL + "PCC-backend/allTravelsList");
+  app.factory('TravelsListRestService', function($resource, SERVER_URL) {
+    return $resource(SERVER_URL + "PCC-backend/travelsList/:userId/:pagination");
+    data: '@data'
   });
 
   app.factory('TravelInfoRestService', function($resource, CookiesService, SERVER_URL) {

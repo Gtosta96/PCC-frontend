@@ -6,7 +6,6 @@
     'pccApp.routes',
     'pccApp.constants',
     'pccApp.handleDays.directive',
-    'pccApp.infiniteScroll.directive',
     'pccApp.validators.directive',
     'ngOpenFB',
     'ion-datetime-picker'
