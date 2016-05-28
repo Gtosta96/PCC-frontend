@@ -18,20 +18,17 @@
 
     vm.infiniteScroll = {};
     vm.infiniteScroll.travels = [];
-    vm.infiniteScroll.requestListTravels = {pag: 0, tam: 5};
+    vm.infiniteScroll.requestListTravels = {pag: 1, len: 5};
     vm.infiniteScroll.noMoreItemsAvailable = false;
 
-    var request = {
-      id: 1,
-      pagination : vm.infiniteScroll.requestListTravels
-    };
-
     vm.loadMoreTravels = function() {
-        TravelsListRestService.get(request).then(function(success) {
-          if(success.data.length != 0) {
-            for(var i = 0; i < success.data.length; i++) {
-              vm.infiniteScroll.travels.push = sucess.data;
+        TravelsListRestService.query(vm.infiniteScroll.requestListTravels).$promise.then(function(response) {
+          if(response) {
+            for(var i = 0; i < response.length; i++) {
+              vm.infiniteScroll.travels.push(response[i]);
             }
+            vm.infiniteScroll.requestListTravels.pag++;
+            $scope.$broadcast('scroll.infiniteScrollComplete');
           } else {
             vm.infiniteScroll.noMoreItemsAvailable = true;
           }
