@@ -68,7 +68,9 @@
 	  			<input type="date" name="bornDate" ng-model="user.bornDate" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" required>
 			  </label>
 			  <display-message form="signUpForm" attribute="bornDate" display="data de nascimento"></display-message>
-			  <button class="button button-full button-sundown no-padding" type="submit">Cadastrar</button>
+				<input type="hidden" name="facebookUser" ng-model="user.facebookUser" ng-init="user.facebookUser = false" value= "user.facebookUser">
+				<input type="hidden" name="enabled" ng-model="user.enabled" ng-init="user.enabled = true" value= "user.enabled">
+				<button class="button button-full button-sundown no-padding" type="submit">Cadastrar</button>
 		  </div>
 	  	</form>
 	</ion-content>

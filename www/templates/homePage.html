@@ -40,7 +40,7 @@
               </div>
               <div ng-if="vm.resources" class="row" style="display: block">
                 <div ng-repeat="image in vm.resources" class="col col-20" style="margin: 10px 0 0 0; display: inline-block;">
-                  <img ng-src="{{ image }}">
+                  <img ng-src="data:image/jpeg;base64,{{ image }}">
                 </div>
               </div>
             </div>

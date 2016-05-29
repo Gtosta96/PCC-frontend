@@ -23,7 +23,7 @@
 
     vm.loadMoreTravels = function() {
         TravelsListRestService.query(vm.infiniteScroll.requestListTravels).$promise.then(function(response) {
-          if(response) {
+          if(response.length) {
             for(var i = 0; i < response.length; i++) {
               vm.infiniteScroll.travels.push(response[i]);
             }
@@ -42,14 +42,14 @@
     vm.importPicture = function() {
       var options = CameraService.getPictureOptions(0);
       $cordovaCamera.getPicture(options).then(function(imageData) {
-        vm.travel.resources.push("data:image/jpeg;base64," + imageData);
+        vm.travel.resources.push(imageData);
       }, HandlerService.callbackError);
     }
 
     vm.takePicture = function() {
       var options = CameraService.getPictureOptions(1);
       $cordovaCamera.getPicture(options).then(function(imageData) {
-        vm.travel.resources.push("data:image/jpeg;base64," + imageData);
+        vm.travel.resources.push(imageData);
       }, HandlerService.callbackError);
     }
 
