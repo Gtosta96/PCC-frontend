@@ -1,18 +1,15 @@
 <ion-view view-title="Minhas Viagens" hide-nav-bar="true">
-  <ion-content overflow-scroll="true">
+  <ion-content overflow-scroll="true" padding="true" class="has-header">
     <div class="list" ng-if="vm.myTravelsList">
       <div class="item item-divider">
-          Ranking - Suas Viagens
-        </div>
+        Ranking - Suas Viagens
+      </div>
       <a ng-repeat="travel in vm.myTravelsList" href="#/travelInfo?id={{ travel.id }}" class="item item-thumbnail-left">
         <img ng-src="{{ ::travel.image }}">
         <h2>{{ ::travel.destination }}</h2>
         <h4>{{ ::travel.date }}</h4>
         <span class="badge badge-assertive">{{ travel.rank }}</span>
       </a>
-    </div>
-    <div ng-if="!vm.myTravelsList">
-      Não há Viagens cadastradas.
     </div>
   </ion-content>
 </ion-view>

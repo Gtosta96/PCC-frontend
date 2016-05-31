@@ -54,7 +54,7 @@
         Timeline
       </div>
       <a ng-repeat="travel in vm.infiniteScroll.travels" href="#/travelInfo?id={{ travel.id }}" class="item item-thumbnail-left">
-        <img ng-src="{{ travel.image }}">
+        <img ng-src="{{ travel.photos[0] }}">
         <h2>{{ travel.destination }}</h2>
         <h4>{{ travel.date }}</h4>
         <span class="badge badge-assertive">{{ travel.rank }}</span>
@@ -64,10 +64,8 @@
         </p>
       </a>
     </div>
-    <div ng-if="!vm.infiniteScroll.travels">
-      Não há Viagens cadastradas.
-    </div>
-    <ion-infinite-scroll ng-if="!vm.noMoreItemsAvailable" on-infinite="vm.loadMoreTravels()" distance="1%">
-    </ion-infinite-scroll>
+    <!-- <ion-infinite-scroll ng-if="!vm.infiniteScroll.noMoreItemsAvailable" on-infinite="vm.infiniteScroll.loadMoreTravels()" distance="1%">
+    </ion-infinite-scroll> -->
+    <tp-infinite-scroll rest-service="TravelsListRestService" set-data-callback="vm.setTravelsCallback(data)"></tp-infinite-scroll>
   </ion-content>
 </ion-view>

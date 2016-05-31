@@ -9,31 +9,16 @@
     'ngCordova'
   ]);
 
-  app.controller('HomePageCtrl', function($scope, $cordovaCamera, HandlerService, CameraService, SaveTravelRestService, TravelsListRestService, CookiesService) {
+  app.controller('HomePageCtrl', function($cordovaCamera, HandlerService, CameraService, SaveTravelRestService, CookiesService) {
 
     var vm = this;
     vm.travel = {};
     vm.travel.resources = [];
     vm.travel.comments = [];
 
-    vm.infiniteScroll = {};
-    vm.infiniteScroll.travels = [];
-    vm.infiniteScroll.requestListTravels = {pag: 1, len: 5};
-    vm.infiniteScroll.noMoreItemsAvailable = false;
-
-    vm.loadMoreTravels = function() {
-        TravelsListRestService.query(vm.infiniteScroll.requestListTravels).$promise.then(function(response) {
-          if(response.length) {
-            for(var i = 0; i < response.length; i++) {
-              vm.infiniteScroll.travels.push(response[i]);
-            }
-            vm.infiniteScroll.requestListTravels.pag++;
-            $scope.$broadcast('scroll.infiniteScrollComplete');
-          } else {
-            vm.infiniteScroll.noMoreItemsAvailable = true;
-          }
-        }, HandlerService.callbackError);
-    }
+    vm.setTravelsCallback = function(data) {
+      vm.infiniteScroll.travels = data;
+    };
 
 		vm.setDaysCallback = function(days) {
 			vm.travel.days = days;

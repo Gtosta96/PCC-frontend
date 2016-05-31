@@ -7,6 +7,7 @@
     'pccApp.constants',
     'pccApp.handleDays.directive',
     'pccApp.validators.directive',
+    'pccApp.tpInfiniteScroll.directive',
     'ngOpenFB',
     'ion-datetime-picker'
   ]);
