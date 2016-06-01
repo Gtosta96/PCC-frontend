@@ -15,6 +15,7 @@
     vm.travel = {};
     vm.travel.resources = [];
     vm.travel.comments = [];
+		vm.infiniteScroll = {};
 
     vm.setTravelsCallback = function(data) {
       vm.infiniteScroll.travels = data;

@@ -8,18 +8,15 @@
   ]);
 
   app.controller('MyTravelsCtrl', function(HandlerService, MyTravelsListMockService, CookiesService) {
-
     var vm = this;
+		vm.infiniteScroll = {};
+    vm.userId = CookiesService.getUser().id;
 
-    // var userId = {
-    //   userId: CookiesService.getUser().id
-    // };
+		vm.setTravelsCallback = function(data) {
+      vm.infiniteScroll.travels = data;
+    };
 
-    // MyTravelsListRestService.get(userId).$promise.then(function(travelsList) {
-    //   vm.myTravelsList = travelsList;
-    // }, HandlerService.callbackError);
-
-    //MOCK
-    vm.myTravelsList = MyTravelsListMockService;
+    // MOCK
+    // vm.myTravelsList = MyTravelsListMockService;
   });
 }());

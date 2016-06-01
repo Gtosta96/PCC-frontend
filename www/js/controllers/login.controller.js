@@ -7,7 +7,7 @@
     'pccApp.handlerService.service',
   ]);
 
-  app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthRestService, LoginService, CookiesService, HandlerService) {
+  app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthRestService, SignUpRestService, LoginService, CookiesService, HandlerService) {
 
     var vm = this;
 
@@ -28,7 +28,9 @@
             fields: 'first_name, last_name, email, picture, birthday'
           }
         }).then(function(user) {
-          LoginService.login(user, true);
+						SignUpRestService.save(user).$promise.then(function(success) {
+	          	LoginService.login(user, true);
+	        }, HandlerService.callbackError);
         }, HandlerService.callbackError);
       });
     };

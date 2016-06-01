@@ -4,7 +4,7 @@
       <div class="item item-divider text-center">
         Ranking - Suas Viagens
       </div>
-      <a ng-if="vm.myTravelsList" ng-repeat="travel in vm.myTravelsList" href="#/travelInfo?id={{ travel.id }}" class="item item-thumbnail-left">
+      <a ng-if="vm.myTravelsList" ng-repeat="travel in vm.infiniteScroll.travels" href="#/travelInfo?id={{ travel.id }}" class="item item-thumbnail-left">
         <img ng-src="{{ ::travel.image }}">
         <h2>{{ ::travel.destination }}</h2>
         <h4>{{ ::travel.date }}</h4>
@@ -14,5 +14,6 @@
 				Não conseguimos encontrar viagens no momento. </br> :(
 			</div>
     </div>
+		<tb-infinite-scroll user-id="vm.userId" rest-service="TravelsListRestService" set-data-callback="vm.setTravelsCallback(data)"></tb-infinite-scroll>
   </ion-content>
 </ion-view>
