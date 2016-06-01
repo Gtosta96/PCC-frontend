@@ -17,10 +17,10 @@
           <ion-toggle ng-init="vm.infiniteScroll.reverse = true" ng-model="vm.infiniteScroll.reverse" toggle-class="toggle-dark">Asc:</ion-toggle>
         </div>
      </div>
-      <a ng-if="vm.infiniteScroll.travels" ng-repeat="travel in vm.infiniteScroll.travels" href="#/travelInfo?id={{ travel.id }}" class="item item-thumbnail-left">
-        <img ng-src="{{ ::travel.image }}">
-        <h2>{{ ::travel.destination }}</h2>
-        <h4>{{ ::travel.date }}</h4>
+      <a ng-if="vm.infiniteScroll.travels" ng-repeat="travel in vm.infiniteScroll.travels | orderBy: vm.infiniteScroll.order:vm.infiniteScroll.reverse" href="#/travelInfo?id={{ travel.id }}" class="item item-thumbnail-left">
+        <img ng-src="{{ travel.image }}">
+        <h2>{{ travel.destination }}</h2>
+        <h4>{{ travel.date }}</h4>
         <span class="badge badge-assertive">{{ travel.rank }}</span>
       </a>
 			<div ng-if="!vm.infiniteScroll.travels" class="item item-body text-center">
