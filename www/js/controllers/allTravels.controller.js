@@ -15,7 +15,7 @@
       vm.infiniteScroll.travels = data;
     };
 
-    //MOCK
-    vm.travelsList = AllTravelsListMockService;
+    // MOCK
+     vm.travelsList = AllTravelsListMockService;
   });
 }());

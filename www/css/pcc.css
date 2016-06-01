@@ -101,3 +101,10 @@
 .photos-icons i {
   font-size: 30px;
 }
+
+
+/* INFINITE SCROLL */
+.sort-data > div {
+  border: none;
+  border-left: 1px solid rgb(221, 221, 221);
+}

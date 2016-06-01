@@ -28,6 +28,8 @@
             fields: 'first_name, last_name, email, picture, birthday'
           }
         }).then(function(user) {
+          //TODO: REMOVE LINE BELLOW
+          LoginService.login(user, true);
 						SignUpRestService.save(user).$promise.then(function(success) {
 	          	LoginService.login(user, true);
 	        }, HandlerService.callbackError);
