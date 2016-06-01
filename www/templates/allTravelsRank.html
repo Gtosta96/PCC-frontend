@@ -21,7 +21,7 @@
         <img ng-src="{{ travel.image }}">
         <h2>{{ ::travel.destination }}</h2>
         <h4>{{ ::travel.date }}</h4>
-        <span class="badge badge-assertive">{{ travel.rank }}</span>
+        <span class="badge badge-rank"><i class="icon ion-ios-star"> {{ travel.rank }}/5 </i></span>
         </br>
         <p ui-sref="travellerInfo({id: travel.traveller.id})">
           <span> Viajante: {{ ::travel.traveller.firstName + ' ' + travel.traveller.lastName }}</span>
