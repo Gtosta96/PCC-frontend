@@ -20,6 +20,7 @@
                 <i class="icon ion-ios-calendar-outline"></i> Data de Volta:
                 <strong>{{ vm.endDate | date: "dd-MM-yyyy" }}</strong>
               </div>
+              <ionic-ratings ratingsobj="vm.setRankCallback"></ionic-ratings>
             </handle-days>
             <div ng-if="saveTravelForm.$valid && !saveTravelForm.$pristine">
               <ion-slide-box class="item item-stacked-label" show-pager="false" style="padding-bottom: 0;">

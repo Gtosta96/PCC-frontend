@@ -6,6 +6,8 @@
     'pccApp.cameraService.service',
     'pccApp.restService.service',
     'pccApp.cookiesService.service',
+    'ion-datetime-picker',
+    'ionic-ratings',
     'ngCordova'
   ]);
 
@@ -17,6 +19,18 @@
     vm.travel.comments = [];
 		vm.infiniteScroll = {};
 
+    //TODO: Mover para diretiva
+    vm.setRankCallback = {
+      iconOn: 'ion-ios-star',
+      iconOff: 'ion-ios-star-outline',
+      iconOnColor: '#FFC900',
+      iconOffColor:  '#DDD',
+      rating:  3,
+      minRating: 1,
+      callback: function(data) {
+        vm.travel.rank = data;
+      }
+    }
     vm.setTravelsCallback = function(data) {
       vm.infiniteScroll.travels = data;
     };

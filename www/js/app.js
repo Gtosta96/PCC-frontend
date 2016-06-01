@@ -8,8 +8,7 @@
     'pccApp.handleDays.directive',
     'pccApp.validators.directive',
     'pccApp.tbInfiniteScroll.directive',
-    'ngOpenFB',
-    'ion-datetime-picker'
+    'ngOpenFB'
   ]);
 
   app.run(function($ionicPlatform, ngFB) {
