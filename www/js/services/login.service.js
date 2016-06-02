@@ -10,10 +10,7 @@
       isLoggedIn: isLoggedIn,
     };
 
-    function login(user, loggedFromFacebook) {
-
-      user = HandlerService.parseUserFromFacebook(user, loggedFromFacebook);
-
+    function login(user) {
       CookiesService.setUser(user);
       this.isLoggedIn();
       HandlerService.go('tab.homePage');

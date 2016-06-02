@@ -12,9 +12,9 @@
     var vm = this;
 
     vm.loginAuth = function(form, credentials) {
-
       LoginAuthRestService.save(credentials).$promise.then(function(user) {
-        LoginService.login(user, false);
+				user = HandlerService.parseUser(user);
+        LoginService.login(user);
       }, HandlerService.callbackError);
     };
 
@@ -28,8 +28,10 @@
             fields: 'first_name, last_name, email, picture, birthday'
           }
         }).then(function(user) {
-						SignUpRestService.save(user).$promise.then(function(success) {
-	          	LoginService.login(user, true);
+						var parsedUser = HandlerService.parseUser(user);
+						var userToServer = HandlerService.parseUserFromFacebookToSendToServer(parsedUser);
+						SignUpRestService.save(userToServer).$promise.then(function() {
+							LoginService.login(parsedUser);
 	        }, HandlerService.callbackError);
         }, HandlerService.callbackError);
       });

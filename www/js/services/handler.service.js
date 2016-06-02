@@ -7,7 +7,8 @@
     return {
       go: go,
       callbackError: callbackError,
-      parseUserFromFacebook: parseUserFromFacebook
+      parseUser: parseUser,
+			parseUserFromFacebookToSendToServer: parseUserFromFacebookToSendToServer
     };
 
     function go(tela) {
@@ -36,7 +37,7 @@
       $log.error('Ocorreu um erro: %o', error);
     };
 
-    function parseUserFromFacebook(user, isFacebookUser) {
+    function parseUser(user) {
 			return {
         id: user.id || user.userId || null,
         firstName: user.first_name || user.firstName || null,
@@ -44,8 +45,19 @@
         email: user.email || (user.userDetails && user.userDetails.email) || null,
         bornDate: user.birthday || user.bornDate || null,
         picture: user.picture && user.picture.data.url || null,
-        isFacebookUser: isFacebookUser
       }
     };
+
+		function parseUserFromFacebookToSendToServer(user) {
+			var newUser = {};
+			newUser.facebookUserId = user.id;
+			newUser.firstName = user.firstName;
+			newUser.lastName = user.lastName;
+			newUser.email = user.email;
+			newUser.bornDate = new Date(user.bornDate);
+			newUser.facebookUser = true;
+
+			return newUser;
+		}
   });
 }());
