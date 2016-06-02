@@ -1,6 +1,9 @@
 <ion-view view-title="Opções">
   <ion-content overflow-scroll="true" padding="true" class="has-header">
-    <div class="list">
+    <div class="list card">
+      <div class="item item-divider text-center">
+        Informações Pessoais
+      </div>
       <div class="item item-avatar">
         <img ng-if="vm.user.picture" ng-src="{{ ::vm.user.picture }}">
         <img ng-if="!vm.user.picture" src="img/picture_profile.jpg">

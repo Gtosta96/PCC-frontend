@@ -4,13 +4,26 @@
       <div class="item item-divider text-center">
         Ranking - Suas Viagens
       </div>
-      <a ng-if="vm.myTravelsList" ng-repeat="travel in vm.infiniteScroll.travels" href="#/travelInfo?id={{ travel.id }}" class="item item-thumbnail-left">
-        <img ng-src="{{ ::travel.image }}">
-        <h2>{{ ::travel.destination }}</h2>
-        <h4>{{ ::travel.date }}</h4>
-        <span class="badge badge-assertive">{{ travel.rank }}</span>
+      <div class="row sort-data" ng-if="vm.infiniteScroll.travels">
+        <label class="item-input item-select col-60">
+           Ordenar por:
+         <select ng-init="vm.infiniteScroll.order = 'rank'" ng-model="vm.infiniteScroll.order">
+           <option value="destination">Destino</option>
+           <option value="date">Data</option>
+           <option value="rank">Rank</option>
+         </select>
+        </label>
+        <div class="sort-data col-40">
+          <ion-toggle ng-init="vm.infiniteScroll.reverse = true" ng-model="vm.infiniteScroll.reverse" toggle-class="toggle-dark">Asc:</ion-toggle>
+        </div>
+     </div>
+      <a ng-if="vm.infiniteScroll.travels" ng-repeat="travel in vm.infiniteScroll.travels | orderBy: vm.infiniteScroll.order:vm.infiniteScroll.reverse" href="#/travelInfo?id={{ travel.id }}" class="item item-thumbnail-left">
+        <img ng-src="{{ travel.image }}">
+        <h2>{{ travel.destination }}</h2>
+        <h4>{{ travel.date }}</h4>
+        <span class="badge badge-rank"><i class="icon ion-ios-star"> {{ travel.rank }}/5 </i></span>
       </a>
-			<div ng-if="!vm.myTravelsList" class="item item-body text-center">
+			<div ng-if="!vm.infiniteScroll.travels" class="item item-body text-center">
 				Não conseguimos encontrar viagens no momento. </br> :(
 			</div>
     </div>

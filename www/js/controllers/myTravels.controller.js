@@ -17,6 +17,6 @@
     };
 
     // MOCK
-    // vm.myTravelsList = MyTravelsListMockService;
+    vm.infiniteScroll.travels = MyTravelsListMockService;
   });
 }());

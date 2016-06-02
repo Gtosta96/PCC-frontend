@@ -101,3 +101,19 @@
 .photos-icons i {
   font-size: 30px;
 }
+
+
+/* INFINITE SCROLL */
+.sort-data > div {
+  border: none;
+  border-left: 1px solid rgb(221, 221, 221);
+}
+
+/* RANKING */
+.ionic_ratings .icon {
+  font-size: 40px;
+}
+
+.badge-rank i {
+  font-size: 15px;
+}

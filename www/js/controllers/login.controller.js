@@ -28,10 +28,10 @@
             fields: 'first_name, last_name, email, picture, birthday'
           }
         }).then(function(user) {
-						var parsedUser = HandlerService.parseUser(user);
-						var userToServer = HandlerService.parseUserFromFacebookToSendToServer(parsedUser);
-						SignUpRestService.save(userToServer).$promise.then(function() {
-							LoginService.login(parsedUser);
+        	var parsedUser = HandlerService.parseUser(user);
+					var userToServer = HandlerService.parseUserFromFacebookToSendToServer(parsedUser);
+					SignUpRestService.save(userToServer).$promise.then(function() {
+						LoginService.login(parsedUser);
 	        }, HandlerService.callbackError);
         }, HandlerService.callbackError);
       });

@@ -1,7 +1,7 @@
 <ion-view view-title="Página Inicial">
   <ion-content overflow-scroll="true" padding="true" class="has-header">
     <div class="list card">
-      <div class="item text-center item-divider">
+      <div class="item item-divider text-center">
         Cadastrar nova viagem
       </div>
       <div class="item item-body">
@@ -20,6 +20,7 @@
                 <i class="icon ion-ios-calendar-outline"></i> Data de Volta:
                 <strong>{{ vm.endDate | date: "dd-MM-yyyy" }}</strong>
               </div>
+              <ionic-ratings ratingsobj="vm.setRankCallback"></ionic-ratings>
             </handle-days>
             <div ng-if="saveTravelForm.$valid && !saveTravelForm.$pristine">
               <ion-slide-box class="item item-stacked-label" show-pager="false" style="padding-bottom: 0;">
@@ -57,7 +58,7 @@
         <img ng-src="{{ travel.photos[0] }}">
         <h2>{{ travel.destination }}</h2>
         <h4>{{ travel.date }}</h4>
-        <span class="badge badge-assertive">{{ travel.rank }}</span>
+        <span class="badge badge-rank"><i class="icon ion-ios-star"> {{ travel.rank }}/5 </i></span>
         </br>
         <p ui-sref="travellerInfo({id: travel.traveller.id})">
           <span> Viajante: {{ travel.traveller.firstName + ' ' + travel.traveller.lastName }}</span>
