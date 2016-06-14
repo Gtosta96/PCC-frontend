@@ -19,7 +19,7 @@
   });
 
   app.factory('SaveTravelRestService', function($resource, CookiesService, SERVER_URL) {
-    return $resource("http://localhost:8080/PCC-backend/saveTravel/:userId", {
+    return $resource(SERVER_URL + "PCC-backend/saveTravel/:userId", {
       data: '@data',
 			userId: CookiesService.getUser().id
     });

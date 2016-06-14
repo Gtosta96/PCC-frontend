@@ -20,6 +20,7 @@
 		vm.infiniteScroll = {};
 
     //TODO: Mover para diretiva
+		vm.travel.rank = 3;
     vm.setRankCallback = {
       iconOn: 'ion-ios-star',
       iconOff: 'ion-ios-star-outline',
@@ -56,7 +57,6 @@
     vm.saveTravel = function(travel) {
 			travel.isFacebookUser = CookiesService.getUser().isFacebookUser;
       SaveTravelRestService.save(travel).$promise.then(function(success) {
-        console.log("work");
       }, HandlerService.callbackError);
     }
   });
