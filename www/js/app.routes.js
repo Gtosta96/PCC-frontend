@@ -91,9 +91,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
     }
   });
 
-  $stateProvider.state('travelInfo', {
+  $stateProvider.state('tab.travelInfo', {
     url: '/travelInfo/:id',
-    templateUrl: 'templates/travelInfo.html',
+    views: {
+        'tab-homePage': {
+            templateUrl: 'templates/travelInfo.html',
+        }
+    },
     controller: 'TravelInfoCtrl',
     controllerAs: 'vm',
 		onEnter: checkUser

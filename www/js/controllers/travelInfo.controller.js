@@ -10,9 +10,9 @@
 
     var vm = this;
 
-		$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
-  		viewData.enableBack = true;
-		});
+		// $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+  // 		viewData.enableBack = true;
+		// });
 
 		TravelInfoRestService.get($stateParams).$promise.then(function(result) {
 			vm.travelInfo = result;

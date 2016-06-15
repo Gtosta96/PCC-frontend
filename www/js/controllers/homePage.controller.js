@@ -11,13 +11,14 @@
     'ngCordova'
   ]);
 
-  app.controller('HomePageCtrl', function($cordovaCamera, HandlerService, CameraService, SaveTravelRestService, CookiesService) {
+  app.controller('HomePageCtrl', function($cordovaCamera, HandlerService, CameraService, SaveTravelRestService, CookiesService, AllTravelsListMockService) {
 
     var vm = this;
     vm.travel = {};
     vm.travel.resources = [];
     vm.travel.comments = [];
-		vm.infiniteScroll = {};
+	vm.infiniteScroll = {};
+    vm.infiniteScroll.travels = AllTravelsListMockService;
 
     //TODO: Mover para diretiva
 		vm.travel.rank = 3;
