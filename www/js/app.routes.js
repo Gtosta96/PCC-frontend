@@ -70,7 +70,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider.state('tab.ranking.myTravelsRank', {
     url: '/myTravelsRank',
     views: {
-      'ranking-myTravelsRank': {
+      'tab-ranking-myTravelsRank': {
         templateUrl: 'templates/myTravelsRank.html',
         controller: 'MyTravelsCtrl',
         controllerAs: 'vm',
@@ -82,7 +82,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider.state('tab.ranking.allTravelsRank', {
     url: '/allTravelsRank',
     views: {
-      'ranking-allTravelsRank': {
+      'tab-ranking-allTravelsRank': {
         templateUrl: 'templates/allTravelsRank.html',
         controller: 'AllTravelsCtrl',
         controllerAs: 'vm',
