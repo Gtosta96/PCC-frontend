@@ -40,7 +40,7 @@
                 <div class="col col-50" ng-click="vm.importPicture();"><i class="icon ion-images"></i></div>
               </div>
               <div ng-if="vm.travel.resources" class="row" style="display: block">
-                <div ng-repeat="image in vm.travel.resources" class="col col-20" style="margin: 10px 0 0 0; display: inline-block;">
+                <div ng-repeat="image in vm.travel.resources" class="col col-20 img-tiles">
                   <img ng-src="data:image/jpeg;base64,{{ image }}">
                 </div>
               </div>
@@ -54,13 +54,14 @@
       <div class="item item-divider text-center">
         Timeline
       </div>
-      <a  ng-if="vm.infiniteScroll.travels" ng-repeat="travel in vm.infiniteScroll.travels" href="#/travelInfo?id={{ travel.id }}" class="item item-thumbnail-left">
-        <img ng-src="data:image/jpeg;base64,{{ travel.photos[0].resource }}">
+      <a  ng-if="vm.infiniteScroll.travels" ng-repeat="travel in vm.infiniteScroll.travels" href="#/travelInfo/{{ travel.travelId }}" class="item item-thumbnail-left">
+        <img ng-if="travel.photos[0].resource" ng-src="data:image/jpeg;base64,{{ travel.photos[0].resource }}">
+				<img ng-if="!travel.photos[0].resource" ng-src="img/no_travel_photo.jpg">
         <h2>{{ travel.destination }}</h2>
-        <h4>{{ travel.startDate }}</h4>
+        <h4>{{ travel.date }}</h4>
         <span class="badge badge-rank"><i class="icon ion-ios-star"> {{ travel.rank }}/5 </i></span>
         </br>
-        <p ui-sref="travellerInfo({id: travel.traveller.id})">
+        <p ui-sref="travellerInfo({ id: travel.traveller.id })">
           <span> Viajante: {{ travel.traveller.firstName + ' ' + travel.traveller.lastName }}</span>
         </p>
       </a>

@@ -102,6 +102,11 @@
   font-size: 30px;
 }
 
+/* IMG TILES */
+.img-tiles {
+	margin: 10px 0 0 0;
+	display: inline-block;
+}
 
 /* INFINITE SCROLL */
 .sort-data > div {

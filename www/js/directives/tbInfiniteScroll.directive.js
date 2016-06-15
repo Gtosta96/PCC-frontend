@@ -14,8 +14,8 @@ app.directive("tbInfiniteScroll", function($injector) {
 
 			var request = {
 				id: scope.userId || null,
-				pag: 1,
-				len: 5
+				limit: 5,
+				offset: 0
 			};
 
       scope.moreDataCanBeLoaded = true;
@@ -27,7 +27,7 @@ app.directive("tbInfiniteScroll", function($injector) {
                 data.push(response[i]);
               }
               scope.setDataCallback({data: data});
-              request.pag++;
+              request.offset += 5;
               scope.$broadcast('scroll.infiniteScrollComplete');
             } else {
               scope.moreDataCanBeLoaded = false;

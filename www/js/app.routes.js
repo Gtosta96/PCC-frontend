@@ -92,15 +92,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state('travelInfo', {
-    url: '/travelInfo?:id',
+    url: '/travelInfo/:id',
     templateUrl: 'templates/travelInfo.html',
     controller: 'TravelInfoCtrl',
-    controllerAs: 'vm'
-
+    controllerAs: 'vm',
+		onEnter: checkUser
   });
 
   $stateProvider.state('travellerInfo', {
-    url: '/travellerInfo?:id',
+    url: '/travellerInfo/:id',
     templateUrl: 'templates/travellerInfo.html',
     controller: 'TravellerInfoCtrl',
     controllerAs: 'vm',

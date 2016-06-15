@@ -6,10 +6,16 @@
     'pccApp.handlerService.service',
   ]);
 
-  app.controller('TravelInfoCtrl', function($stateParams, HandlerService) {
+  app.controller('TravelInfoCtrl', function($stateParams, $scope, TravelInfoRestService, HandlerService) {
 
     var vm = this;
 
-    // vm.travelInfo = TravelInfoRestService;
+		$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+  		viewData.enableBack = true;
+		});
+
+		TravelInfoRestService.get($stateParams).$promise.then(function(result) {
+			vm.travelInfo = result;
+		}, HandlerService.callbackError);
   });
 }());
