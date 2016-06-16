@@ -30,9 +30,9 @@
         }).then(function(user) {
         	var parsedUser = HandlerService.parseUser(user);
 					var userToServer = HandlerService.parseUserFromFacebookToSendToServer(parsedUser);
-					// SignUpRestService.save(userToServer).$promise.then(function() {
+					SignUpRestService.save(userToServer).$promise.then(function(result) {
 						LoginService.login(parsedUser);
-	        // }, HandlerService.callbackError);
+	        }, HandlerService.callbackError);
         }, HandlerService.callbackError);
       });
     };

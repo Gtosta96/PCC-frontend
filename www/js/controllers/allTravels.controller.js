@@ -14,8 +14,5 @@
 		vm.setTravelsCallback = function(data) {
       vm.infiniteScroll.travels = data;
     };
-
-    // MOCK
-     vm.infiniteScroll.travels = AllTravelsListMockService;
   });
 }());

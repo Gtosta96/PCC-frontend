@@ -7,7 +7,8 @@
     'pccApp.cookiesService.service',
   ]);
 
-  app.controller('MyTravelsCtrl', function(HandlerService, MyTravelsListMockService, CookiesService) {
+  app.controller('MyTravelsCtrl', function(HandlerService, MyTravelsListMockService, CookiesService, $scope) {
+
     var vm = this;
 		vm.infiniteScroll = {};
     vm.userId = CookiesService.getUser().id;
@@ -15,8 +16,5 @@
 		vm.setTravelsCallback = function(data) {
       vm.infiniteScroll.travels = data;
     };
-
-    // MOCK
-    vm.infiniteScroll.travels = MyTravelsListMockService;
   });
 }());

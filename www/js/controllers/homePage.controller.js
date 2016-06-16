@@ -17,8 +17,7 @@
     vm.travel = {};
     vm.travel.resources = [];
     vm.travel.comments = [];
-	vm.infiniteScroll = {};
-    vm.infiniteScroll.travels = AllTravelsListMockService;
+		vm.infiniteScroll = {};
 
     //TODO: Mover para diretiva
 		vm.travel.rank = 3;

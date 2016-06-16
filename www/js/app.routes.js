@@ -47,18 +47,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     }
   });
 
-  $stateProvider.state('tab.options', {
-    url: '/options',
-    views: {
-      'tab-options': {
-        templateUrl: 'templates/options.html',
-        controller: 'optionsCtrl',
-        controllerAs: 'vm'
-      }
-    }
-  });
-
-  $stateProvider.state('tab.ranking', {
+	$stateProvider.state('tab.ranking', {
     url: '/ranking',
     views: {
       'tab-ranking': {
@@ -91,15 +80,26 @@ app.config(function($stateProvider, $urlRouterProvider) {
     }
   });
 
+  $stateProvider.state('tab.options', {
+    url: '/options',
+    views: {
+      'tab-options': {
+        templateUrl: 'templates/options.html',
+        controller: 'optionsCtrl',
+        controllerAs: 'vm'
+      }
+    }
+  });
+
   $stateProvider.state('tab.travelInfo', {
     url: '/travelInfo/:id',
     views: {
-        'tab-homePage': {
-            templateUrl: 'templates/travelInfo.html',
-        }
+      'tab-homePage': {
+          templateUrl: 'templates/travelInfo.html',
+					controller: 'TravelInfoCtrl',
+					controllerAs: 'vm'
+      }
     },
-    controller: 'TravelInfoCtrl',
-    controllerAs: 'vm',
 		onEnter: checkUser
   });
 
