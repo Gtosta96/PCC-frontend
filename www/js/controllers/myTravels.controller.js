@@ -10,7 +10,8 @@
   app.controller('MyTravelsCtrl', function(HandlerService, MyTravelsListMockService, CookiesService, $scope) {
 
     var vm = this;
-		vm.infiniteScroll = {};
+	vm.infiniteScroll = {};
+    vm.infiniteScroll.travels = MyTravelsListMockService;
     vm.userId = CookiesService.getUser().id;
 
 		vm.setTravelsCallback = function(data) {

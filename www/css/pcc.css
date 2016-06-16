@@ -114,6 +114,20 @@
   border-left: 1px solid rgb(221, 221, 221);
 }
 
+.slider-pager {
+    z-index: 300000;
+    clear: both;
+    margin-bottom: 10px;
+    position: relative;
+    bottom: 0;
+    height: auto;
+    white-space: normal;
+}
+
+.list.card.custom-margin-bottom {
+    margin-bottom: 10px;
+}
+
 /* RANKING */
 .ionic_ratings .icon {
   font-size: 40px;

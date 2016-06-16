@@ -23,9 +23,9 @@
               <ionic-ratings ratingsobj="vm.setRankCallback" ng-model="vm.travel.rank"></ionic-ratings>
             </handle-days>
             <div ng-if="saveTravelForm.$valid && !saveTravelForm.$pristine">
-              <ion-slide-box class="item item-stacked-label" show-pager="false" style="padding-bottom: 0;">
+              <ion-slide-box class="item item-stacked-label" show-pager="true" style="padding: 0;">
                 <ion-slide ng-repeat="days in vm.travel.days" class="item no-padding" style="border: 0">
-                  <div class="list card">
+                  <div class="list card custom-margin-bottom">
                     <div class="item text-center item-divider">
                       {{ days | date: 'fullDate' }}
                     </div>
