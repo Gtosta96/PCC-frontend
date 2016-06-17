@@ -10,9 +10,10 @@
 
 /* --- GENERAL UTILITY --- */
 
-.text-center {
-  text-align: center;
+.no-border, .no-border > div {
+	border: none;
 }
+
 .content-center {
   margin: 0 auto !important;
 }
@@ -109,7 +110,7 @@
 }
 
 /* INFINITE SCROLL */
-.sort-data > div {
+.vertical-divisor > div {
   border: none;
   border-left: 1px solid rgb(221, 221, 221);
 }
@@ -133,6 +134,20 @@
   font-size: 40px;
 }
 
+.ionic_ratings .read_only {
+    pointer-events:none !important;
+  }
+
 .badge-rank i {
   font-size: 15px;
+}
+
+/* TravelInfo */
+
+.border-left {
+border-left: 1px solid rgb(221, 221, 221) !important;
+}
+
+.border-right {
+border-right: 1px solid rgb(221, 221, 221) !important;
 }

@@ -1,10 +1,43 @@
 <ion-view view-title="Informações da Viagem">
-  <ion-content overflow-scroll="true" padding="true" class="has-header">
-    <div class="list card">
-      <div class="item item-divider text-center">
-        {{ ::vm.travelInfo.destination }}
-      </div>
-
-    </div>
-  </ion-content>
+	<ion-content overflow-scroll="true" class="has-header">
+		<div class="list card">
+			<div class="item item-divider text-center">
+				<span>{{ ::vm.travelInfo.destination }}</span>
+			</div>
+			<div class="text-center">
+				<img ng-if="!vm.travelInfo.photos.length" ng-src="img/no_travel_photo.jpg">
+				<ion-slide-box ng-if="vm.travelInfo.photos.length" class="item item-stacked-label" show-pager="false" style="padding: 0; margin: 0;">
+					<ion-slide ng-repeat="photo in vm.travelInfo.photos" class="no-padding" style="border: 0">
+						<img ng-src="data:image/jpeg;base64,{{ photo.resource }}" style="margin: 10px;">
+					</ion-slide>
+				</ion-slide-box>
+			</div>
+		</div>
+		<div class="text-center" style="padding: 10px">
+			<ionic-ratings ng-if="vm.travelInfo.rank" ratingsobj="vm.setRankCallback"></ionic-ratings>
+			<div class="row no-border">
+				<div class="item item-icon-left col-50 border-right content-center">
+					<i class="icon ion-ios-calendar"></i>{{vm.travelInfo.startDate}}
+				</div>
+				<div class="item item-icon-left col-50 border-left content-center">
+					<i class="icon ion-ios-calendar-outline"></i>{{vm.travelInfo.endDate}}
+				</div>
+			</div>
+			<ion-slide-box ng-if="vm.travelInfo.comments.length" class="item item-stacked-label" show-pager="true" style="padding: 0; border: none;">
+				<ion-slide ng-repeat="comments in vm.travelInfo.comments" class="item no-padding" style="border: 0">
+					<div class="list card custom-margin-bottom">
+						<div class="item text-center item-divider">
+							{{ comments.date | date: 'fullDate' }}
+						</div>
+						<div class="item item-body">
+							<textarea ng-model="comments.comment" rows="8" readonly style="background-color: transparent; width: 100%"></textarea>
+						</div>
+					</div>
+				</ion-slide>
+			</ion-slide-box>
+			<div ng-if="!vm.travelInfo.comments.length" class="item item-body text-center">
+				Não há comentários para esta viagem. </br> :(
+			</div>
+		</div>
+	</ion-content>
 </ion-view>
