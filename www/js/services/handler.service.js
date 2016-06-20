@@ -7,6 +7,7 @@
     return {
       go: go,
       callbackError: callbackError,
+			popupInfo: popupInfo,
       parseUser: parseUser,
 			parseUserFromFacebookToSendToServer: parseUserFromFacebookToSendToServer
     };
@@ -15,6 +16,14 @@
       $state.go(tela);
     };
 
+		function popupInfo(object) {
+			if(object) {
+				$ionicPopup.alert({
+					title: object.title || null,
+					template: object.template || null
+				})
+			}
+		};
     function callbackError(error) {
 
       if (error === "Camera cancelled.") return;

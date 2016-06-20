@@ -1,13 +1,11 @@
 (function() {
   'use strict';
 
-  var app = angular.module('pccApp.travellerInfo.controller', [
-    'pccApp.restService.service',
-    'pccApp.handlerService.service',
-  ]);
+  var app = angular.module('pccApp.travellerInfo.controller', []);
 
-  app.controller('TravellerInfoCtrl', function($stateParams, HandlerService) {
-
-    var vm = this;
+  app.controller('TravellerInfoCtrl', function($scope) {
+		$scope.$on('$ionicView.beforeEnter', function(event, viewData) {
+      viewData.enableBack = true;
+    });
   });
 }());

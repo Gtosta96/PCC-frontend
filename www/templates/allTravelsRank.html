@@ -7,9 +7,9 @@
       <div class="row vertical-divisor" ng-if="vm.infiniteScroll.travels">
         <label class="item-input item-select col-60">
            Ordenar por:
-         <select ng-init="vm.infiniteScroll.order = 'rank'" ng-model="vm.infiniteScroll.order">
+         <select ng-init="vm.infiniteScroll.orderBy = 'rank'" ng-model="vm.infiniteScroll.orderBy">
            <option value="destination">Destino</option>
-           <option value="date">Data</option>
+           <option value="startDate">Data</option>
            <option value="rank">Rank</option>
          </select>
         </label>
@@ -17,15 +17,15 @@
           <ion-toggle ng-init="vm.infiniteScroll.reverse = true" ng-model="vm.infiniteScroll.reverse" toggle-class="toggle-dark">Asc:</ion-toggle>
         </div>
      </div>
-      <a ng-if="vm.infiniteScroll.travels" ng-repeat="travel in vm.infiniteScroll.travels | orderBy: vm.infiniteScroll.order:vm.infiniteScroll.reverse" href="#/travelInfo?id={{ travel.id }}" class="item item-thumbnail-left">
-				<img ng-if="travel.photos[0].resource" ng-src="{{ travel.image }}">
+      <a ng-if="vm.infiniteScroll.travels" ng-repeat="travel in vm.infiniteScroll.travels | orderBy: vm.infiniteScroll.orderBy:vm.infiniteScroll.reverse" href="#/tab/travelInfo/{{ travel.travelId }}" class="item item-thumbnail-left">
+				<img ng-if="travel.photos[0].resource" ng-src="data:image/jpeg;base64,{{ travel.photos[0].resource }}">
 				<img ng-if="!travel.photos[0].resource" ng-src="img/no_travel_photo.jpg">
         <h2>{{ ::travel.destination }}</h2>
-        <h4>{{ ::travel.date }}</h4>
+        <h4>{{ ::travel.startDate | date:'dd/MM/yyyy' }}</h4>
         <span class="badge badge-rank"><i class="icon ion-ios-star"> {{ travel.rank }}/5 </i></span>
         </br>
-        <p ui-sref="travellerInfo({id: travel.traveller.id})">
-          <span> Viajante: {{ ::travel.traveller.firstName + ' ' + travel.traveller.lastName }}</span>
+        <p ui-sref="travellerInfo({id: null})">
+          <span> Informações sobre o Viajante</span>
         </p>
       </a>
 			<div ng-if="!vm.infiniteScroll.travels" class="item item-body text-center">

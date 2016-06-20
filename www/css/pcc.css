@@ -10,6 +10,18 @@
 
 /* --- GENERAL UTILITY --- */
 
+.italic {
+	font-style: italic;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.full-width.read-only {
+	background-color: transparent !important;
+}
+
 .no-border, .no-border > div {
 	border: none;
 }
@@ -17,8 +29,13 @@
 .content-center {
   margin: 0 auto !important;
 }
+
 .no-padding {
   padding: 0 !important;
+}
+
+.no-margin {
+  margin: 0 !important;
 }
 
 /* ---------------------- */
@@ -103,9 +120,19 @@
   font-size: 30px;
 }
 
+.mini-img {
+	width: 100px;
+	height: 60px;
+}
+
+.super-mini-img {
+	width: 25px;
+	height: 15px;
+}
+
 /* IMG TILES */
 .img-tiles {
-	margin: 10px 0 0 0;
+	margin: 10px 5px 0 0;
 	display: inline-block;
 }
 
@@ -144,10 +171,10 @@
 
 /* TravelInfo */
 
-.border-left {
+.dual-divisor:first-child {
 border-left: 1px solid rgb(221, 221, 221) !important;
 }
 
-.border-right {
+.dual-divisor:second-child {
 border-right: 1px solid rgb(221, 221, 221) !important;
 }

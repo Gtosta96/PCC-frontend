@@ -3,11 +3,10 @@
 
   var app = angular.module('pccApp.login.controller', [
     'pccApp.loginService.service',
-    'pccApp.cookiesService.service',
     'pccApp.handlerService.service',
   ]);
 
-  app.controller('LoginCtrl', function($state, $log, ngFB, LoginAuthRestService, SignUpRestService, LoginService, CookiesService, HandlerService) {
+  app.controller('LoginCtrl', function(ngFB, LoginAuthRestService, SignUpRestService, LoginService, HandlerService) {
 
     var vm = this;
 

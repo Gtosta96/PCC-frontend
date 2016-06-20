@@ -23,14 +23,14 @@
               <ionic-ratings ratingsobj="vm.setRankCallback" ng-model="vm.travel.rank"></ionic-ratings>
             </handle-days>
             <div ng-if="saveTravelForm.$valid && !saveTravelForm.$pristine">
-              <ion-slide-box class="item item-stacked-label" show-pager="true" style="padding: 0;">
-                <ion-slide ng-repeat="days in vm.travel.days" class="item no-padding" style="border: 0">
+              <ion-slide-box class="item item-stacked-label" show-pager="true" class="no-padding">
+                <ion-slide ng-repeat="days in vm.travel.days" class="item no-padding no-border">
                   <div class="list card custom-margin-bottom">
                     <div class="item text-center item-divider">
                       {{ days | date: 'fullDate' }}
                     </div>
                     <div class="item item-body">
-                      <textarea name="name" ng-model="vm.travel.comments[$index]" rows="8" placeholder="Digite aqui os comentários de seu dia." style="width: 100%"></textarea>
+                      <textarea name="name" ng-model="vm.travel.comments[$index]" rows="8" placeholder="Digite aqui os comentários de seu dia." class="full-width"></textarea>
                     </div>
                   </div>
                 </ion-slide>
@@ -39,9 +39,9 @@
                 <div class="col col-50" ng-click="vm.takePicture();"><i class="icon ion-camera"></i></div>
                 <div class="col col-50" ng-click="vm.importPicture();"><i class="icon ion-images"></i></div>
               </div>
-              <div ng-if="vm.travel.resources" class="row" style="display: block">
-                <div ng-repeat="image in vm.travel.resources" class="col col-20 img-tiles">
-                  <img ng-src="data:image/jpeg;base64,{{ image }}">
+              <div ng-if="vm.travel.resources" class="row">
+                <div ng-repeat="image in vm.travel.resources" class="col img-tiles">
+                  <img ng-src="data:image/jpeg;base64,{{ image }}" class="mini-img">
                 </div>
               </div>
             </div>
@@ -57,13 +57,13 @@
       <a  ng-if="vm.infiniteScroll.travels" ng-repeat="travel in vm.infiniteScroll.travels" ui-sref="tab.travelInfo({ id: travel.travelId })" class="item item-thumbnail-left">
         <img ng-if="travel.photos[0].resource" ng-src="data:image/jpeg;base64,{{ travel.photos[0].resource }}">
 				<img ng-if="!travel.photos[0].resource" ng-src="img/no_travel_photo.jpg">
-        <h2>{{ travel.destination }}</h2>
-        <h4>{{ travel.date }}</h4>
-        <span class="badge badge-rank"><i class="icon ion-ios-star"> {{ travel.rank }}/5 </i></span>
+        <h2>{{ ::travel.destination }}</h2>
+        <h4>{{ ::travel.startDate | date:'dd/MM/yyyy' }}</h4>
+        <span class="badge badge-rank"><i class="icon ion-ios-star"> {{ ::travel.rank }}/5 </i></span>
         </br>
-        <p ui-sref="travellerInfo({ id: travel.traveller.id })">
-          <span> Viajante: {{ travel.traveller.firstName + ' ' + travel.traveller.lastName }}</span>
-        </p>
+				<p ng-if="travel.photos" ng-repeat="photo in travel.photos" class="img-tiles">
+					<img ng-src="data:image/jpeg;base64,{{ photo.resource }}" class="super-mini-img ">
+				</p>
       </a>
 			<div ng-if="!vm.infiniteScroll.travels" class="item item-body text-center">
 				Não conseguimos encontrar viagens no momento. </br> :(

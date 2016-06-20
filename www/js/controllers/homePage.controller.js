@@ -3,7 +3,6 @@
 
   var app = angular.module('pccApp.homePage.controller', [
     'pccApp.handlerService.service',
-    'pccApp.cameraService.service',
     'pccApp.restService.service',
     'pccApp.cookiesService.service',
     'ion-datetime-picker',
@@ -11,7 +10,7 @@
     'ngCordova'
   ]);
 
-  app.controller('HomePageCtrl', function($cordovaCamera, HandlerService, CameraService, SaveTravelRestService, CookiesService, AllTravelsListMockService) {
+  app.controller('HomePageCtrl', function($cordovaCamera, HandlerService, SaveTravelRestService, CookiesService) {
 
     var vm = this;
     vm.travel = {};
@@ -41,14 +40,14 @@
 		};
 
     vm.importPicture = function() {
-      var options = CameraService.getPictureOptions(0);
+      var options = getPictureOptions(0);
       $cordovaCamera.getPicture(options).then(function(imageData) {
         vm.travel.resources.push(imageData);
       }, HandlerService.callbackError);
     }
 
     vm.takePicture = function() {
-      var options = CameraService.getPictureOptions(1);
+      var options = getPictureOptions(1);
       $cordovaCamera.getPicture(options).then(function(imageData) {
         vm.travel.resources.push(imageData);
       }, HandlerService.callbackError);
@@ -57,7 +56,26 @@
     vm.saveTravel = function(travel) {
 			travel.isFacebookUser = CookiesService.getUser().isFacebookUser;
       SaveTravelRestService.save(travel).$promise.then(function(success) {
+				HandlerService.popupInfo({
+					title: "Viagem Salva",
+					template: "Sua viagem foi salva com sucesso!"
+				});
+				vm.travel = {};
       }, HandlerService.callbackError);
     }
+
+		function getPictureOptions(sourceType) {
+			return {
+				quality: 75,
+				destinationType: 0,
+				sourceType: sourceType,
+				allowEdit: true,
+				encodingType: 0,
+				targetWidth: 500,
+				targetHeight: 300,
+				saveToPhotoAlbum: true,
+				correctOrientation: true
+			}
+		}
   });
 }());
