@@ -10,6 +10,10 @@
 
 /* --- GENERAL UTILITY --- */
 
+.no-radius, .no-radius img {
+	border-radius: 0 !important;
+}
+
 .italic {
 	font-style: italic;
 }

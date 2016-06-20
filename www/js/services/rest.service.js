@@ -25,6 +25,12 @@
     });
   });
 
+	app.factory('DeleteTravelRestService', function($resource, SERVER_URL) {
+    return $resource(SERVER_URL + "PCC-backend/deleteTravel/:travelId", {
+      data: '@data'
+    });
+  });
+
   app.factory('TravelsListRestService', function($resource, SERVER_URL) {
     return $resource(SERVER_URL + "PCC-backend/travelsList/:userId/:pagination");
     data: '@data'

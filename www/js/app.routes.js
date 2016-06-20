@@ -7,6 +7,7 @@ var app = angular.module('pccApp.routes', [
   'pccApp.signUp.controller',
   'pccApp.travelInfo.controller',
   'pccApp.travellerInfo.controller',
+	'pccApp.updateTravel.controller',
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -110,6 +111,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
     controllerAs: 'vm',
     onEnter: checkUser
   });
+
+	$stateProvider.state('updateTravel', {
+		url: '/updateTravel/:id',
+		templateUrl: 'templates/updateTravel.html',
+		controller: 'UpdateTravelCtrl',
+		controllerAs: 'vm',
+		onEnter: checkUser
+	});
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
