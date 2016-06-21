@@ -6,7 +6,7 @@
       </div>
       <div class="item item-avatar">
         <img ng-if="vm.user.picture" ng-src="{{ ::vm.user.picture }}">
-        <img ng-if="!vm.user.picture" src="img/picture_profile.jpg">
+        <img ng-if="!vm.user.picture" ng-src="img/picture_profile.jpg">
         <h2>{{ ::vm.user.firstName + ' ' + vm.user.lastName }}</h2>
         <p>{{ ::vm.user.bornDate | date: 'dd/MM/yyyy' }}</p>
       </div>
