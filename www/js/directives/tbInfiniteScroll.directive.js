@@ -27,7 +27,7 @@ app.directive("tbInfiniteScroll", function($injector, $timeout) {
                 data.push(response[i]);
               }
               scope.setDataCallback({data: data});
-              request.offset += 5;
+              request.offset ++;
               scope.$broadcast('scroll.infiniteScrollComplete');
             } else {
               scope.moreDataCanBeLoaded = false;

@@ -19,6 +19,7 @@
 		function popupInfo(object) {
 			if(object) {
 				$ionicPopup.alert({
+					okType: 'button-sundown',
 					title: object.title || null,
 					template: object.template || null
 				})
@@ -39,6 +40,7 @@
       }
 
       $ionicPopup.alert({
+				okType: 'button-sundown',
         title: title,
         template: message
       });
