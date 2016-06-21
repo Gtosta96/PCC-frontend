@@ -1,4 +1,4 @@
-<ion-view view-title="Página Inicial">
+<ion-view view-title="Página Inicial" cache-view="false">
   <ion-content overflow-scroll="true" padding="true" class="has-header">
     <div class="list card">
       <div class="item item-divider text-center">
@@ -55,6 +55,7 @@
         Timeline
       </div>
       <a  ng-if="vm.infiniteScroll.travels" ng-repeat="travel in vm.infiniteScroll.travels" ui-sref="tab.travelInfo({ id: travel.travelId })" class="item item-thumbnail-left">
+      {{travel.travelId}}
         <img ng-if="travel.photos[0].resource" ng-src="data:image/jpeg;base64,{{ travel.photos[0].resource }}">
 				<img ng-if="!travel.photos[0].resource" ng-src="img/no_travel_photo.jpg">
         <h2>{{ ::travel.destination }}</h2>
@@ -65,7 +66,7 @@
 					<img ng-src="data:image/jpeg;base64,{{ photo.resource }}" class="super-mini-img ">
 				</p>
       </a>
-			<div ng-if="!vm.infiniteScroll.travels" class="item item-body text-center">
+			<div ng-if="!vm.infiniteScroll.travels.length" class="item item-body text-center">
 				Não conseguimos encontrar viagens no momento. </br> :(
 			</div>
     </div>

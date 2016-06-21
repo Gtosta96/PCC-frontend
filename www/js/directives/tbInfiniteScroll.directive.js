@@ -1,6 +1,6 @@
 var app = angular.module('pccApp.tbInfiniteScroll.directive', []);
 
-app.directive("tbInfiniteScroll", function($injector) {
+app.directive("tbInfiniteScroll", function($injector, $timeout) {
   return {
     restrict: "E",
     scope: {
@@ -31,6 +31,10 @@ app.directive("tbInfiniteScroll", function($injector) {
               scope.$broadcast('scroll.infiniteScrollComplete');
             } else {
               scope.moreDataCanBeLoaded = false;
+
+							$timeout(function() {
+					    	scope.moreDataCanBeLoaded = true;
+					    }, 5000);
             }
           });
       }

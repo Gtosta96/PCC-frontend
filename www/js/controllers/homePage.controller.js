@@ -16,7 +16,7 @@
     vm.travel = {};
     vm.travel.resources = [];
     vm.travel.comments = [];
-		vm.infiniteScroll = {};
+	vm.infiniteScroll = {};
 
     //TODO: Mover para diretiva
 		vm.travel.rank = 3;
@@ -60,7 +60,7 @@
 					title: "Viagem Salva",
 					template: "Sua viagem foi salva com sucesso!"
 				});
-				vm.travel = {};
+				clear();
       }, HandlerService.callbackError);
     }
 
@@ -76,6 +76,15 @@
 				saveToPhotoAlbum: true,
 				correctOrientation: true
 			}
+		};
+
+		function clear() {
+			vm.travel = {};
+	    vm.travel.resources = [];
+	    vm.travel.comments = [];
+			vm.travel.rank = 3;
+			vm.startDate = null;
+			vm.endDate = null;
 		}
   });
 }());

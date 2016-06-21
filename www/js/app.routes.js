@@ -52,7 +52,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/ranking',
     views: {
       'tab-ranking': {
-        templateUrl: 'templates/tabsRanking.html'
+        templateUrl: 'templates/tabsRanking.html',
+				redirectTo: ('tab.ranking.myTravelsRank')
       }
     }
   });

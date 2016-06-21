@@ -27,7 +27,7 @@
 
 	app.factory('DeleteTravelRestService', function($resource, SERVER_URL) {
     return $resource(SERVER_URL + "PCC-backend/deleteTravel/:travelId", {
-      data: '@data'
+      travelId: '@data'
     });
   });
 
