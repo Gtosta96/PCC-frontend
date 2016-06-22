@@ -1,5 +1,74 @@
-<ion-view ng-controller="SignupCtrl" view-title="SignUp">
-	<ion-content class="padding" scroll="false">
-		Você está logado!
-	</ion-content>
+<ion-view view-title="PÃ¡gina Inicial" cache-view="false">
+  <ion-content overflow-scroll="true" padding="true" class="has-header">
+    <div class="list card">
+      <div class="item item-divider text-center">
+        Cadastrar nova viagem
+      </div>
+      <div class="item item-body">
+        <p>
+          <form name="saveTravelForm" ng-submit="vm.saveTravel(vm.travel)" novalidate>
+            <handle-days form="saveTravelForm" start-date="vm.startDate" end-date="vm.endDate" set-days-callback="vm.setDaysCallback(days)">
+              <div class="item item-icon-left">
+                <i class="icon ion-plane"></i>
+                <input type="text" name="destination" placeholder="Digite o destino" ng-model="vm.travel.destination" required>
+              </div>
+              <div name="startDate" class="item item-icon-left" ion-datetime-picker date ng-model="vm.startDate" required>
+                <i class="icon ion-ios-calendar"></i> Data de Ida:
+                <strong>{{ vm.startDate | date: "dd-MM-yyyy" }}</strong>
+              </div>
+              <div name="endDate" class="item item-icon-left" ion-datetime-picker date monday-first ng-model="vm.endDate" required>
+                <i class="icon ion-ios-calendar-outline"></i> Data de Volta:
+                <strong>{{ vm.endDate | date: "dd-MM-yyyy" }}</strong>
+              </div>
+              <ionic-ratings ratingsobj="vm.setRankCallback" ng-model="vm.travel.rank"></ionic-ratings>
+            </handle-days>
+            <div ng-if="saveTravelForm.$valid && !saveTravelForm.$pristine">
+              <ion-slide-box class="item item-stacked-label" show-pager="true" class="no-padding">
+                <ion-slide ng-repeat="days in vm.travel.days" class="item no-padding no-border">
+                  <div class="list card custom-margin-bottom">
+                    <div class="item text-center item-divider">
+                      {{ days | date: 'fullDate' }}
+                    </div>
+                    <div class="item item-body">
+                      <textarea name="name" ng-model="vm.travel.comments[$index]" rows="8" placeholder="Digite aqui os comentÃ¡rios de seu dia." class="full-width"></textarea>
+                    </div>
+                  </div>
+                </ion-slide>
+              </ion-slide-box>
+              <div class="item item-divider row photos-icons text-center">
+                <div class="col col-50" ng-click="vm.takePicture();"><i class="icon ion-camera"></i></div>
+                <div class="col col-50" ng-click="vm.importPicture();"><i class="icon ion-images"></i></div>
+              </div>
+              <div ng-if="vm.travel.resources" class="row">
+                <div ng-repeat="image in vm.travel.resources" class="col img-tiles">
+                  <img ng-src="data:image/jpeg;base64,{{ image }}" class="mini-img">
+                </div>
+              </div>
+            </div>
+            <button class="button button-full button-sundown" ng-disabled="saveTravelForm.$invalid" type="submit">Salvar</button>
+          </form>
+        </p>
+      </div>
+    </div>
+    <div class="list">
+      <div class="item item-divider text-center">
+        Timeline
+      </div>
+      <a  ng-if="vm.infiniteScroll.travels" ng-repeat="travel in vm.infiniteScroll.travels" ui-sref="tab.travelInfo({ id: travel.travelId })" class="item item-thumbnail-left">
+        <img ng-if="travel.photos[0].resource" ng-src="data:image/jpeg;base64,{{ travel.photos[0].resource }}">
+				<img ng-if="!travel.photos[0].resource" ng-src="img/no_travel_photo.jpg">
+        <h2>{{ ::travel.destination }}</h2>
+        <h4>{{ ::travel.startDate | date:'dd/MM/yyyy' }}</h4>
+        <span class="badge badge-rank"><i class="icon ion-ios-star"> {{ ::travel.rank }}/5 </i></span>
+        </br>
+				<p ng-if="travel.photos" ng-repeat="photo in travel.photos" class="img-tiles">
+					<img ng-src="data:image/jpeg;base64,{{ photo.resource }}" class="super-mini-img ">
+				</p>
+      </a>
+			<div ng-if="!vm.infiniteScroll.travels.length" class="item item-body text-center">
+				NÃ£o conseguimos encontrar viagens no momento. </br> :(
+			</div>
+    </div>
+    <tb-infinite-scroll rest-service="TravelsListRestService" set-data-callback="vm.setTravelsCallback(data)"></tb-infinite-scroll>
+  </ion-content>
 </ion-view>

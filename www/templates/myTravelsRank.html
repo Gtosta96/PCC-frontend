@@ -1,0 +1,46 @@
+<ion-view view-title="Minhas Viagens" hide-nav-bar="true">
+	<ion-content overflow-scroll="true" padding="true" class="has-header">
+		<div class="list">
+			<div class="item item-divider text-center">
+				Ranking - Suas Viagens
+			</div>
+			<div class="row vertical-divisor" ng-if="vm.infiniteScroll.travels">
+				<label class="item-input item-select col-60">
+					Ordenar por:
+					<select ng-init="vm.infiniteScroll.orderBy = 'rank'" ng-model="vm.infiniteScroll.orderBy">
+						<option value="destination">Destino</option>
+						<option value="startDate">Data</option>
+						<option value="rank">Rank</option>
+					</select>
+				</label>
+				<div class="vertical-divisor col-40">
+					<ion-toggle ng-init="vm.infiniteScroll.reverse = true" ng-model="vm.infiniteScroll.reverse" toggle-class="toggle-dark">Asc:</ion-toggle>
+				</div>
+			</div>
+			<ion-list>
+				<ion-item class="item-remove-animate item-avatar item-thumbnail-left no-radius" ng-if="vm.infiniteScroll.travels" ng-repeat="travel in vm.infiniteScroll.travels | orderBy: vm.infiniteScroll.orderBy:vm.infiniteScroll.reverse" href="#/tab/travelInfo/{{ travel.travelId }}">
+					<img ng-if="travel.photos[0].resource" ng-src="data:image/jpeg;base64,{{ travel.photos[0].resource }}">
+					<img ng-if="!travel.photos[0].resource" ng-src="img/no_travel_photo.jpg">
+					<h2>{{ travel.destination }}</h2>
+					<h4>{{ travel.startDate | date:'dd/MM/yyyy' }}</h4>
+					<span class="badge badge-rank"><i class="icon ion-ios-star"> {{ travel.rank }}/5 </i></span>
+					<br/>
+					<p ng-if="travel.photos" ng-repeat="photo in travel.photos" class="img-tiles">
+						<img ng-src="data:image/jpeg;base64,{{ photo.resource }}" class="super-mini-img ">
+					</p>
+					<ion-option-button class="button-balanced" ui-sref="updateTravel({id: travel.travelId})">
+						Atualizar
+					</ion-option-button>
+					<ion-option-button class="button-assertive" ng-click="vm.remove(travel)">
+						Deletar
+					</ion-option-button>
+				</ion-item>
+			</ion-list>
+
+			<div ng-if="!vm.infiniteScroll.travels.length" class="item item-body text-center">
+				Não conseguimos encontrar viagens no momento. </br> :(
+			</div>
+		</div>
+		<tb-infinite-scroll user-id="vm.userId" rest-service="TravelsListRestService" set-data-callback="vm.setTravelsCallback(data)"></tb-infinite-scroll>
+	</ion-content>
+</ion-view>

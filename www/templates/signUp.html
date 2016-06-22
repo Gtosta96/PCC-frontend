@@ -1,15 +1,77 @@
-<ion-view ng-controller="SignupCtrl" view-title="SignUp">
-	<ion-content class="padding" scroll="false">
-		<div class="list">
-		  <label class="item item-input">
-		    <input type="text" placeholder="First Name">
-		  </label>
-		  <label class="item item-input">
-		    <input type="text" placeholder="Last Name">
-		  </label>
-		  <label class="item item-input">
-		    <textarea placeholder="Comments"></textarea>
-		  </label>
-		</div>
+<ion-view cache-view="false" view-title="Cadastre-se">
+	<ion-content class="padding">
+		<error-templates></error-templates>
+		<form name="signUpForm" ng-submit="vm.signUp(signUpForm, user)" novalidate>
+	      <div class="list">
+		      <div class="row no-padding">
+		      	<div class="col-50">
+				  <label class="item item-input item-stacked-label" ng-class="{ 'has-error-l' : signUpForm.firstName.$invalid && signUpForm.$submitted}">
+				    <span class="input-label">Nome</span>
+				    <input type="text" name="firstName" placeholder="John" ng-model="user.firstName" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" required>
+				  </label>
+				  <display-message form="signUpForm" attribute="firstName" display="nome"></display-message>
+			  	</div>
+			  	<div class="col-50">
+				  <label class="item item-input item-stacked-label" ng-class="{ 'has-error-r' : signUpForm.lastName.$invalid && signUpForm.$submitted}">
+				    <span class="input-label">Sobrenome</span>
+				    <input type="text" name="lastName" placeholder="Suhr" ng-model="user.lastName" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" required>
+				  </label>
+				  <display-message form="signUpForm" attribute="lastName" display="sobrenome"></display-message>
+			  	</div>
+			  </div>
+			  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.email.$invalid && signUpForm.$submitted}">
+			    <span class="input-label">E-mail</span>
+			    <input type="email" name="email" placeholder="john@suhr.com" ng-model="user.email" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" required>
+			  </label>
+			  <display-message form="signUpForm" attribute="email" display="e-mail"></display-message>
+			  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.username.$invalid && signUpForm.$submitted}">
+			    <span class="input-label">Usuário</span>
+			    <input type="text" name="username" placeholder="JohnSuhr23" ng-model="user.username" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" required>
+			  </label>
+			  <display-message form="signUpForm" attribute="username" display="usuário"></display-message>
+			  <div class="row no-padding">
+				  <div class="col-50">
+			  		  <label class="item item-input item-stacked-label" ng-class="{ 'has-error-l' : signUpForm.password.$invalid && signUpForm.$submitted}">
+					    <span class="input-label">Senha</span>
+					    <input type="password" name="password" placeholder="password" ng-model="user.password" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" required>
+					  </label>
+					  <display-message form="signUpForm" attribute="password" display="senha"></display-message>
+				  </div>
+				  <div class="col-50">
+					  <label class="item item-input item-stacked-label" ng-class="{ 'has-error-r' : signUpForm.confirmPassword.$invalid && signUpForm.$submitted}">
+					    <span class="input-label">Confirme sua senha</span>
+					    <input type="password" name="confirmPassword" placeholder="repeat password" ng-model="user.confirmPassword" compare-to="user.password" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" required>
+					  </label>
+					  <display-message form="signUpForm" attribute="confirmPassword" display="confirmar senha"></display-message>
+				  </div>
+			  </div>
+			  <div ng-messages="signUpForm.confirmPassword.$error" ng-show="signUpForm.confirmPassword.$error.compareTo && signUpForm.$submitted">
+			  	<div class="form-error text-center" ng-message="compareTo">As senhas não coincidem.</div>
+			  </div>
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Dica de senha</span>
+			    <input type="text" placeholder="john@suhr.com" ng-model="user.passwordHint">
+			  </label>
+			  <ion-list>
+				  <div class="row no-padding">
+				  		<div class="col-50">
+						  	<ion-radio name="gender" ng-model="user.gender" ng-value="'M'" ng-required="true" ng-class="{ 'has-error-l' : signUpForm.gender.$invalid && signUpForm.$submitted}" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }">Masculino</ion-radio>
+					  	</div>
+					  	<div class="col-50">
+						  	<ion-radio name="gender" ng-model="user.gender" ng-value="'F'" ng-required="true" ng-class="{ 'has-error-r' : signUpForm.gender.$invalid && signUpForm.$submitted}" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }">Feminino</ion-radio>
+					  	</div>
+				  </div>
+				  <display-message form="signUpForm" attribute="gender" display="sexo"></display-message>
+			  </ion-list>
+	  		  <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : signUpForm.bornDate.$invalid && signUpForm.$submitted}">
+			    <span class="input-label">Data de Nascimento</span>
+	  			<input type="date" name="bornDate" ng-model="user.bornDate" ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }" required>
+			  </label>
+			  <display-message form="signUpForm" attribute="bornDate" display="data de nascimento"></display-message>
+				<input type="hidden" name="facebookUser" ng-model="user.facebookUser" ng-init="user.facebookUser = false" value= "user.facebookUser">
+				<input type="hidden" name="enabled" ng-model="user.enabled" ng-init="user.enabled = true" value= "user.enabled">
+				<button class="button button-full button-sundown no-padding" type="submit">Cadastrar</button>
+		  </div>
+	  	</form>
 	</ion-content>
 </ion-view>

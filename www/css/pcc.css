@@ -8,73 +8,177 @@
  *
  */
 
-/*BAR HEADER (TOP)*/
-.bar-sundown {
-	background-color: rgba(255, 134, 27, 0.96) !important;
-    background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 0.2), rgba(167, 86, 17, 0.92)) !important;
-    border-bottom-width: 0px;
-    box-shadow: 0 1px 4px 1px rgba(167, 86, 17, 0.92);
+/* --- GENERAL UTILITY --- */
+
+.no-radius, .no-radius img {
+	border-radius: 0 !important;
 }
 
-.ion-ios-arrow-back {
-	color: #000;
+.italic {
+	font-style: italic;
 }
 
-/*GENERAL UTILITY*/
-.text-center {
-	text-align: center;
+.full-width {
+	width: 100%;
+}
+
+.full-width.read-only {
+	background-color: transparent !important;
+}
+
+.no-border, .no-border > div {
+	border: none;
 }
 
 .content-center {
-	margin: 0 auto !important;
+  margin: 0 auto !important;
 }
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+/* ---------------------- */
+
+/* -- Bars, Tabs -- */
+
+.bar-sundown, .tab-nav.tabs {
+  background-color: rgba(255, 134, 27, 0.96) !important;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2), rgba(167, 86, 17, 0.92)) !important;
+  border-bottom-width: 0px;
+  background: transparent;
+      height: 50px;
+}
+
+.tab-item, .title.header-item, .ion-ios-arrow-back, .back-button {
+  color: rgba(255, 255, 255, 0.70) !important;
+}
+
+.tab-item.tab-item.activated, .tab-item.tab-item-active  {
+  color: #FFF !important;
+  border-color: #FFF !important;
+}
+
+
+/* ---------------------- */
+
+
+/* -- BUTTONS -- */
 
 .button-sundown {
-	background-color: rgba(255, 134, 27, 0.96) !important;
-    background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 0.2), rgba(167, 86, 17, 0.92)) !important;
-    border-bottom-width: 0px;
-    color: white;
-	font-
+  background-color: rgba(255, 134, 27, 0.96) !important;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2), rgba(167, 86, 17, 0.92)) !important;
+  border-bottom-width: 0px;
+  color: #FFF;
 }
+
+/* ------------- */
+
 
 /* LOGIN SCREEN */
+
 .login-page h2, .login-page span {
-	color: #FFF
+  color: #FFF;
 }
 .ui-air-balloons {
-    background-image: url("../img/login/air balloons_1600x2400.jpg");
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position: cover;
-    min-width: 355px;
-    min-height: 568px;
+  background-image: url("../img/login/air balloons_1600x2400.jpg");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: cover;
+  min-width: 355px;
+  min-height: 568px;
 }
-
 .opacity-black-box {
-	background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
 }
-
 .login-access-box {
-	top: 2em;
-    padding: 2%;
-	margin-bottom: 5px;
+  top: 2em;
+  padding: 2%;
+  margin-bottom: 5px;
 }
-
 .login-access-box .input-label {
-	color: #B2B2B2;
-	font-weight: 400;
+  color: #B2B2B2;
+  font-weight: 400;
 }
-
 .login-access-box input {
-	color: rgba(255, 134, 27, 0.96);
-	font-size: 18px
+  color: rgba(255, 134, 27, 0.96);
+  font-size: 18px
 }
-
 .login-enroll-box {
-	margin-top: 5%;
+  margin-top: 5%;
+}
+.login-enroll-content {
+  margin: 0 auto;
+  text-align: center;
 }
 
-.login-enroll-content {
-	margin: 0 auto;
-	text-align: center;
+/* ------------- */
+
+/* HOME PAGE SCREEN */
+
+.photos-icons i {
+  font-size: 30px;
+}
+
+.mini-img {
+	width: 100px;
+	height: 60px;
+}
+
+.super-mini-img {
+	width: 25px;
+	height: 15px;
+}
+
+/* IMG TILES */
+.img-tiles {
+	margin: 10px 5px 0 0;
+	display: inline-block;
+}
+
+/* INFINITE SCROLL */
+.vertical-divisor > div {
+  border: none;
+  border-left: 1px solid rgb(221, 221, 221);
+}
+
+.slider-pager {
+    z-index: 300000;
+    clear: both;
+    margin-bottom: 10px;
+    position: relative;
+    bottom: 0;
+    height: auto;
+    white-space: normal;
+}
+
+.list.card.custom-margin-bottom {
+    margin-bottom: 10px;
+}
+
+/* RANKING */
+.ionic_ratings .icon {
+  font-size: 40px;
+}
+
+.ionic_ratings .read_only {
+    pointer-events:none !important;
+  }
+
+.badge-rank i {
+  font-size: 15px;
+}
+
+/* TravelInfo */
+
+.dual-divisor:first-child {
+border-left: 1px solid rgb(221, 221, 221) !important;
+}
+
+.dual-divisor:second-child {
+border-right: 1px solid rgb(221, 221, 221) !important;
 }
